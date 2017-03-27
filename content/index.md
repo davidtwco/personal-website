@@ -1,5 +1,5 @@
 ---
 title: Homepage
-layout: index.twig
+layout: index.njk
 ---
 This is a demo page to see if this all works.

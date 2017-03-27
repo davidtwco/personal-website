@@ -21,6 +21,19 @@ const uglify = require('gulp-uglify');
 const util = require('gulp-util');
 const watch = require('gulp-watch');
 
+// Templates
+const nunjucks = require('nunjucks');
+nunjucks.configure(pkg.settings.src.layouts, { watch: false });
+
+// Dates
+const moment = require('moment');
+
+function formatDate(string) {
+	return function(date) {
+		return moment(date).utc().format(string);
+	};
+}
+
 gulp.task('metalsmith', () => {
 	const Metalsmith = require('metalsmith');
 	const assets = require('metalsmith-assets');
@@ -28,7 +41,7 @@ gulp.task('metalsmith', () => {
 	const collections = require('metalsmith-collections');
 	const drafts = require('metalsmith-drafts');
 	const htmlMinifier = require('metalsmith-html-minifier');
-	const inPlace = require('metalsmith-in-place');
+	const layouts = require('metalsmith-layouts');
 	const markdown = require('metalsmith-markdown');
 	const pagination = require('metalsmith-pagination');
 	const permalinks = require('metalsmith-permalinks');
@@ -38,11 +51,42 @@ gulp.task('metalsmith', () => {
 		.source(pkg.settings.src.content)
 		.destination(pkg.settings.dist.site)
 		.clean(true)
+		.use(collections({
+			projects: {
+				pattern: 'projects/**/*.md',
+				sortBy: 'date',
+				reverse: true
+			},
+			writings: {
+				pattern: 'writings/**/*.md',
+				sortBy: 'date',
+				reverse: true
+			},
+			wiki: {
+				pattern: 'wiki/**/*.md',
+				sortBy: 'title'
+			}
+		}))
 		.use(markdown())
 		.use(permalinks({
-			relative: false
+			relative: false,
+			linksets: [{
+				match: { collection: 'projects' },
+				pattern: 'projects/:title'
+			}, {
+				match: { collection: 'writings' },
+				pattern: 'writings/:date/:title',
+				date: formatDate('YYYY')
+			}, {
+				match: { collection: 'wiki' },
+				pattern: 'wiki/:title'
+			}]
 		}))
-		.use(inPlace({}))
+		.use(layouts({
+			engine: 'nunjucks',
+			directory: pkg.settings.src.layouts,
+			partials: pkg.settings.src.layouts
+		}))
 		.build((err) => {
 			if (err) throw err;
 		});

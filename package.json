@@ -8,8 +8,8 @@
   },
   "main": "Gulpfile.js",
   "scripts": {
-	  "build": "gulp",
-	  "serve": "gulp server"
+    "build": "gulp",
+    "serve": "gulp server"
   },
   "repository": {
     "type": "git",
@@ -42,22 +42,21 @@
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
-    "jstransformer-twig": "^1.3.0",
     "metalsmith": "^2.3.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-branch": "0.0.5",
     "metalsmith-collections": "^0.9.0",
     "metalsmith-drafts": "0.0.1",
     "metalsmith-html-minifier": "^2.2.0",
-    "metalsmith-in-place": "^2.0.1",
     "metalsmith-layouts": "^1.8.0",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-pagination": "^1.4.0",
     "metalsmith-permalinks": "^0.5.0",
-    "serve-static": "^1.12.1",
-    "twig": "^1.10.4"
+    "nunjucks": "^3.0.0",
+    "serve-static": "^1.12.1"
   },
   "dependencies": {
+    "moment": "^2.18.1",
     "node-font-awesome": "^1.0.2"
   },
   "settings": {
