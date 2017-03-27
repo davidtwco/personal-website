@@ -17,6 +17,7 @@ const fontAwesome = require('node-font-awesome');
 const imagemin = require('gulp-imagemin');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
+const runSequence = require('run-sequence');
 const uglify = require('gulp-uglify');
 const util = require('gulp-util');
 
@@ -166,10 +167,12 @@ gulp.task('server', ['default', 'watch'], (callback) => {
 	});
 
 	server.listen(8000, () => {
-		console.log('Running: http://localhost:8000');
+		util.log('Running at http://localhost:8000');
 		callback();
 	});
 });
 
 // By default, just build the website.
-gulp.task('default', ['scripts', 'styles', 'fonts', 'metalsmith'])
+gulp.task('default', () => {
+	return runSequence(['styles', 'scripts', 'fonts'], 'metalsmith');
+});
