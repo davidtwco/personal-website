@@ -19,7 +19,6 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const util = require('gulp-util');
-const watch = require('gulp-watch');
 
 // Templates
 const nunjucks = require('nunjucks');
@@ -119,12 +118,12 @@ gulp.task('styles', () => {
 
 // Rebuild when files change.
 gulp.task('watch', () => {
-	watch(['Gulpfile.js', 'package.json'], ['default']);
-	watch([pkg.settings.src.styles + '/**/*'], ['styles']);
-	watch([pkg.settings.src.scripts + '/**/*'], ['scripts']);
-	watch([
-		pkg.settings.src.content + '/**/*',
-		pkg.settings.src.layouts + '/**/*',
+	gulp.watch(['Gulpfile.js', 'package.json'], ['default']);
+	gulp.watch([pkg.settings.src.styles + '/**/*.scss'], ['styles']);
+	gulp.watch([pkg.settings.src.scripts + '/**/*.js'], ['scripts']);
+	gulp.watch([
+		pkg.settings.src.content + '/**/*.md',
+		pkg.settings.src.layouts + '/**/*.njk',
 		pkg.settings.dist.assets + '/**/*'
 	], ['metalsmith']);
 });
