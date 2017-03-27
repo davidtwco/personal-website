@@ -1,0 +1,28 @@
+{
+	"name": "davidwood.io",
+	"version": "1.0.0",
+	"description": "New, improved personal website featuring projects, writings and personal wiki.",
+	"private": true,
+	"engines": {
+		"node": "^6.6.0"
+	},
+	"main": "index.js",
+	"scripts": {},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@gitlab.com/davidtwco/personal-website.git"
+	},
+	"keywords": [
+		"personal website",
+		"gulp",
+		"metalsmith",
+		"static site",
+		"portfolio"
+	],
+	"author": "David Wood",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://gitlab.com/davidtwco/personal-website/issues"
+	},
+	"homepage": "https://gitlab.com/davidtwco/personal-website#README"
+}
