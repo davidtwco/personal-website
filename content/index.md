@@ -1,5 +1,8 @@
 ---
-title: Homepage
+title: David Wood
+subtitle: Software Developer
 layout: index.njk
 ---
-This is a demo page to see if this all works.
+I'm an Software Engineering Undergraduate at the University of Glasgow and I'm looking for an internship.
+
+Interested? Have a look around and [get in touch](mailto:hello@davidtw.co).

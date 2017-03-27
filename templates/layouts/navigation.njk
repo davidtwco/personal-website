@@ -1,0 +1,15 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+	<div class="dtw-container">
+		<div class="dtw-navigation">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/projects">Projects</a></li>
+				<li><a href="/writings">Writings</a></li>
+				<li><a href="/wiki">Lab</a></li>
+			</ul>
+		</div>
+		{% block content %}{% endblock %}
+	</div>
+{% endblock %}

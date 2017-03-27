@@ -1,0 +1,139 @@
+// Load font-awesome.
+@import "font-awesome";
+
+// Load our variables in.
+@import "variables";
+@import "fonts";
+
+.dtw-container {
+	// Add some padding for the content.
+	padding: 0 3em;
+
+	// Make the container fill the whole screen.
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+
+	// Set the correct default colours.
+	background: $background;
+	color: $foreground;
+
+	// Set a sane default font stack.
+	font-family: $font-stack;
+}
+
+.dtw-navigation {
+	// Navigation should be full width.
+	width: 100%;
+
+	// Navigation should be above everything else.
+	z-index: 100;
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	ul {
+		// Don't render list bullets.
+		list-style-type: none;
+		padding: 1em 0;
+
+		// Display items inline with appropriate colours.
+		li {
+			display: inline-block;
+			margin: 0 1em;
+
+			a {
+				text-decoration: none;
+				color: $navigation-item-foreground;
+
+				&:hover {
+					border-bottom: 1px solid $accent;
+					padding-bottom: 0.5em;
+					color: $navigation-item-selected-foreground;
+				}
+			}
+		}
+	}
+}
+
+.dtw-introduction {
+	// Take the most space on homepage.
+	flex: 2;
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	// Increase base font size.
+	font-size: 2em;
+	// Switch to Roboto Mono.
+	font-family: $mono-font-stack;
+
+	// Limit width so text wraps.
+	max-width: 20em;
+
+	// Colour our links.
+	a {
+		color: $accent;
+		text-decoration: none;
+
+		&:hover {
+			color: $accent-light;
+		}
+	}
+
+	// Colour the title and increase the size.
+	.dtw-title {
+		font-size: 2em;
+		color: $homepage-title-foreground;
+	}
+
+	// Colour the subtitle and decrease the size.
+	.dtw-subtitle {
+		color: $homepage-subtitle-foreground;
+		font-size: smaller;
+		text-transform: uppercase;
+	}
+
+	// Colour the description.
+	.dtw-description {
+		font-weight: 300;
+		color: $homepage-body-foreground;
+	}
+}
+
+.dtw-links {
+	// Decrease size of bottom links.
+	font-size: smaller;
+
+	// Undo default list styling.
+	ul {
+		list-style-type: none;
+		padding: 1em 0;
+
+		li {
+			display: inline-block;
+			margin: 0 1em;
+
+			a {
+				text-decoration: none;
+				color: $navigation-item-foreground;
+
+				&:hover {
+					color: $navigation-item-selected-foreground;
+				}
+			}
+		}
+	}
+}

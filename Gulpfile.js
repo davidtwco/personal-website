@@ -48,7 +48,7 @@ gulp.task('metalsmith', () => {
 	const m = Metalsmith(__dirname)
 		.metadata(pkg.settings.meta)
 		.source(pkg.settings.src.content)
-		.destination(pkg.settings.dist.site)
+		.destination(pkg.settings.dist)
 		.clean(true)
 		.use(collections({
 			projects: {
@@ -86,22 +86,42 @@ gulp.task('metalsmith', () => {
 			directory: pkg.settings.src.layouts,
 			partials: pkg.settings.src.layouts
 		}))
+		.use(assets({
+			source: pkg.settings.assets,
+			dest: '.'
+		}))
 		.build((err) => {
 			if (err) throw err;
 		});
 });
 
+gulp.task('fonts', function() {
+	let outputPath = path.join(__dirname, pkg.settings.assets, 'fonts');
+	return gulp.src([
+			fontAwesome.fonts,
+			pkg.settings.src.fonts + '/**/*'
+		])
+		.pipe(gulp.dest(outputPath));
+});
+
 gulp.task('scripts', () => {
-	return gulp.src([pkg.settings.src.scripts])
+	let outputPath = path.join(__dirname, pkg.settings.assets, 'scripts');
+	return gulp.src([
+			pkg.settings.src.scripts + '/**/*.js'
+		])
 		.pipe(sourcemaps.init())
 		.pipe(concat('app.min.js'))
 		.pipe(uglify())
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(path.join(__dirname, pkg.settings.dist.assets)));
+		.pipe(gulp.dest(outputPath));
 });
 
 gulp.task('styles', () => {
-	return gulp.src([pkg.settings.src.styles])
+	let outputPath = path.join(__dirname, pkg.settings.assets, 'styles');
+	return gulp.src([
+			'./node_modules/normalize.css/normalize.css',
+			pkg.settings.src.styles + '/**/*.scss'
+		])
 		.pipe(sourcemaps.init())
 		.pipe(concat('app.min.css'))
 		.pipe(sass({
@@ -113,18 +133,19 @@ gulp.task('styles', () => {
 		}))
 		.pipe(cleancss())
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(path.join(__dirname, pkg.settings.dist.assets)));
+		.pipe(gulp.dest(outputPath));
 });
 
 // Rebuild when files change.
 gulp.task('watch', () => {
 	gulp.watch(['Gulpfile.js', 'package.json'], ['default']);
+	gulp.watch([pkg.settings.src.fonts + '/**/*'], ['fonts']);
 	gulp.watch([pkg.settings.src.styles + '/**/*.scss'], ['styles']);
 	gulp.watch([pkg.settings.src.scripts + '/**/*.js'], ['scripts']);
 	gulp.watch([
 		pkg.settings.src.content + '/**/*.md',
 		pkg.settings.src.layouts + '/**/*.njk',
-		pkg.settings.dist.assets + '/**/*'
+		pkg.settings.assets + '/**/*'
 	], ['metalsmith']);
 });
 
@@ -135,7 +156,7 @@ gulp.task('server', ['default', 'watch'], (callback) => {
 	const serveStatic = require('serve-static');
 	const finalhandler = require('finalhandler');
 
-	const serve = serveStatic(pkg.settings.dist.site, {
+	const serve = serveStatic(pkg.settings.dist, {
 		"index": ['index.html', 'index.htm']
 	});
 
@@ -151,4 +172,4 @@ gulp.task('server', ['default', 'watch'], (callback) => {
 });
 
 // By default, just build the website.
-gulp.task('default', ['scripts', 'styles', 'metalsmith'])
+gulp.task('default', ['scripts', 'styles', 'fonts', 'metalsmith'])

@@ -1,0 +1,50 @@
+// Colours
+$colour-torquoise: #1abc9c;
+$colour-greensea: #16a085;
+$colour-emerland: #2ecc71;
+$colour-nephritis: #27ae60;
+$colour-peterriver: #3498db;
+$colour-belizehole: #2980b9;
+$colour-amethyst: #9b59b6;
+$colour-wisteria: #8e44ad;
+$colour-wetasphalt: #34495e;
+$colour-midnightblue: #2c3e50;
+$colour-sunflower: #f1c40f;
+$colour-orange: #f39c12;
+$colour-carrot: #e67e22;
+$colour-pumpkin: #d35400;
+$colour-alizarin: #e74c3c;
+$colour-pomegranate: #c0392b;
+$colour-clouds: #ecf0f1;
+$colour-silver: #bdc3c7;
+$colour-concrete: #95a5a6;
+$colour-asbestos: #7f8c8d;
+
+// App
+$background: #141414;
+$foreground: #fff;
+$accent: $colour-alizarin;
+$accent-light: lighten($accent, 10%);
+$font-stack:
+	// Safari for OS X and iOS (San Francisco)
+	-apple-system,
+	// Chrome >= 56 for OS X (San Francisco), Windows, Linux and Android
+	system-ui,
+	// Chrome < 56 for OS X (San Francisco)
+	BlinkMacSystemFont,
+	// Windows
+	"Segoe UI",
+	// Android
+	"Roboto",
+	// Basic web fallback
+	"Helvetica Neue", Arial, sans-serif !default;
+$mono-font-stack: "Roboto Mono", $font-stack;
+
+// Navigation
+$navigation-item-foreground: #aaa;
+$navigation-item-selected-foreground: #ccc;
+
+// Homepage
+$homepage-title-foreground: $foreground;
+$homepage-subtitle-foreground: darken($foreground, 60%);
+$homepage-body-foreground: darken($foreground, 20%);

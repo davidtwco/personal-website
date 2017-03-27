@@ -1,6 +1,16 @@
-{% extends "layouts/base.njk" %}
+{% extends "layouts/navigation.njk" %}
 
-{% block body %}
-	<h1>Index Template</h1>
-	{{ contents | safe }}
+{% block content %}
+	<div class="dtw-introduction">
+		<div class="dtw-subtitle">{{ subtitle }}</div>
+		<div class="dtw-title">{{ title }}</div>
+		<div class="dtw-description">{{ contents | safe }}</div>
+	</div>
+	<div class="dtw-links">
+		<ul>
+			{% for link in links %}
+				<li><a href="{{ link.link }}"><i class="fa {{ link.icon }}"></i> {{ link.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
 {% endblock %}

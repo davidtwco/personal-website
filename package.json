@@ -56,23 +56,48 @@
   },
   "dependencies": {
     "moment": "^2.18.1",
-    "node-font-awesome": "^1.0.2"
+    "node-font-awesome": "^1.0.2",
+    "normalize.css": "^6.0.0"
   },
   "settings": {
     "meta": {
       "siteName": "David Wood",
       "siteUrl": "https://davidwood.io",
-      "description": "Personal website of David Wood"
+      "description": "Personal website of David Wood",
+      "contact": {
+        "email": "hello@davidtw.co"
+      },
+      "links": [
+        {
+          "name": "GitLab",
+          "icon": "fa-gitlab",
+          "link": "https://gitlab.com/davidtwco"
+        },
+        {
+          "name": "GitHub",
+          "icon": "fa-github",
+          "link": "https://github.com/davidtwco"
+        },
+        {
+          "name": "Keybase",
+          "icon": "fa-key",
+          "link": "https://keybase.io/davidtwco"
+        },
+        {
+          "name": "LinkedIn",
+          "icon": "fa-linkedin",
+          "link": "www.linkedin.com/in/davidtwco"
+        }
+      ]
     },
     "src": {
       "content": "./content",
+      "fonts": "./fonts",
       "scripts": "./scripts",
       "styles": "./styles",
       "layouts": "./templates"
     },
-    "dist": {
-      "assets": "./dist/assets",
-      "site": "./dist/site"
-    }
+    "assets": "./dist/assets",
+    "dist": "./dist/site"
   }
 }
