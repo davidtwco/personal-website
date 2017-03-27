@@ -26,6 +26,8 @@
   },
   "homepage": "https://gitlab.com/davidtwco/personal-website#README",
   "devDependencies": {
+    "del": "^2.2.2",
+    "finalhandler": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean-css": "^3.0.4",
@@ -36,16 +38,40 @@
     "gulp-sourcemaps": "^2.4.1",
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "jstransformer-twig": "^1.3.0",
     "metalsmith": "^2.3.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-branch": "0.0.5",
     "metalsmith-collections": "^0.9.0",
     "metalsmith-drafts": "0.0.1",
     "metalsmith-html-minifier": "^2.2.0",
+    "metalsmith-in-place": "^2.0.1",
     "metalsmith-layouts": "^1.8.0",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-pagination": "^1.4.0",
     "metalsmith-permalinks": "^0.5.0",
+    "serve-static": "^1.12.1",
     "twig": "^1.10.4"
+  },
+  "dependencies": {
+    "node-font-awesome": "^1.0.2"
+  },
+  "settings": {
+    "meta": {
+      "siteName": "David Wood",
+      "siteUrl": "https://davidwood.io",
+      "description": "Personal website of David Wood"
+    },
+    "src": {
+      "content": "./content",
+      "scripts": "./scripts",
+      "styles": "./styles",
+      "layouts": "./templates"
+    },
+    "dist": {
+      "assets": "./dist/assets",
+      "site": "./dist/site"
+    }
   }
 }
