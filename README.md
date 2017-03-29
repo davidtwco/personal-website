@@ -1,4 +1,4 @@
-# davidwood.io
+# davidwood.io (Work in Progress)
 My new, improved personal website featuring projects, writings and a personal wiki (just notes and stuff, nothing *that* interesting). Built using Metalsmith and deployed on Netlify.
 
 I wanted to make something that was simple, fast and low maintenance while still being flexible enough to be built upon in future.
