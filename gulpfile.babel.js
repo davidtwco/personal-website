@@ -15,6 +15,7 @@ import gulp from 'gulp';
 
 // Plugins
 import autoprefixer from 'gulp-autoprefixer';
+import babel from 'gulp-babel';
 import cleancss from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import fontAwesome from 'node-font-awesome';
@@ -116,6 +117,10 @@ export function scripts() {
 	return gulp.src([
 			pkg.settings.src.scripts + '/**/*.js'
 		], {since: gulp.lastRun(scripts), sourcemaps:true})
+		.pipe(babel({
+			presets: ['es2015'],
+			plugins: ['transform-runtime']
+		}))
 		.pipe(concat('app.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(outputPath));
