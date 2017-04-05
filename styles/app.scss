@@ -70,6 +70,15 @@ nav {
 	}
 }
 
+.dtw-content {
+	// Take up remaining space apart from navigation.
+	flex: 2;
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: column;
+}
+
 .dtw-introduction {
 	// Take the most space on homepage.
 	flex: 2;
