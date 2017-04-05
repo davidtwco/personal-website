@@ -159,8 +159,8 @@ const build = gulp.series(clean, gulp.parallel(styles, scripts, favicon, fonts),
 const reload = (callback) => { browserSync.reload(); callback(); }
 export function watch(callback) {
 	// Watch for file changes.
-	gulp.watch(['Gulpfile.js', 'package.json'],
-		gulp.series(build, reload));
+	gulp.watch(['gulpfile.babel.js', 'package.json'],
+		gulp.series(gulp.parallel(styles, scripts, favicon, fonts), metalsmith, reload));
 
 	gulp.watch([pkg.settings.src.fonts + '/**/*'],
 		gulp.series(fonts, metalsmith, reload));
