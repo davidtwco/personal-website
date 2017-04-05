@@ -57,3 +57,8 @@ $navigation-item-selected-foreground: #ccc;
 $homepage-title-foreground: $foreground;
 $homepage-subtitle-foreground: darken($foreground, 60%);
 $homepage-body-foreground: darken($foreground, 20%);
+
+// Item Listings
+$item-listing-title: $foreground;
+$item-listing-subtitle: darken($foreground, 40%);
+$item-listing-subtitle-alt: darken($foreground, 20%);

@@ -36,8 +36,10 @@ import markdown from 'metalsmith-markdown';
 import pagination from 'metalsmith-pagination';
 import permalinks from 'metalsmith-permalinks';
 
-// Templates
+// Nunjucks
 import nunjucks from 'nunjucks';
+import nunjucksDate from 'nunjucks-date';
+nunjucksDate.setDefaultFormat('Do MMMM YYYY');
 nunjucks.configure(pkg.settings.src.layouts, { watch: false });
 
 // Dates
@@ -53,6 +55,9 @@ const clean = () => del(pkg.settings.clean);
 export { clean };
 
 export function metalsmith(callback) {
+	let environment = new nunjucks.Environment(new nunjucks.FileSystemLoader(pkg.settings.src.layouts));
+	environment.addFilter('date', nunjucksDate);
+
 	const m = Metalsmith(__dirname)
 		.metadata(pkg.settings.meta)
 		.source(pkg.settings.src.content)
@@ -92,7 +97,8 @@ export function metalsmith(callback) {
 		.use(layouts({
 			engine: 'nunjucks',
 			directory: pkg.settings.src.layouts,
-			partials: pkg.settings.src.layouts
+			partials: pkg.settings.src.layouts,
+			nunjucksEnv: environment
 		}))
 		.use(assets({
 			source: pkg.settings.assets,
