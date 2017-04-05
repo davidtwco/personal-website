@@ -1,32 +1,34 @@
 // Common
-const path = require('path');
-const del = require('del');
+import path from 'path';
+import del from 'del';
 
 // Package
-const fs = require('fs');
+import fs from 'fs';
 const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
+// BrowserSync
+import {create as bsCreate} from 'browser-sync';
+const browserSync = bsCreate();
+
 // Gulp
-const gulp = require('gulp');
+import gulp from 'gulp';
 
 // Plugins
-const autoprefixer = require('gulp-autoprefixer');
-const cleancss = require('gulp-clean-css');
-const concat = require('gulp-concat');
-const fontAwesome = require('node-font-awesome');
-const imagemin = require('gulp-imagemin');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const runSequence = require('run-sequence');
-const uglify = require('gulp-uglify');
-const util = require('gulp-util');
+import autoprefixer from 'gulp-autoprefixer';
+import cleancss from 'gulp-clean-css';
+import concat from 'gulp-concat';
+import fontAwesome from 'node-font-awesome';
+import imagemin from 'gulp-imagemin';
+import sass from 'gulp-sass';
+import uglify from 'gulp-uglify';
+import util from 'gulp-util';
 
 // Templates
-const nunjucks = require('nunjucks');
+import nunjucks from 'nunjucks';
 nunjucks.configure(pkg.settings.src.layouts, { watch: false });
 
 // Dates
-const moment = require('moment');
+import moment from 'moment';
 
 function formatDate(string) {
 	return function(date) {
@@ -34,7 +36,10 @@ function formatDate(string) {
 	};
 }
 
-gulp.task('metalsmith', () => {
+const clean = () => del(pkg.settings.clean);
+export { clean };
+
+export function metalsmith(callback) {
 	const Metalsmith = require('metalsmith');
 	const assets = require('metalsmith-assets');
 	const branch = require('metalsmith-branch');
@@ -94,36 +99,34 @@ gulp.task('metalsmith', () => {
 		.build((err) => {
 			if (err) throw err;
 		});
-});
+	callback();
+}
 
-gulp.task('fonts', function() {
-	let outputPath = path.join(__dirname, pkg.settings.assets, 'fonts');
+export function fonts() {
+	const outputPath = path.join(__dirname, pkg.settings.assets, 'fonts');
 	return gulp.src([
 			fontAwesome.fonts,
 			pkg.settings.src.fonts + '/**/*'
-		])
+		], {since: gulp.lastRun(fonts)})
 		.pipe(gulp.dest(outputPath));
-});
+}
 
-gulp.task('scripts', () => {
-	let outputPath = path.join(__dirname, pkg.settings.assets, 'scripts');
+export function scripts() {
+	const outputPath = path.join(__dirname, pkg.settings.assets, 'scripts');
 	return gulp.src([
 			pkg.settings.src.scripts + '/**/*.js'
-		])
-		.pipe(sourcemaps.init())
+		], {since: gulp.lastRun(scripts), sourcemaps:true})
 		.pipe(concat('app.min.js'))
 		.pipe(uglify())
-		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(outputPath));
-});
+}
 
-gulp.task('styles', () => {
-	let outputPath = path.join(__dirname, pkg.settings.assets, 'styles');
+export function styles() {
+	const outputPath = path.join(__dirname, pkg.settings.assets, 'styles');
 	return gulp.src([
 			'./node_modules/normalize.css/normalize.css',
 			pkg.settings.src.styles + '/**/*.scss'
-		])
-		.pipe(sourcemaps.init())
+		], {since: gulp.lastRun(styles), sourcemaps:true})
 		.pipe(concat('app.min.css'))
 		.pipe(sass({
 			includePaths: [fontAwesome.scssPath]
@@ -133,46 +136,46 @@ gulp.task('styles', () => {
 			cascade: false
 		}))
 		.pipe(cleancss())
-		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(outputPath));
-});
+}
 
-// Rebuild when files change.
-gulp.task('watch', () => {
-	gulp.watch(['Gulpfile.js', 'package.json'], ['default']);
-	gulp.watch([pkg.settings.src.fonts + '/**/*'], ['fonts']);
-	gulp.watch([pkg.settings.src.styles + '/**/*.scss'], ['styles']);
-	gulp.watch([pkg.settings.src.scripts + '/**/*.js'], ['scripts']);
+const build = gulp.series(clean, gulp.parallel(styles, scripts, fonts), metalsmith);
+
+export function watch(callback) {
+	// Watch for file changes.
+	gulp.watch(['Gulpfile.js', 'package.json'],
+		gulp.series(build, browserSync.reload));
+
+	gulp.watch([pkg.settings.src.fonts + '/**/*'],
+		gulp.series(fonts, metalsmith, browserSync.reload));
+
+	gulp.watch([pkg.settings.src.styles + '/**/*.scss'],
+		gulp.series(styles, metalsmith, browserSync.reload));
+
+	gulp.watch([pkg.settings.src.scripts + '/**/*.js'],
+		gulp.series(scripts, metalsmith, browserSync.reload));
+
 	gulp.watch([
 		pkg.settings.src.content + '/**/*.md',
-		pkg.settings.src.layouts + '/**/*.njk',
-		pkg.settings.assets + '/**/*'
-	], ['metalsmith']);
-});
+		pkg.settings.src.layouts + '/**/*.njk'
+	], gulp.series(metalsmith, browserSync.reload));
+
+	callback();
+}
 
 // Serve the built files and ensure that the watch
 // task is running so that they are always up-to-date.
-gulp.task('server', ['default', 'watch'], (callback) => {
-	const http = require('http');
-	const serveStatic = require('serve-static');
-	const finalhandler = require('finalhandler');
-
-	const serve = serveStatic(pkg.settings.dist, {
-		"index": ['index.html', 'index.htm']
+function server() {
+	browserSync.init({
+		server: {
+			baseDir: pkg.settings.dist
+		},
+		ui: {
+			port: 8080
+		}
 	});
-
-	const server = http.createServer((req, res) => {
-		const done = finalhandler(req, res);
-		serve(req, res, done);
-	});
-
-	server.listen(8000, () => {
-		util.log('Running at http://localhost:8000');
-		callback();
-	});
-});
+}
+export const serve = gulp.series(build, watch, server);
 
 // By default, just build the website.
-gulp.task('default', () => {
-	return runSequence(['styles', 'scripts', 'fonts'], 'metalsmith');
-});
+export default build;
