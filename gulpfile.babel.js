@@ -20,6 +20,7 @@ import favicons from 'gulp-favicons';
 import fontAwesome from 'node-font-awesome';
 import imagemin from 'gulp-imagemin';
 import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
 import util from 'gulp-util';
 
@@ -124,20 +125,23 @@ export function scripts() {
 	const outputPath = path.join(__dirname, pkg.settings.assets, 'scripts');
 	return gulp.src([
 			pkg.settings.src.scripts + '/**/*.js'
-		], {since: gulp.lastRun(scripts), sourcemaps:true})
+		], {since: gulp.lastRun(scripts)})
+		.pipe(sourcemaps.init())
 		.pipe(babel({
 			presets: ['es2015'],
 			plugins: ['transform-runtime']
 		}))
 		.pipe(concat('app.min.js'))
 		.pipe(uglify())
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(outputPath));
 }
 
 export function styles() {
 	const outputPath = path.join(__dirname, pkg.settings.assets, 'styles');
 	return gulp.src([pkg.settings.src.styles + '/**/*.scss'],
-					{since: gulp.lastRun(styles), sourcemaps:true})
+					{since: gulp.lastRun(styles)})
+		.pipe(sourcemaps.init())
 		.pipe(concat('app.min.css'))
 		.pipe(sass({
 			includePaths: [
@@ -150,6 +154,7 @@ export function styles() {
 			cascade: false
 		}))
 		.pipe(cleancss())
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(outputPath));
 }
 

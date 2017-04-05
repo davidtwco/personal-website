@@ -42,6 +42,7 @@
     "gulp-favicons": "^2.2.7",
     "gulp-imagemin": "^3.2.0",
     "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.5.1",
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
     "metalsmith": "^2.3.0",
@@ -93,32 +94,32 @@
       ]
     },
     "favicons": {
-        "appName": "David Wood",
-        "appDescription": "Personal website and portfolio of David Wood.",
-        "developerName": "David Wood",
-        "developerURL": "https://davidtw.co/",
-        "background": "#e74c3c",
-        "path": "favicons/",
-        "url": "https://davidtw.co/",
-        "display": "standalone",
-        "orientation": "portrait",
-        "start_url": "/",
-        "version": 1.0,
-        "logging": true,
-        "online": false,
-        "replace": true,
-        "icons": {
-            "android": true,
-            "appleIcon": true,
-            "appleStartup": true,
-            "coast": {
-                "offset": 25
-            },
-            "favicons": true,
-            "firefox": true,
-            "windows": true,
-            "yandex": true
-        }
+      "appName": "David Wood",
+      "appDescription": "Personal website and portfolio of David Wood.",
+      "developerName": "David Wood",
+      "developerURL": "https://davidtw.co/",
+      "background": "#e74c3c",
+      "path": "favicons/",
+      "url": "https://davidtw.co/",
+      "display": "standalone",
+      "orientation": "portrait",
+      "start_url": "/",
+      "version": 1,
+      "logging": true,
+      "online": false,
+      "replace": true,
+      "icons": {
+        "android": true,
+        "appleIcon": true,
+        "appleStartup": true,
+        "coast": {
+          "offset": 25
+        },
+        "favicons": true,
+        "firefox": true,
+        "windows": true,
+        "yandex": true
+      }
     },
     "src": {
       "content": "./content",
