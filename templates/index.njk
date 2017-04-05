@@ -6,11 +6,9 @@
 		<div class="dtw-title">{{ title }}</div>
 		<div class="dtw-description">{{ contents | safe }}</div>
 	</div>
-	<div class="dtw-links">
-		<ul>
-			{% for link in links %}
-				<li><a href="{{ link.link }}"><i class="fa {{ link.icon }}"></i> {{ link.name }}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
+	<nav class="dtw-links">
+		{% for link in links %}
+			<a href="{{ link.link }}"><i class="fa {{ link.icon }}"></i> {{ link.name }}</a>
+		{% endfor %}
+	</nav>
 {% endblock %}

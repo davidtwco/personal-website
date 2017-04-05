@@ -30,7 +30,7 @@
 	font-family: $font-stack;
 }
 
-.dtw-navigation {
+nav {
 	// Navigation should be full width.
 	width: 100%;
 
@@ -40,28 +40,27 @@
 	// Position child elements using Flexbox.
 	display: flex;
 	flex-direction: row;
+	padding: 2em 0;
+
 	justify-content: space-between;
+	@media (min-width: $bp-mobile-lg) {
+		justify-content: flex-start;
+	}
 
-	ul {
-		// Don't render list bullets.
-		list-style-type: none;
-		padding: 1em 0;
+	a {
+		text-decoration: none;
+		color: $navigation-item-foreground;
+		margin: 0 1em;
+		padding-bottom: 0.5em;
 
-		// Display items inline with appropriate colours.
-		li {
-			display: inline-block;
-			margin: 0 1em;
+		@media (max-width: $bp-mobile-lg) {
+			margin: 0;
+			text-align: center;
+		}
 
-			a {
-				text-decoration: none;
-				color: $navigation-item-foreground;
-
-				&:hover {
-					border-bottom: 1px solid $accent;
-					padding-bottom: 0.5em;
-					color: $navigation-item-selected-foreground;
-				}
-			}
+		&:hover {
+			border-bottom: 1px solid $accent;
+			color: $navigation-item-selected-foreground;
 		}
 	}
 }
@@ -76,7 +75,14 @@
 	justify-content: center;
 
 	// Increase base font size.
-	font-size: 2em;
+	font-size: 1.5em;
+	@media (min-width: $bp-mobile-lg) {
+		font-size: 1.75em;
+	}
+	@media (min-width: $bp-tablet) {
+		font-size: 2em;
+	}
+
 	// Switch to Roboto Mono.
 	font-family: $mono-font-stack;
 
@@ -116,24 +122,4 @@
 .dtw-links {
 	// Decrease size of bottom links.
 	font-size: smaller;
-
-	// Undo default list styling.
-	ul {
-		list-style-type: none;
-		padding: 1em 0;
-
-		li {
-			display: inline-block;
-			margin: 0 1em;
-
-			a {
-				text-decoration: none;
-				color: $navigation-item-foreground;
-
-				&:hover {
-					color: $navigation-item-selected-foreground;
-				}
-			}
-		}
-	}
 }
