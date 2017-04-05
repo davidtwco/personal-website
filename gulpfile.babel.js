@@ -12,8 +12,6 @@ const browserSync = bsCreate();
 
 // Gulp
 import gulp from 'gulp';
-
-// Plugins
 import autoprefixer from 'gulp-autoprefixer';
 import babel from 'gulp-babel';
 import cleancss from 'gulp-clean-css';
@@ -24,6 +22,18 @@ import imagemin from 'gulp-imagemin';
 import sass from 'gulp-sass';
 import uglify from 'gulp-uglify';
 import util from 'gulp-util';
+
+// Metalsmith
+import Metalsmith from 'metalsmith';
+import assets from 'metalsmith-assets';
+import branch from 'metalsmith-branch';
+import collections from 'metalsmith-collections';
+import drafts from 'metalsmith-drafts';
+import htmlMinifier from 'metalsmith-html-minifier';
+import layouts from 'metalsmith-layouts';
+import markdown from 'metalsmith-markdown';
+import pagination from 'metalsmith-pagination';
+import permalinks from 'metalsmith-permalinks';
 
 // Templates
 import nunjucks from 'nunjucks';
@@ -42,17 +52,6 @@ const clean = () => del(pkg.settings.clean);
 export { clean };
 
 export function metalsmith(callback) {
-	const Metalsmith = require('metalsmith');
-	const assets = require('metalsmith-assets');
-	const branch = require('metalsmith-branch');
-	const collections = require('metalsmith-collections');
-	const drafts = require('metalsmith-drafts');
-	const htmlMinifier = require('metalsmith-html-minifier');
-	const layouts = require('metalsmith-layouts');
-	const markdown = require('metalsmith-markdown');
-	const pagination = require('metalsmith-pagination');
-	const permalinks = require('metalsmith-permalinks');
-
 	const m = Metalsmith(__dirname)
 		.metadata(pkg.settings.meta)
 		.source(pkg.settings.src.content)
