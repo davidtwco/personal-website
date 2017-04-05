@@ -92,12 +92,41 @@
         }
       ]
     },
+    "favicons": {
+        "appName": "David Wood",
+        "appDescription": "Personal website and portfolio of David Wood.",
+        "developerName": "David Wood",
+        "developerURL": "https://davidtw.co/",
+        "background": "#e74c3c",
+        "path": "favicons/",
+        "url": "https://davidtw.co/",
+        "display": "standalone",
+        "orientation": "portrait",
+        "start_url": "/",
+        "version": 1.0,
+        "logging": true,
+        "online": false,
+        "replace": true,
+        "icons": {
+            "android": true,
+            "appleIcon": true,
+            "appleStartup": true,
+            "coast": {
+                "offset": 25
+            },
+            "favicons": true,
+            "firefox": true,
+            "windows": true,
+            "yandex": true
+        }
+    },
     "src": {
       "content": "./content",
       "fonts": "./fonts",
       "scripts": "./scripts",
       "styles": "./styles",
-      "layouts": "./templates"
+      "layouts": "./templates",
+      "favicon": "./favicon.png"
     },
     "assets": "./dist/assets",
     "dist": "./dist/site",

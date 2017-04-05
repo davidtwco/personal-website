@@ -18,6 +18,7 @@ import autoprefixer from 'gulp-autoprefixer';
 import babel from 'gulp-babel';
 import cleancss from 'gulp-clean-css';
 import concat from 'gulp-concat';
+import favicons from 'gulp-favicons';
 import fontAwesome from 'node-font-awesome';
 import imagemin from 'gulp-imagemin';
 import sass from 'gulp-sass';
@@ -112,6 +113,14 @@ export function fonts() {
 		.pipe(gulp.dest(outputPath));
 }
 
+export function favicon() {
+	const outputPath = path.join(__dirname, pkg.settings.assets, 'favicons');
+	return gulp.src(pkg.settings.src.favicon, {since: gulp.lastRun(favicon)})
+		.pipe(favicons(pkg.settings.favicons))
+		.on('error', util.log)
+		.pipe(gulp.dest(outputPath));
+}
+
 export function scripts() {
 	const outputPath = path.join(__dirname, pkg.settings.assets, 'scripts');
 	return gulp.src([
@@ -144,7 +153,7 @@ export function styles() {
 		.pipe(gulp.dest(outputPath));
 }
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts, fonts), metalsmith);
+const build = gulp.series(clean, gulp.parallel(styles, scripts, favicon, fonts), metalsmith);
 
 // Fixes issue with browsersync in Gulp 4 only reloading once.
 const reload = (callback) => { browserSync.reload(); callback(); }
@@ -155,6 +164,9 @@ export function watch(callback) {
 
 	gulp.watch([pkg.settings.src.fonts + '/**/*'],
 		gulp.series(fonts, metalsmith, reload));
+
+	gulp.watch([pkg.settings.src.favicon],
+		gulp.series(favicon, metalsmith, reload));
 
 	gulp.watch([pkg.settings.src.styles + '/**/*.scss'],
 		gulp.series(styles, metalsmith, reload));
