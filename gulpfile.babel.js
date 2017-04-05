@@ -136,13 +136,14 @@ export function scripts() {
 
 export function styles() {
 	const outputPath = path.join(__dirname, pkg.settings.assets, 'styles');
-	return gulp.src([
-			'./node_modules/normalize.css/normalize.css',
-			pkg.settings.src.styles + '/**/*.scss'
-		], {since: gulp.lastRun(styles), sourcemaps:true})
+	return gulp.src([pkg.settings.src.styles + '/**/*.scss'],
+					{since: gulp.lastRun(styles), sourcemaps:true})
 		.pipe(concat('app.min.css'))
 		.pipe(sass({
-			includePaths: [fontAwesome.scssPath]
+			includePaths: [
+				fontAwesome.scssPath,
+				'./node_modules/normalize.css/'
+			]
 		}).on('error', sass.logError))
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions'],
