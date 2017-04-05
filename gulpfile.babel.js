@@ -99,8 +99,8 @@ export function metalsmith(callback) {
 		}))
 		.build((err) => {
 			if (err) throw err;
+			callback();
 		});
-	callback();
 }
 
 export function fonts() {
@@ -146,24 +146,26 @@ export function styles() {
 
 const build = gulp.series(clean, gulp.parallel(styles, scripts, fonts), metalsmith);
 
+// Fixes issue with browsersync in Gulp 4 only reloading once.
+const reload = (callback) => { browserSync.reload(); callback(); }
 export function watch(callback) {
 	// Watch for file changes.
 	gulp.watch(['Gulpfile.js', 'package.json'],
-		gulp.series(build, browserSync.reload));
+		gulp.series(build, reload));
 
 	gulp.watch([pkg.settings.src.fonts + '/**/*'],
-		gulp.series(fonts, metalsmith, browserSync.reload));
+		gulp.series(fonts, metalsmith, reload));
 
 	gulp.watch([pkg.settings.src.styles + '/**/*.scss'],
-		gulp.series(styles, metalsmith, browserSync.reload));
+		gulp.series(styles, metalsmith, reload));
 
 	gulp.watch([pkg.settings.src.scripts + '/**/*.js'],
-		gulp.series(scripts, metalsmith, browserSync.reload));
+		gulp.series(scripts, metalsmith, reload));
 
 	gulp.watch([
 		pkg.settings.src.content + '/**/*.md',
 		pkg.settings.src.layouts + '/**/*.njk'
-	], gulp.series(metalsmith, browserSync.reload));
+	], gulp.series(metalsmith, reload));
 
 	callback();
 }
