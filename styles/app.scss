@@ -51,8 +51,17 @@ nav {
 	a {
 		text-decoration: none;
 		color: $navigation-item-foreground;
-		margin: 0 1em;
 		padding-bottom: 0.5em;
+
+		margin: 0 1em;
+		&:first-child {
+			// Remove left margin of the first child.
+			margin: 0 1em 0 0;
+		}
+		&:last-child {
+			// Remove right margin of second child.
+			margin: 0 0 0 1em;
+		}
 
 		@media (max-width: $bp-mobile-lg) {
 			margin: 0;
