@@ -59,6 +59,10 @@ nav {
 			text-align: center;
 		}
 
+		i {
+			margin-right: 0.5em;
+		}
+
 		&:hover {
 			border-bottom: 1px solid $accent;
 			color: $navigation-item-selected-foreground;
