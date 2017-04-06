@@ -1,0 +1,18 @@
+{% extends "layouts/navigation.njk" %}
+
+{% block content %}
+	<div class="dtw-section-introduction">
+		<p>{{ contents | safe }}</p>
+	</div>
+	<div class="dtw-items">
+		<!--- 'projects' is a global property added by metalsmith-collections --!>
+		{% for project in projects %}
+			<article class="dtw-item-listing">
+				<a href="{{ '/' ~ project.path }}">
+					<div class="dtw-title">{{ project.title }}</div>
+					<div class="dtw-subtitle">Written on <span>{{ project.date | date }}.</span></div>
+				</a>
+			</article>
+		{% endfor %}
+	</div>
+{% endblock %}
