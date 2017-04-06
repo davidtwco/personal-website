@@ -80,6 +80,10 @@ $homepage-title-foreground: $foreground;
 $homepage-subtitle-foreground: darken($foreground, 60%);
 $homepage-body-foreground: darken($foreground, 20%);
 
+// Section Headers
+$section-header-title: darken($foreground, 20%);
+$section-header-subtitle: darken($foreground, 40%);
+
 // Item Listings
 $item-listing-title: $foreground;
 $item-listing-subtitle: darken($foreground, 40%);

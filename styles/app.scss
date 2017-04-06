@@ -59,8 +59,16 @@ body {
 
 .dtw-section-introduction {
 	// Use the mono font and accent colour.
-	color: $accent;
 	font-family: $mono-font-stack;
-	margin-bottom: $margin;
+	margin-bottom: $margin * 2;
+	margin-top: $margin;
+	margin-left: $margin * 1.5;
+	margin-right: $margin * 1.5;
+	color: $section-header-subtitle;
+
+	.dtw-title {
+		color: $section-header-title;
+		font-size: map-get($font-sizes, 'larger');
+	}
 }
 
