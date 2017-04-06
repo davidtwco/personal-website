@@ -2,9 +2,16 @@
 @import "font-awesome";
 @import "normalize";
 
-// Load our variables in.
-@import "variables";
+// Load modules.
 @import "fonts";
+@import "backgrounds";
+@import "navigation";
+@import "homepage";
+@import "projects";
+@import "writings";
+
+// Load variables.
+@import "variables";
 
 // Hide the underscore from links.
 a {
@@ -19,6 +26,10 @@ body {
 	// Set a sane default font stack.
 	font-family: $font-stack;
 
+	// Remove default margin.
+	margin: 0;
+
+	// Layout children using Flexbox.
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -27,16 +38,16 @@ body {
 
 .dtw-container {
 	// Add some padding for the content.
-	padding: 0 3em;
+	padding: 0 ($padding * 3);
 
 	// Limit the width to the large laptop breakpoint.
-	@media (min-width: map-get($breakpoints, laptop-md)) {
-		max-width: map-get($breakpoints, laptop-md);
+	@media (min-width: map-get($breakpoints, 'laptop-md')) {
+		max-width: map-get($breakpoints, 'laptop-md');
 	}
 
 	// If this is on the homepage, limit further.
 	&:not(.dtw-homepage) {
-		max-width: map-get($breakpoints, laptop-sm);
+		max-width: map-get($breakpoints, 'laptop-sm');
 	}
 
 	// Position child elements using Flexbox.
@@ -46,213 +57,10 @@ body {
 	align-items: flex-start;
 }
 
-.dtw-homepage {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-}
-
-nav {
-	// Navigation should be full width.
-	width: 100%;
-
-	// Navigation should be above everything else.
-	z-index: 100;
-
-	// Position child elements using Flexbox.
-	display: flex;
-	flex-direction: row;
-	padding: 2em 0;
-
-	// By default, take up all available space.
-	justify-content: space-between;
-
-	// Hide the right navigation items on mobile devices.
-	@media (max-width: map-get($breakpoints, mobile-lg)) {
-		.dtw-right-navigation {
-			display: none;
-		}
-	}
-
-	a {
-		text-align: center;
-		color: $navigation-item-foreground;
-		padding-bottom: 0.5em;
-
-		// By default have left/right margin of 1em,
-		// reduce to 0.25em on mobile.
-		margin: 0 1em;
-		@media (max-width: map-get($breakpoints, mobile-lg)) {
-			margin: 0 0.25em;
-		}
-
-		&:first-child {
-			// Remove left margin of the first child.
-			margin-left: 0;
-		}
-		&:last-child {
-			// Remove right margin of second child.
-			margin-right: 0;
-		}
-
-		i {
-			margin-right: 0.5em;
-		}
-
-		&:hover {
-			border-bottom: 1px solid $accent;
-			color: $navigation-item-selected-foreground;
-		}
-	}
-}
-
-.dtw-content {
-	// Take up remaining space apart from navigation.
-	flex: 2;
-
-	// Position child elements using Flexbox.
-	display: flex;
-	flex-direction: column;
-}
-
-.dtw-introduction {
-	// Take the most space on homepage.
-	flex: 2;
-
-	// Position child elements using Flexbox.
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-
-	// Increase base font size.
-	font-size: 1.5em;
-	@media (min-width: map-get($breakpoints, mobile-lg)) {
-		font-size: 1.75em;
-	}
-	@media (min-width: map-get($breakpoints, tablet)) {
-		font-size: 2em;
-	}
-
-	// Switch to Roboto Mono.
-	font-family: $mono-font-stack;
-
-	// Limit width so text wraps.
-	max-width: 20em;
-
-	// Colour our links.
-	a {
-		color: $accent;
-
-		&:hover {
-			color: $accent-light;
-		}
-	}
-
-	// Colour the title and increase the size.
-	.dtw-title {
-		font-size: 2em;
-		color: $homepage-title-foreground;
-	}
-
-	// Colour the subtitle and decrease the size.
-	.dtw-subtitle {
-		color: $homepage-subtitle-foreground;
-		font-size: smaller;
-		text-transform: uppercase;
-	}
-
-	// Colour the description.
-	.dtw-description {
-		font-weight: 300;
-		color: $homepage-body-foreground;
-	}
-}
-
-.dtw-links {
-	// Decrease size of bottom links.
-	font-size: smaller;
-}
-
 .dtw-section-introduction {
 	// Use the mono font and accent colour.
 	color: $accent;
 	font-family: $mono-font-stack;
-	margin-bottom: 2em;
-}
-
-.dtw-item-listing {
-	margin-bottom: 2em;
-
-	// Make the title bigger and with appropriate colour.
-	.dtw-title {
-		font-size: 2em;
-		color: $item-listing-title;
-		margin-bottom: 0.25em;
-	}
-
-	// Add subtitle colour - has two tones.
-	.dtw-subtitle {
-		color: $item-listing-subtitle;
-
-		span {
-			color: $item-listing-subtitle-alt;
-		}
-	}
-}
-
-.dtw-projects {
-	display: flex;
-	// On large devices, make a 2x2 grid.
-	flex-wrap: nowrap;
-	flex-direction: column;
-
-	// On small devices, layout in a column with no wrapping.
-	@media (min-width: map-get($breakpoints, laptop-sm)) {
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-}
-
-.dtw-project-listing {
-	padding: 1em;
-	margin-bottom: $project-margin;
-
-	.dtw-title {
-		font-size: 2em;
-		font-weight: 600;
-		margin-bottom: 0.25em;
-	}
-
-	.dtw-subtitle {
-	}
-
-	@media (min-width: map-get($breakpoints, laptop-sm)) {
-		width: calc(50% - #{$project-margin * 2});
-
-		&:nth-child(even) {
-			margin-right: 0;
-			margin-left: $project-margin / 2;
-		}
-
-		&:nth-child(odd) {
-			margin-left: 0;
-			margin-right: $project-margin / 2;
-		}
-	}
-}
-
-@each $name, $colour in $colours {
-	.dtw-background-#{$name} {
-		@if (lightness($colour) > 75) {
-			// Lighter background, dark text.
-			color: $foreground-alt;
-		} @else {
-			// Darker background, light text.
-			color: $foreground;
-		}
-		background-color: $colour;
-	}
+	margin-bottom: $margin;
 }
 

@@ -1,0 +1,68 @@
+@import "variables";
+
+.dtw-homepage {
+	// Make sure that the homepage takes the whole page up.
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.dtw-introduction {
+	// Take the most space on homepage.
+	flex: 2;
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	// Increase base font size.
+	font-size: map-get($font-sizes, 'large');
+	@media (min-width: map-get($breakpoints, 'mobile-lg')) {
+		font-size: map-get($font-sizes, 'larger');
+	}
+	@media (min-width: map-get($breakpoints, 'tablet')) {
+		font-size: map-get($font-sizes, 'largest');
+	}
+
+	// Switch to Roboto Mono.
+	font-family: $mono-font-stack;
+
+	// Limit width so text wraps.
+	max-width: map-get($breakpoints, 'tablet');
+
+	// Colour our links.
+	a {
+		color: $accent;
+
+		&:hover {
+			color: $accent-light;
+		}
+	}
+
+	// Colour the title and increase the size.
+	.dtw-title {
+		font-size: map-get($font-sizes, 'largest');
+		color: $homepage-title-foreground;
+	}
+
+	// Colour the subtitle and decrease the size.
+	.dtw-subtitle {
+		color: $homepage-subtitle-foreground;
+		font-size: map-get($font-sizes, 'normal');
+		text-transform: uppercase;
+	}
+
+	// Colour the description.
+	.dtw-description {
+		font-weight: 300;
+		color: $homepage-body-foreground;
+	}
+}
+
+.dtw-links {
+	// Decrease size of bottom links.
+	font-size: map-get($font-sizes, 'small');
+}

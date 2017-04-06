@@ -1,0 +1,42 @@
+@import "variables";
+
+.dtw-projects {
+	display: flex;
+	// On large devices, make a 2x2 grid.
+	flex-wrap: nowrap;
+	flex-direction: column;
+
+	// On small devices, layout in a column with no wrapping.
+	@media (min-width: map-get($breakpoints, 'laptop-sm')) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+.dtw-project-listing {
+	padding: $project-padding;
+	margin-bottom: $project-margin;
+
+	.dtw-title {
+		font-size: map-get($font-sizes, 'largest');
+		font-weight: 600;
+		margin-bottom: $project-margin / 8;
+	}
+
+	.dtw-subtitle {
+	}
+
+	@media (min-width: map-get($breakpoints, laptop-sm)) {
+		width: calc(50% - #{$project-margin * 2});
+
+		&:nth-child(even) {
+			margin-right: 0;
+			margin-left: $project-margin / 2;
+		}
+
+		&:nth-child(odd) {
+			margin-left: 0;
+			margin-right: $project-margin / 2;
+		}
+	}
+}

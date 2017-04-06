@@ -1,0 +1,70 @@
+@import "variables";
+
+nav {
+	// Navigation should be full width.
+	width: 100%;
+
+	// Navigation should be above everything else.
+	z-index: 100;
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: row;
+	padding: $navigation-padding 0;
+
+	// By default, take up all available space.
+	justify-content: space-between;
+
+	// Hide the right navigation items on mobile devices.
+	@media (max-width: map-get($breakpoints, 'mobile-lg')) {
+		.dtw-right-navigation {
+			display: none;
+		}
+	}
+
+	a {
+		// Align the text.
+		text-align: center;
+		// Set the correct colour.
+		color: $navigation-item-foreground;
+
+		// Add some padding to move the border further away.
+		padding-bottom: $padding / 2;
+
+		// By default have left/right margin of 1em,
+		// reduce to 0.25em on mobile.
+		margin: 0 $navigation-item-margin;
+		@media (max-width: map-get($breakpoints, 'mobile-lg')) {
+			margin: 0 ($navigation-item-margin / 2);
+		}
+
+		&:first-child {
+			// Remove left margin of the first child.
+			margin-left: 0;
+		}
+		&:last-child {
+			// Remove right margin of second child.
+			margin-right: 0;
+		}
+
+		// Space the icons out from the text.
+		i {
+			margin-right: $navigation-item-margin;
+		}
+
+		// Add a underline on hover.
+		&:hover {
+			border-bottom: 1px solid $accent;
+			color: $navigation-item-selected-foreground;
+		}
+	}
+}
+
+.dtw-content {
+	// Take up remaining space apart from navigation.
+	flex: 2;
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: column;
+}

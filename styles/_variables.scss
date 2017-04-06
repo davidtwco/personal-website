@@ -33,13 +33,26 @@ $breakpoints: (
 	mobile-sm: 320px
 );
 
-// App
+// Margins & Padding
+$margin: 2em;
+$padding: 1em;
+
+// Colours
 $background: #141414;
 $background-alt: #fff;
 $foreground: #fff;
 $foreground-alt: #222;
 $accent: map-get($colours, alizarin);
 $accent-light: lighten($accent, 10%);
+
+// Fonts
+$font-sizes: (
+	largest: 2em,
+	larger: 1.75em,
+	large: 1.5em,
+	normal: 1em,
+	small: 0.75em
+);
 $font-stack:
 	// Safari for OS X and iOS (San Francisco)
 	-apple-system,
@@ -56,6 +69,9 @@ $font-stack:
 $mono-font-stack: "Roboto Mono", $font-stack;
 
 // Navigation
+$navigation-padding: $padding * 2;
+$navigation-item-margin: $margin / 4;
+$navigation-icon-margin: $navigation-item-margin;
 $navigation-item-foreground: #aaa;
 $navigation-item-selected-foreground: #ccc;
 
@@ -69,5 +85,12 @@ $item-listing-title: $foreground;
 $item-listing-subtitle: darken($foreground, 40%);
 $item-listing-subtitle-alt: darken($foreground, 20%);
 
+// Backgrounds
+$background-threshold: 75;
+
 // Projects
-$project-margin: 2em;
+$project-padding: $padding;
+$project-margin: $margin;
+
+// Writings
+$writing-margin: $margin;
