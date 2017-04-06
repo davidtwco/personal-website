@@ -1,24 +1,26 @@
 // Colours
-$colour-torquoise: #1abc9c;
-$colour-greensea: #16a085;
-$colour-emerland: #2ecc71;
-$colour-nephritis: #27ae60;
-$colour-peterriver: #3498db;
-$colour-belizehole: #2980b9;
-$colour-amethyst: #9b59b6;
-$colour-wisteria: #8e44ad;
-$colour-wetasphalt: #34495e;
-$colour-midnightblue: #2c3e50;
-$colour-sunflower: #f1c40f;
-$colour-orange: #f39c12;
-$colour-carrot: #e67e22;
-$colour-pumpkin: #d35400;
-$colour-alizarin: #e74c3c;
-$colour-pomegranate: #c0392b;
-$colour-clouds: #ecf0f1;
-$colour-silver: #bdc3c7;
-$colour-concrete: #95a5a6;
-$colour-asbestos: #7f8c8d;
+$colours: (
+	torquoise: #1abc9c,
+	greensea: #16a085,
+	emerland: #2ecc71,
+	nephritis: #27ae60,
+	peterriver: #3498db,
+	belizehole: #2980b9,
+	amethyst: #9b59b6,
+	wisteria: #8e44ad,
+	wetasphalt: #34495e,
+	midnightblue: #2c3e50,
+	sunflower: #f1c40f,
+	orange: #f39c12,
+	carrot: #e67e22,
+	pumpkin: #d35400,
+	alizarin: #e74c3c,
+	pomegranate: #c0392b,
+	clouds: #ecf0f1,
+	silver: #bdc3c7,
+	concrete: #95a5a6,
+	asbestos: #7f8c8d
+);
 
 // Breakpoints
 $bp-4k: 2560px;
@@ -31,8 +33,10 @@ $bp-mobile-sm: 320px;
 
 // App
 $background: #141414;
+$background-alt: #fff;
 $foreground: #fff;
-$accent: $colour-alizarin;
+$foreground-alt: #222;
+$accent: map-get($colours, alizarin);
 $accent-light: lighten($accent, 10%);
 $font-stack:
 	// Safari for OS X and iOS (San Francisco)

@@ -197,3 +197,17 @@ nav {
 		}
 	}
 }
+
+@each $name, $colour in $colours {
+	.dtw-background-#{$name} {
+		@if (lightness($colour) > 50) {
+			// Lighter background, dark text.
+			color: $foreground-alt;
+		} @else {
+			// Darker background, light text.
+			color: $foreground;
+		}
+		background-color: $colour;
+	}
+}
+
