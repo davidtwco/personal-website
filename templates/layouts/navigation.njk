@@ -1,15 +1,13 @@
 {% extends "layouts/base.njk" %}
 
 {% block body %}
-	<div class="dtw-container">
-		<nav class="dtw-navigation">
-			<a href="/">Home</a>
-			<a href="/projects">Projects</a>
-			<a href="/writings">Writings</a>
-			<a href="/wiki">Lab</a>
-		</nav>
-		<div class="dtw-content">
-			{% block content %}{% endblock %}
-		</div>
+	<nav class="dtw-navigation">
+		<a href="/">Home</a>
+		<a href="/projects">Projects</a>
+		<a href="/writings">Writings</a>
+		<a href="/wiki">Lab</a>
+	</nav>
+	<div class="dtw-content">
+		{% block content %}{% endblock %}
 	</div>
 {% endblock %}

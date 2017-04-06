@@ -15,11 +15,13 @@
 
 		<link rel="stylesheet" href="/styles/app.min.css">
 
-		{% block head %}
-		{% endblock %}
+		{% block head %}{% endblock %}
 	</head>
 	<body>
-		{% block body %}
-		{% endblock %}
+		<div class="dtw-container">
+			<div class="dtw-wrapper">
+				{% block body %}{% endblock %}
+			</div>
+		</div>
 	</body>
 </html>

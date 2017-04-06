@@ -17,18 +17,33 @@
 	left: 0;
 	right: 0;
 
-	// Position child elements using Flexbox.
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-
 	// Set the correct default colours.
 	background: $background;
 	color: $foreground;
 
 	// Set a sane default font stack.
 	font-family: $font-stack;
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.dtw-wrapper {
+	@media (min-width: $bp-laptop-lg) {
+		max-width: $bp-laptop-lg;
+	}
+
+	// Position child elements using Flexbox.
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+
+	width: 100%;
+	height: 100%;
 }
 
 nav {
