@@ -4,14 +4,15 @@
 	<div class="dtw-section-introduction">
 		<p>{{ contents | safe }}</p>
 	</div>
-	<div class="dtw-items">
+	<div class="dtw-projects">
 		<!--- 'projects' is a global property added by metalsmith-collections --!>
 		{% for project in projects %}
-			<article class="dtw-item-listing">
+			<article class="dtw-project-listing dtw-background-{{ project.color }}">
 				<a href="{{ '/' ~ project.path }}">
 					<div class="dtw-title">{{ project.title }}</div>
-					<div class="dtw-subtitle">Written on <span>{{ project.date | date }}.</span></div>
+					<div class="dtw-subtitle">{{ project.start_date | date }} - {{ project.end_date | date }}</div>
 				</a>
+				<div class="dtw-description">{{ project.contents | safe }}</div>
 			</article>
 		{% endfor %}
 	</div>
