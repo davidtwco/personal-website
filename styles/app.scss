@@ -65,26 +65,36 @@ nav {
 	flex-direction: row;
 	padding: 2em 0;
 
+	// By default, take up all available space.
 	justify-content: space-between;
+
+	// Hide the right navigation items on mobile devices.
+	@media (max-width: map-get($breakpoints, mobile-lg)) {
+		.dtw-right-navigation {
+			display: none;
+		}
+	}
 
 	a {
 		text-decoration: none;
+		text-align: center;
 		color: $navigation-item-foreground;
 		padding-bottom: 0.5em;
 
+		// By default have left/right margin of 1em,
+		// reduce to 0.25em on mobile.
 		margin: 0 1em;
+		@media (max-width: map-get($breakpoints, mobile-lg)) {
+			margin: 0 0.25em;
+		}
+
 		&:first-child {
 			// Remove left margin of the first child.
-			margin: 0 1em 0 0;
+			margin-left: 0;
 		}
 		&:last-child {
 			// Remove right margin of second child.
-			margin: 0 0 0 1em;
-		}
-
-		@media (max-width: map-get($breakpoints, mobile-lg)) {
-			margin: 0;
-			text-align: center;
+			margin-right: 0;
 		}
 
 		i {
