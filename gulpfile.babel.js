@@ -97,7 +97,6 @@ export function metalsmith(callback) {
 		.use(layouts({
 			engine: 'nunjucks',
 			directory: pkg.settings.src.layouts,
-			partials: pkg.settings.src.layouts,
 			nunjucksEnv: environment
 		}))
 		.use(assets({

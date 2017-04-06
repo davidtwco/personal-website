@@ -1,6 +1,18 @@
 {% extends "layouts/navigation.njk" %}
 
 {% block content %}
-	<h1>Wiki Template</h1>
-	{{ contents | safe }}
+	<div class="dtw-section-introduction">
+		<p>{{ contents | safe }}</p>
+	</div>
+	<div class="dtw-items">
+		<!--- 'wiki' is a global property added by metalsmith-collections --!>
+		{% for item in wiki %}
+			<article class="dtw-item-listing">
+				<a href="{{ '/' ~ item.path }}">
+					<div class="dtw-title">{{ item.title }}</div>
+					<div class="dtw-subtitle">Written on <span>{{ item.date | date }}.</span></div>
+				</a>
+			</article>
+		{% endfor %}
+	</div>
 {% endblock %}
