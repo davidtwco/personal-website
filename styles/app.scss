@@ -66,9 +66,6 @@ nav {
 	padding: 2em 0;
 
 	justify-content: space-between;
-	@media (min-width: $bp-mobile-lg) {
-		justify-content: flex-start;
-	}
 
 	a {
 		text-decoration: none;

@@ -10,9 +10,11 @@
 				<div class="dtw-description">{{ contents | safe }}</div>
 			</div>
 			<nav class="dtw-links">
-				{% for link in links %}
-					<a href="{{ link.link }}"><i class="fa {{ link.icon }}"></i> {{ link.name }}</a>
-				{% endfor %}
+				<div class="dtw-left-navigation">
+					{% for link in links %}
+						<a href="{{ link.link }}"><i class="fa {{ link.icon }}"></i> {{ link.name }}</a>
+					{% endfor %}
+				</div>
 			</nav>
 		</div>
 	</div>
