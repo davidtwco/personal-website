@@ -127,6 +127,7 @@
       "fonts": "./fonts",
       "scripts": "./scripts",
       "styles": "./styles",
+	  "images": "./images",
       "layouts": "./templates",
       "favicon": "./favicon.png"
     },

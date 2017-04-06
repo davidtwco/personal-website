@@ -126,6 +126,15 @@ export function favicon() {
 		.pipe(gulp.dest(outputPath));
 }
 
+export function images() {
+	const outputPath = path.join(__dirname, pkg.settings.assets, 'images');
+	return gulp.src([
+			pkg.settings.src.images + '**/*'
+		], {since: gulp.lastRun(images)})
+		.pipe(imagemin())
+		.pipe(gulp.dest(outputPath));
+}
+
 export function scripts() {
 	const outputPath = path.join(__dirname, pkg.settings.assets, 'scripts');
 	return gulp.src([
@@ -163,7 +172,7 @@ export function styles() {
 		.pipe(gulp.dest(outputPath));
 }
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts, favicon, fonts), metalsmith);
+const build = gulp.series(clean, gulp.parallel(images, styles, scripts, favicon, fonts), metalsmith);
 
 // Fixes issue with browsersync in Gulp 4 only reloading once.
 const reload = (callback) => { browserSync.reload(); callback(); }
@@ -174,6 +183,9 @@ export function watch(callback) {
 
 	gulp.watch([pkg.settings.src.fonts + '/**/*'],
 		gulp.series(fonts, metalsmith, reload));
+
+	gulp.watch([pkg.settings.src.images + '**/*'],
+		gulp.series(images, metalsmith, reload));
 
 	gulp.watch([pkg.settings.src.favicon],
 		gulp.series(favicon, metalsmith, reload));
