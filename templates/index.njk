@@ -1,14 +1,19 @@
-{% extends "layouts/navigation.njk" %}
+{% extends "layouts/base.njk" %}
 
-{% block content %}
-	<div class="dtw-introduction">
-		<div class="dtw-subtitle">{{ subtitle }}</div>
-		<div class="dtw-title">{{ title }}</div>
-		<div class="dtw-description">{{ contents | safe }}</div>
+{% block body %}
+	<div class="dtw-wrapper dtw-homepage">
+		{% include "includes/navigation.njk" %}
+		<div class="dtw-content">
+			<div class="dtw-introduction">
+				<div class="dtw-subtitle">{{ subtitle }}</div>
+				<div class="dtw-title">{{ title }}</div>
+				<div class="dtw-description">{{ contents | safe }}</div>
+			</div>
+			<nav class="dtw-links">
+				{% for link in links %}
+					<a href="{{ link.link }}"><i class="fa {{ link.icon }}"></i> {{ link.name }}</a>
+				{% endfor %}
+			</nav>
+		</div>
 	</div>
-	<nav class="dtw-links">
-		{% for link in links %}
-			<a href="{{ link.link }}"><i class="fa {{ link.icon }}"></i> {{ link.name }}</a>
-		{% endfor %}
-	</nav>
 {% endblock %}
