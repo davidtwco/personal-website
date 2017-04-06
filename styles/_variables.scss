@@ -23,13 +23,15 @@ $colours: (
 );
 
 // Breakpoints
-$bp-4k: 2560px;
-$bp-laptop-lg: 1440px;
-$bp-laptop: 1024px;
-$bp-tablet: 768px;
-$bp-mobile-lg: 425px;
-$bp-mobile-md: 375px;
-$bp-mobile-sm: 320px;
+$breakpoints: (
+	laptop-lg: 2560px,
+	laptop-md: 1440px,
+	laptop-sm: 1024px,
+	tablet: 768px,
+	mobile-lg: 425px,
+	mobile-md: 375px,
+	mobile-sm: 320px
+);
 
 // App
 $background: #141414;

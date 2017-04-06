@@ -33,13 +33,13 @@
 
 .dtw-wrapper {
 	// Limit the width to the large laptop breakpoint.
-	@media (min-width: $bp-laptop-lg) {
-		max-width: $bp-laptop-lg;
+	@media (min-width: map-get($breakpoints, laptop-md)) {
+		max-width: map-get($breakpoints, laptop-md);
 	}
 
 	// If this is on the homepage, limit further.
 	&:not(.dtw-homepage) {
-		max-width: $bp-laptop;
+		max-width: map-get($breakpoints, laptop-sm);
 	}
 
 	// Position child elements using Flexbox.
@@ -82,7 +82,7 @@ nav {
 			margin: 0 0 0 1em;
 		}
 
-		@media (max-width: $bp-mobile-lg) {
+		@media (max-width: map-get($breakpoints, mobile-lg)) {
 			margin: 0;
 			text-align: center;
 		}
@@ -118,10 +118,10 @@ nav {
 
 	// Increase base font size.
 	font-size: 1.5em;
-	@media (min-width: $bp-mobile-lg) {
+	@media (min-width: map-get($breakpoints, mobile-lg)) {
 		font-size: 1.75em;
 	}
-	@media (min-width: $bp-tablet) {
+	@media (min-width: map-get($breakpoints, tablet)) {
 		font-size: 2em;
 	}
 
