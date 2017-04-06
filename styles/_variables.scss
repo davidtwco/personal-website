@@ -84,11 +84,6 @@ $homepage-body-foreground: darken($foreground, 20%);
 $section-header-title: darken($foreground, 20%);
 $section-header-subtitle: darken($foreground, 40%);
 
-// Item Listings
-$item-listing-title: $foreground;
-$item-listing-subtitle: darken($foreground, 40%);
-$item-listing-subtitle-alt: darken($foreground, 20%);
-
 // Backgrounds
 $background-threshold: 75;
 
@@ -98,3 +93,7 @@ $project-margin: $margin;
 
 // Writings
 $writing-margin: $margin;
+$writing-listing-title: $foreground;
+$writing-listing-subtitle: darken($foreground, 40%);
+$writing-listing-subtitle-alt: darken($foreground, 20%);
+

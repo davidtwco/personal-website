@@ -6,16 +6,16 @@
 	// Make the title bigger and with appropriate colour.
 	.dtw-title {
 		font-size: map-get($font-sizes, 'largest');
-		color: $item-listing-title;
+		color: $writing-listing-title;
 		margin-bottom: $writing-margin / 8;
 	}
 
 	// Add subtitle colour - has two tones.
 	.dtw-subtitle {
-		color: $item-listing-subtitle;
+		color: $writing-listing-subtitle;
 
 		span {
-			color: $item-listing-subtitle-alt;
+			color: $writing-listing-subtitle-alt;
 		}
 	}
 }
