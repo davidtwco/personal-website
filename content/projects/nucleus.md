@@ -1,8 +1,8 @@
 ---
 title: Nucleus
 type: University Project
-start_date: January 2017
-end_date: March 2017
+start_date: 2017-01-01
+end_date: 2017-03-01
 color: peterriver
 tags:
   - Python

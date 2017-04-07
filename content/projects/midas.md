@@ -1,8 +1,8 @@
 ---
 title: MIDAS
 type: Personal Website
-start_date: July 2014
-end_date: March 2015
+start_date: 2014-06-01
+end_date: 2015-03-01
 color: orange
 tags:
   - C#
