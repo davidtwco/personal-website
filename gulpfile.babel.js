@@ -26,6 +26,7 @@ import util from 'gulp-util';
 
 // Metalsmith
 import Metalsmith from 'metalsmith';
+import addMeta from 'metalsmith-collections-addmeta';
 import assets from 'metalsmith-assets';
 import branch from 'metalsmith-branch';
 import collections from 'metalsmith-collections';
@@ -78,6 +79,11 @@ export function metalsmith(callback) {
 				pattern: 'wiki/**/*.md',
 				sortBy: 'title'
 			}
+		}))
+		.use(addMeta({
+			projects: { layout: 'entries/project.njk' },
+			writings: { layout: 'entries/writing.njk' },
+			wiki: { layout: 'entries/wiki.njk' }
 		}))
 		.use(markdown())
 		.use(permalinks({
