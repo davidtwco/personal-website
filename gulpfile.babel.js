@@ -153,8 +153,7 @@ export function scripts() {
 
 export function styles() {
 	const outputPath = path.join(__dirname, pkg.settings.assets, 'styles');
-	return gulp.src([pkg.settings.src.styles + '/**/*.scss'],
-					{since: gulp.lastRun(styles)})
+	return gulp.src([pkg.settings.src.styles + '/**/*.scss'])
 		.pipe(sourcemaps.init())
 		.pipe(concat('app.min.css'))
 		.pipe(sass({
