@@ -66,7 +66,7 @@ export function metalsmith(callback) {
 		.use(collections({
 			projects: {
 				pattern: 'projects/**/*.md',
-				sortBy: 'date',
+				sortBy: 'start_date',
 				reverse: true
 			},
 			writings: {
