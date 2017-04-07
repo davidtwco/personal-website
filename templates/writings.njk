@@ -8,7 +8,7 @@
 			<article class="dtw-writing-listing">
 				<a href="{{ '/' ~ writing.path }}">
 					<div class="dtw-title">{{ writing.title }}</div>
-					<div class="dtw-subtitle">Written on <span>{{ writing.date | date }}.</span></div>
+					<div class="dtw-subtitle">Written on <span>{{ writing.date | date }}</span>, with <span>{{ writing.wordCount }}</span> words (approx reading time of <span>{{ writing.readingTime }}</span>).</div>
 				</a>
 			</article>
 		{% endfor %}

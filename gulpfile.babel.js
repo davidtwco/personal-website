@@ -36,6 +36,7 @@ import layouts from 'metalsmith-layouts';
 import markdown from 'metalsmith-markdown';
 import pagination from 'metalsmith-pagination';
 import permalinks from 'metalsmith-permalinks';
+import wordCount from 'metalsmith-word-count';
 
 // Nunjucks
 import nunjucks from 'nunjucks';
@@ -86,6 +87,7 @@ export function metalsmith(callback) {
 			wiki: { layout: 'entries/wiki.njk' }
 		}))
 		.use(markdown())
+		.use(wordCount())
 		.use(permalinks({
 			relative: false,
 			linksets: [{
