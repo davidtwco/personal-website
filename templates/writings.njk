@@ -1,10 +1,7 @@
 {% extends "layouts/navigation.njk" %}
 
 {% block content %}
-	<div class="dtw-section-introduction">
-		<div class="dtw-title">{{ title }}</div>
-		<p class="dtw-description">{{ contents | safe }}</p>
-	</div>
+	{% include "includes/section_introduction.njk" %}
 	<div class="dtw-writings">
 		<!--- 'writings' is a global property added by metalsmith-collections --!>
 		{% for writing in writings %}
