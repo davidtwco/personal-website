@@ -97,3 +97,10 @@ $writing-listing-title: $foreground;
 $writing-listing-subtitle: darken($foreground, 40%);
 $writing-listing-subtitle-alt: darken($foreground, 20%);
 
+// Wiki
+$wiki-section-header: $homepage-subtitle-foreground;
+$wiki-listing-title: $writing-listing-title;
+$wiki-listing-subtitle: $writing-listing-subtitle;
+$wiki-listing-subtitle-alt: $writing-listing-subtitle-alt;
+$wiki-margin: $margin;
+$wiki-padding: $padding;

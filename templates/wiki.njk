@@ -2,15 +2,20 @@
 
 {% block content %}
 	{% include "includes/section_introduction.njk" %}
-	<div class="dtw-items">
+	<div class="dtw-wiki-items">
 		<!--- 'wiki' is a global property added by metalsmith-collections --!>
-		{% for item in wiki %}
-			<article class="dtw-item-listing">
-				<a href="{{ '/' ~ item.path }}">
-					<div class="dtw-title">{{ item.title }}</div>
-					<div class="dtw-subtitle">Written on <span>{{ item.date | date }}.</span></div>
-				</a>
-			</article>
+		{% for section, items in wiki | sort(false, false, 'title') | groupby(getWikiCollection) %}
+			<section class="dtw-wiki-group dtw-wiki-group-{{ section }}">
+				<div class="dtw-title">{{ section }}</div>
+				{% for item in items %}
+					<article class="dtw-wiki-item-listing">
+						<a href="{{ '/' ~ item.path }}">
+							<div class="dtw-title">{{ item.title }}</div>
+							<div class="dtw-subtitle">Last updated on <span>{{ item.last_updated | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).</div>
+						</a>
+					</article>
+				{% endfor %}
+			</section>
 		{% endfor %}
 	</div>
 {% endblock %}
