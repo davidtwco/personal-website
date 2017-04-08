@@ -5,11 +5,13 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		{% if title %}
-			<title>{{ title }} - {{ site.title }}</title>
-		{% else %}
-			<title>{{ site.title }}</title>
-		{% endif %}
+		{% block title %}
+			{% if title %}
+				<title>{{ title }} - {{ site.title }}</title>
+			{% else %}
+				<title>{{ site.title }}</title>
+			{% endif %}
+		{% endblock %}
 
 		{% include "includes/favicons.njk" %}
 
