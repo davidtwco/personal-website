@@ -1,11 +1,11 @@
 <nav>
 	<div class="dtw-left-navigation">
-		{% for item in navigation | selectattr("left") %}
+		{% for item in navigation | rejectattr("hidden") | selectattr("left") %}
 			<a href="{{ item.link }}">{{ item.title }}</a>
 		{% endfor %}
 	</div>
 	<div class="dtw-right-navigation">
-		{% for item in navigation | rejectattr("left") %}
+		{% for item in navigation | rejectattr("hidden") | rejectattr("left") %}
 			<a href="{{ item.link }}">{{ item.title }}</a>
 		{% endfor %}
 	</div>

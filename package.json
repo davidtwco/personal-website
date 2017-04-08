@@ -82,26 +82,31 @@
         {
           "title": "Home",
           "link": "/",
+          "hidden": false,
           "left": true
         },
         {
           "title": "Projects",
           "link": "/projects",
+          "hidden": false,
           "left": true
         },
         {
           "title": "Writings",
           "link": "/writings",
+          "hidden": false,
           "left": true
         },
         {
           "title": "Lab",
           "link": "/lab",
+          "hidden": false,
           "left": true
         },
         {
           "title": "Get in touch!",
           "link": "mailto:hello@davidtw.co",
+          "hidden": false,
           "left": false
         }
       ],
