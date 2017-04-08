@@ -27,14 +27,20 @@ import util from 'gulp-util';
 // Metalsmith
 import Metalsmith from 'metalsmith';
 import addMeta from 'metalsmith-collections-addmeta';
+import alias from 'metalsmith-alias';
 import assets from 'metalsmith-assets';
+import ancestry from 'metalsmith-ancestry';
 import branch from 'metalsmith-branch';
 import collections from 'metalsmith-collections';
 import drafts from 'metalsmith-drafts';
+import excerpts from 'metalsmith-excerpts';
+import feed from 'metalsmith-feed';
 import htmlMinifier from 'metalsmith-html-minifier';
 import layouts from 'metalsmith-layouts';
 import markdown from 'metalsmith-markdown';
+import relativeLinks from 'metalsmith-relative-links';
 import pagination from 'metalsmith-pagination';
+import paths from 'metalsmith-paths';
 import permalinks from 'metalsmith-permalinks';
 import wordCount from 'metalsmith-word-count';
 
@@ -65,6 +71,7 @@ export function metalsmith(callback) {
 		.source(pkg.settings.src.content)
 		.destination(pkg.settings.dist)
 		.clean(true)
+		.use(drafts())
 		.use(collections({
 			projects: {
 				pattern: 'projects/**/*.md',
@@ -86,8 +93,17 @@ export function metalsmith(callback) {
 			writings: { layout: 'entries/writing.njk' },
 			wiki: { layout: 'entries/wiki.njk' }
 		}))
+		.use(paths({ property: 'paths' }))
+		.use(relativeLinks())
+		.use(ancestry())
 		.use(markdown())
+		.use(excerpts())
+		.use(feed({
+			collection: 'writings',
+			limit: false
+		}))
 		.use(wordCount())
+		.use(alias())
 		.use(permalinks({
 			relative: false,
 			linksets: [{
