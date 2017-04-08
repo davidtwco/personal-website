@@ -1,12 +1,12 @@
 @import "variables";
 
-.dtw-wiki-items {
+.dtw-lab-items {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
-.dtw-wiki-group {
+.dtw-lab-group {
 	width: calc(33% - #{$wiki_margin});
 	margin-left: $wiki-margin / 2;
 	margin-right: $wiki-margin / 2;
@@ -19,7 +19,7 @@
 	}
 }
 
-.dtw-wiki-item-listing {
+.dtw-lab-item-listing {
 	// Make the title bigger and with appropriate colour.
 	.dtw-title {
 		font-size: map-get($font-sizes, 'largest');

@@ -59,7 +59,7 @@ function formatDate(string) {
 	};
 }
 
-function getWikiCollection(obj) {
+function getLabCollection(obj) {
 	let index = obj.paths.dir.indexOf('/');
 	if (index === -1) return obj.paths.dir;
 
@@ -72,7 +72,7 @@ export { clean };
 export function metalsmith(callback) {
 	let environment = new nunjucks.Environment(new nunjucks.FileSystemLoader(pkg.settings.src.layouts));
 	environment.addFilter('date', nunjucksDate);
-	environment.addGlobal('getWikiCollection', getWikiCollection);
+	environment.addGlobal('getLabCollection', getLabCollection);
 
 	const m = Metalsmith(__dirname)
 		.metadata(pkg.settings.meta)
@@ -91,15 +91,15 @@ export function metalsmith(callback) {
 				sortBy: 'date',
 				reverse: true
 			},
-			wiki: {
-				pattern: 'wiki/**/*.md',
+			lab: {
+				pattern: 'lab/**/*.md',
 				sortBy: 'title'
 			}
 		}))
 		.use(addMeta({
 			projects: { layout: 'entries/project.njk' },
 			writings: { layout: 'entries/writing.njk' },
-			wiki: { layout: 'entries/wiki.njk' }
+			lab: { layout: 'entries/lab.njk' }
 		}))
 		.use(paths({ property: 'paths' }))
 		.use(relativeLinks())
@@ -122,8 +122,8 @@ export function metalsmith(callback) {
 				pattern: 'writings/:date/:title',
 				date: formatDate('YYYY')
 			}, {
-				match: { collection: 'wiki' },
-				pattern: 'wiki/:paths:dir/:title'
+				match: { collection: 'lab' },
+				pattern: 'lab/:paths:dir/:title'
 			}]
 		}))
 		.use(layouts({
