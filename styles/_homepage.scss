@@ -7,6 +7,10 @@
 	bottom: 0;
 	right: 0;
 	left: 0;
+
+	// Make the page take the full height.
+	display: flex;
+	justify-content: center;
 }
 
 .dtw-introduction {

@@ -42,14 +42,13 @@ body {
 	// Add some padding for the content.
 	padding: 0 ($padding * 3);
 
-	// Limit the width to the large laptop breakpoint.
-	@media (min-width: map-get($breakpoints, 'laptop-md')) {
-		max-width: map-get($breakpoints, 'laptop-md');
-	}
+	// Limit width.
+	max-width: map-get($breakpoints, 'laptop-sm');
 
-	// If this is on the homepage, limit further.
-	&:not(.dtw-homepage) {
-		max-width: map-get($breakpoints, 'laptop-sm');
+	// If the screen is at least 'laptop-sm' wide, then
+	// force the content to be at least that wide.
+	@media (min-width: map-get($breakpoints, 'laptop-sm')) {
+		min-width: map-get($breakpoints, 'laptop-sm');
 	}
 
 	// Position child elements using Flexbox.
