@@ -1,8 +1,8 @@
 ---
 title: davidtw.co
 type: Personal Website
-start_date: 2017-03-01
-end_date: 2017-04-01
+startDate: 2017-03-01
+endDate: 2017-04-01
 color: nephritis
 tags:
   - JavaScript

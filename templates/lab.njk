@@ -11,7 +11,7 @@
 					<article class="dtw-lab-item-listing">
 						<a href="{{ '/' ~ item.path }}">
 							<div class="dtw-title">{{ item.title }}</div>
-							<div class="dtw-subtitle">Last updated on <span>{{ item.last_updated | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).</div>
+							<div class="dtw-subtitle">Last updated on <span>{{ item.lastUpdated | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).</div>
 						</a>
 					</article>
 				{% endfor %}
