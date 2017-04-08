@@ -42,6 +42,7 @@ import relativeLinks from 'metalsmith-relative-links';
 import pagination from 'metalsmith-pagination';
 import paths from 'metalsmith-paths';
 import permalinks from 'metalsmith-permalinks';
+import untemplatize from 'metalsmith-untemplatize';
 import wordCount from 'metalsmith-word-count';
 
 // Nunjucks
@@ -105,6 +106,7 @@ export function metalsmith(callback) {
 		.use(relativeLinks())
 		.use(ancestry())
 		.use(markdown())
+		.use(untemplatize({ key: 'content' }))
 		.use(excerpts())
 		.use(feed({
 			collection: 'writings',

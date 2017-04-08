@@ -13,7 +13,7 @@
 				<div class="dtw-subtitle">
 				<span>{{ project.startDate | date }}</span>{% if project.endDate %} - <span>{{ project.endDate | date }}{% endif %}</span>
 				</div>
-				<div class="dtw-description">{{ project.contents | safe }}</div>
+				<div class="dtw-description">{{ project.content | safe }}</div>
 				<div class="dtw-project-links">
 					{% if project.sourceLink %}
 						<a href="{{ project.sourceLink }}">View Source</a>
