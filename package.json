@@ -78,6 +78,33 @@
           "url": "https://davidtw.co",
           "description": "Personal website of David Wood"
       },
+      "navigation": [
+        {
+          "title": "Home",
+          "link": "/",
+          "left": true
+        },
+        {
+          "title": "Projects",
+          "link": "/projects",
+          "left": true
+        },
+        {
+          "title": "Writings",
+          "link": "/writings",
+          "left": true
+        },
+        {
+          "title": "Lab",
+          "link": "/lab",
+          "left": true
+        },
+        {
+          "title": "Get in touch!",
+          "link": "mailto:hello@davidtw.co",
+          "left": false
+        }
+      ],
       "contact": {
         "email": "hello@davidtw.co"
       },

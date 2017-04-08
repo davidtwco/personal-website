@@ -1,11 +1,12 @@
 <nav>
 	<div class="dtw-left-navigation">
-		<a href="/">Home</a>
-		<a href="/projects">Projects</a>
-		<a href="/writings">Writings</a>
-		<a href="/lab">Lab</a>
+		{% for item in navigation | selectattr("left") %}
+			<a href="{{ item.link }}">{{ item.title }}</a>
+		{% endfor %}
 	</div>
 	<div class="dtw-right-navigation">
-		<a href="mailto:{{ contact.email }}">Get in touch!</a>
+		{% for item in navigation | rejectattr("left") %}
+			<a href="{{ item.link }}">{{ item.title }}</a>
+		{% endfor %}
 	</div>
 </nav>
