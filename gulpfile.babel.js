@@ -115,7 +115,7 @@ export function metalsmith(callback) {
 				date: formatDate('YYYY')
 			}, {
 				match: { collection: 'wiki' },
-				pattern: 'wiki/:title'
+				pattern: 'wiki/:paths:dir/:title'
 			}]
 		}))
 		.use(layouts({
