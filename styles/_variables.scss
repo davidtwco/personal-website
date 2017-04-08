@@ -87,15 +87,19 @@ $section-header-subtitle: darken($foreground, 40%);
 // Backgrounds
 $background-threshold: 75;
 
-// Projects
-$project-padding: $padding;
-$project-margin: $margin;
-
 // Writings
 $writing-margin: $margin;
 $writing-listing-title: $foreground;
 $writing-listing-subtitle: darken($foreground, 40%);
 $writing-listing-subtitle-alt: darken($foreground, 20%);
+
+// Projects
+$project-padding: $padding;
+$project-margin: $margin;
+$project-listing-type: $homepage-subtitle-foreground;
+$project-listing-title: $writing-listing-title;
+$project-listing-subtitle: $writing-listing-subtitle;
+$project-listing-subtitle-alt: $writing-listing-subtitle-alt;
 
 // Wiki
 $wiki-section-header: $homepage-subtitle-foreground;

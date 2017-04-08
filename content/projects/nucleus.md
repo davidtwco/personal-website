@@ -4,6 +4,7 @@ type: University Project
 startDate: 2017-01-01
 endDate: 2017-03-01
 color: peterriver
+sourceLink: https://gitlab.com/devine-industries/nucleus
 tags:
   - Python
   - Django

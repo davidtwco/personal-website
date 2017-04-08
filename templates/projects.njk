@@ -4,15 +4,24 @@
 	{% include "includes/section_introduction.njk" %}
 	<div class="dtw-projects">
 		<!--- 'projects' is a global property added by metalsmith-collections --!>
-		{% for project in projects %}
+		{% for project in projects | sort(true, false, 'startDate') %}
 			<article class="dtw-project-listing">
-				<div class="dtw-project-header dtw-background-{{ project.color }}">
-					<div class="dtw-title">
-						<a href="{{ '/' ~ project.path }}">{{ project.title }}</a>
-					</div>
-					<div class="dtw-subtitle">{{ project.startDate | date }} - {{ project.endDate | date }}</div>
+				<div class="dtw-type">{{ project.type }}</div>
+				<div class="dtw-title">
+					<a href="{{ '/' ~ project.path }}">{{ project.title }}</a>
+				</div>
+				<div class="dtw-subtitle">
+				<span>{{ project.startDate | date }}</span>{% if project.endDate %} - <span>{{ project.endDate | date }}{% endif %}</span>
 				</div>
 				<div class="dtw-description">{{ project.contents | safe }}</div>
+				<div class="dtw-project-links">
+					{% if project.sourceLink %}
+						<a href="{{ project.sourceLink }}">View Source</a>
+					{% endif %}
+					{% if project.visitLink %}
+						<a href="{{ project.visitLink }}">Visit Website</a>
+					{% endif %}
+				</div>
 			</article>
 		{% endfor %}
 	</div>

@@ -14,27 +14,44 @@
 }
 
 .dtw-project-listing {
-	.dtw-project-header {
-		padding: $project-padding;
-	}
-
 	margin-bottom: $project-margin;
 
+	.dtw-type {
+		text-transform: uppercase;
+		color: $project-listing-type;
+	}
+
+	// Make the title bigger and with appropriate colour.
 	.dtw-title {
 		font-size: map-get($font-sizes, 'largest');
-		font-weight: 600;
-		margin-bottom: $project-margin / 8;
 
 		a {
-			color: inherit;
+			color: $project-listing-title;
+		}
+	}
+
+	// Add subtitle colour - has two tones.
+	.dtw-subtitle {
+		color: $project-listing-subtitle;
+
+		span {
+			color: $project-listing-subtitle-alt;
 		}
 	}
 
 	.dtw-description {
-		padding: 0.5em;
-		font-family: $mono-font-stack;
-		color: darken(#fff, 30%);
+		// Give the description some space.
+		margin: ($project-margin / 4) 0;
+	}
 
+	.dtw-project-links {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		a {
+			margin-right: $project-margin;
+		}
 	}
 
 	@media (min-width: map-get($breakpoints, laptop-sm)) {
