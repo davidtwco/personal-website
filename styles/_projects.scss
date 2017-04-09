@@ -54,7 +54,7 @@
 		}
 	}
 
-	@media (min-width: map-get($breakpoints, laptop-sm)) {
+	@media (min-width: map-get($breakpoints, 'laptop-sm')) {
 		width: calc(50% - #{$project-margin * 2});
 
 		&:nth-child(even) {
