@@ -1,6 +1,51 @@
 {% extends "layouts/navigation.njk" %}
 
+{% block title %}{{ title }} - {{ getLabCollection(ancestry.self) | capitalize }} - {{ site.title }}{% endblock %}
 {% block content %}
-	<h1>Lab Template</h1>
-	{{ contents | safe }}
+	<div class="dtw-entry-header">
+		<div class="dtw-title">
+			{{ title }}
+		</div>
+		<div class="dtw-subtitle">
+			Last updated on <span>{{ lastUpdated | date }}</span>, with <span>{{ wordCount }}</span> words (approx reading time of <span>{{ readingTime }}</span>).
+		</div>
+	</div>
+	<div class="dtw-entry">
+		<div class="dtw-sidebar">
+			{% for item in ancestry.parent.ancestry.members %}
+				<section class="dtw-sidebar-section">
+					<div class="dtw-title"><a href="{{ item.path }}">{{ item.title }}</a></div>
+				</section>
+			{% endfor %}
+			{% for collection, items in ancestry.siblings | groupby(getLabCollection) %}
+				<section class="dtw-sidebar-section">
+					<div class="dtw-title">{{ collection }}</div>
+					{% if collection === getLabCollection(ancestry.self) %}
+						{% for item in ancestry.members | sort (false, false, 'title') %}
+							<article class="dtw-sidebar-entry">
+								{% if item.path === path %}
+									{{ item.title }}
+								{% else %}
+									<a href="{{ item.path }}">{{ item.title }}</a>
+								{% endif %}
+							</article>
+						{% endfor %}
+					{% else %}
+						{% for item in items | sort (false, false, 'title') %}
+							<article class="dtw-sidebar-entry">
+								{% if item.path === path %}
+									{{ item.title }}
+								{% else %}
+									<a href="{{ item.path }}">{{ item.title }}</a>
+								{% endif %}
+							</article>
+						{% endfor %}
+					{% endif %}
+				</section>
+			{% endfor %}
+		</div>
+		<div class="dtw-entry-content">
+			{{ contents | safe }}
+		</div>
+	</div>
 {% endblock %}

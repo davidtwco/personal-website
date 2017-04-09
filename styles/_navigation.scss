@@ -64,6 +64,9 @@ nav {
 	// Take up remaining space apart from navigation.
 	flex: 2;
 
+	// Take up the full width available.
+	width: 100%;
+
 	// Position child elements using Flexbox.
 	display: flex;
 	flex-direction: column;
