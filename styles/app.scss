@@ -68,6 +68,12 @@ a > i {
 		font-weight: 600;
 	}
 
+	@include media-breakpoint-down(md) {
+		.dtw-right-navigation {
+			display: none;
+		}
+	}
+
 	ul {
 		display: inline-block;
 	}
