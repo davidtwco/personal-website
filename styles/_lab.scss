@@ -27,6 +27,8 @@
 }
 
 .dtw-lab-item-listing {
+	margin-bottom: $wiki-margin;
+
 	// Make the title bigger and with appropriate colour.
 	.dtw-title {
 		font-size: map-get($font-sizes, 'largest');
