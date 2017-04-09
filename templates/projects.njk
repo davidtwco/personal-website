@@ -2,24 +2,23 @@
 
 {% block content %}
 	{% include "includes/section_introduction.njk" %}
-	<div class="dtw-projects">
-		<!--- 'projects' is a global property added by metalsmith-collections --!>
+	<div class="row dtw-projects">
 		{% for project in projects | sort(true, false, 'startDate') %}
-			<article class="dtw-project-listing">
-				<div class="dtw-type">{{ project.type }}</div>
-				<div class="dtw-title">{{ project.title }}</div>
-				<div class="dtw-subtitle">
-				<span>{{ project.startDate | date }}</span>{% if project.endDate %} - <span>{{ project.endDate | date }}{% endif %}</span>
-				</div>
-				<div class="dtw-description">{{ project.content | safe }}</div>
-				<div class="dtw-project-links">
+			<article class="col-6 dtw-project-listing">
+				<h5 class="dtw-type">{{ project.type }}</h5>
+				<h1 class="dtw-title">{{ project.title }}</h1>
+				<h4 class="dtw-subtitle">
+					<span>{{ project.startDate | date }}</span>{% if project.endDate %} - <span>{{ project.endDate | date }}{% endif %}</span>
+				</h4>
+				<p class="dtw-description">{{ project.content | safe }}</p>
+				<ul class="list-unstyled list-inline">
 					{% if project.sourceLink %}
-						<a href="{{ project.sourceLink }}">View Source</a>
+						<li class="list-inline-item"><a href="{{ project.sourceLink }}">View Source</a></li>
 					{% endif %}
 					{% if project.visitLink %}
-						<a href="{{ project.visitLink }}">Visit Website</a>
+						<li class="list-inline-item"><a href="{{ project.visitLink }}">Visit Website</a></li>
 					{% endif %}
-				</div>
+				</ul>
 			</article>
 		{% endfor %}
 	</div>

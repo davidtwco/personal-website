@@ -68,9 +68,9 @@
     "nunjucks-date": "^1.2.0"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
     "moment": "^2.18.1",
-    "node-font-awesome": "^1.0.2",
-    "normalize.css": "^6.0.0"
+    "node-font-awesome": "^1.0.2"
   },
   "settings": {
     "meta": {

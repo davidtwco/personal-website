@@ -5,26 +5,34 @@
 	{% set sortedItems = lab | sort(false, false, 'title') %}
 	{% set sectionedItems = sortedItems | filter(isBaseLabCollection, true) %}
 	{% set nonSectionedItems = sortedItems | filter(isBaseLabCollection, false) %}
-	<div class="dtw-lab-items">
-		<div class="dtw-title">Standalone Items</div>
-		{% for item in nonSectionedItems %}
-			<article class="dtw-lab-item-listing">
-				<a href="{{ '/' ~ item.path }}">
-					<div class="dtw-title">{{ item.title }}</div>
-					<div class="dtw-subtitle">Last updated on <span>{{ item.lastUpdated | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).</div>
-				</a>
-			</article>
-		{% endfor %}
-	</div>
-	<div class="dtw-lab-section-items">
-		{% for section, items in sectionedItems | groupby(getLabCollection) %}
-			<section class="dtw-lab-group dtw-lab-group-{{ section }}">
-				<div class="dtw-title">{{ section }}</div>
-				{% for item in items %}
-					<article class="dtw-lab-item-listing">
+	<div class="row dtw-lab-section">
+		<div class="col">
+			<h5 class="dtw-type">Standalone Items</h5>
+			{% for item in nonSectionedItems %}
+				<article class="row dtw-lab-item">
+					<div class="col">
 						<a href="{{ '/' ~ item.path }}">
-							<div class="dtw-title">{{ item.title }}</div>
-							<div class="dtw-subtitle">Last updated on <span>{{ item.lastUpdated | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).</div>
+							<h1 class="dtw-title">{{ item.title }}</h1>
+							<h5 class="dtw-subtitle">
+								Last updated on <span>{{ item.lastUpdated | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).
+							</h5>
+						</a>
+					</div>
+				</article>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="row dtw-lab-section">
+		{% for section, items in sectionedItems | groupby(getLabCollection) %}
+			<section class="col-4">
+				<h5 class="dtw-type">{{ section }}</h5>
+				{% for item in items %}
+					<article class="dtw-lab-item">
+						<a href="{{ '/' ~ item.path }}">
+							<h1 class="dtw-title">{{ item.title }}</h1>
+							<h5 class="dtw-subtitle">
+								Last updated on <span>{{ item.lastUpdated | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).
+							</h5>
 						</a>
 					</article>
 				{% endfor %}

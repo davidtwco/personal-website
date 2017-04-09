@@ -1,93 +1,205 @@
-// Import libraries.
+// Variables
+$body-color: #fff;
+$body-bg: #141414;
+
+$brand-primary: #e74c3c;
+$brand-primary-light: lighten($brand-primary, 20%);
+
+$font-family-monospace:  "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$category: darken($body-color, 60%);
+$title: $body-color;
+$subtitle: darken($body-color, 40%);
+$subtitle-alt: darken($body-color, 20%);
+
+$navigation-item: #aaa;
+$navigation-item-hover: #ccc;
+
+$margin: 2rem;
+$padding: 1rem;
+
+$font-size-base: 1rem;
+
+$link-hover-decoration: none;
+$line-height-base: 1;
+
+$headings-font-weight: normal;
+
+$font-size-h1: 2rem !default;
+$font-size-h2: 1.75rem !default;
+$font-size-h3: 1.5rem !default;
+$font-size-h4: 1.25rem !default;
+$font-size-h5: 1.15rem !default;
+
+// Imports
 @import "font-awesome";
-@import "normalize";
+@import "bootstrap-reboot";
+@import "bootstrap-grid";
+@import "type"; // from Bootstrap
 
-// Load modules.
+// Modules
 @import "fonts";
-@import "backgrounds";
-@import "navigation";
-@import "homepage";
-@import "projects";
-@import "writings";
-@import "lab";
 
-// Load variables.
-@import "variables";
-
-// Hide the underscore from links.
-a {
-	color: $accent;
-	text-decoration: none;
-
-	&:hover {
-		color: lighten($accent, 10%);
-	}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: $headings-font-weight;
 }
 
-body {
-	// Set the correct default colours.
-	background: $background;
-	color: $foreground;
-
-	// Set a sane default font stack.
-	font-family: $font-stack;
-
-	// Remove default margin.
-	margin: 0 ($padding * 3);
-
-	@media (max-width: map-get($breakpoints, 'mobile-lg')) {
-		margin: 0 $padding;
-	}
+a > i {
+	margin-right: 0.5em;
 }
 
-.dtw-container {
-	// Add some margin for the content.
-	margin: 0 auto;
-	width: 100%;
-
-	// Limit width.
-	max-width: map-get($breakpoints, 'laptop-sm');
-
-	// Position child elements using Flexbox.
+.dtw-homepage {
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-}
 
-.dtw-section-introduction {
-	// Use the mono font and accent colour.
-	font-family: $mono-font-stack;
-	margin-bottom: $margin * 2;
-	margin-top: $margin;
-	margin-left: $margin * 1.5;
-	margin-right: $margin * 1.5;
-	color: $section-header-subtitle;
-
-	.dtw-title {
-		color: $section-header-title;
-		font-size: map-get($font-sizes, 'larger');
+	.dtw-introduction {
+		flex: 1;
 	}
 }
 
-.dtw-entry-header {
-	margin: $margin 0;
+.dtw-navigation {
+	padding: ($padding * 2) 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 
-	.dtw-title {
-		text-align: center;
-		font-size: map-get($font-sizes, 'largest');
-		color: $wiki-listing-title;
-		margin-bottom: $wiki-margin / 8;
+	.dtw-home-navigation {
+		font-weight: 600;
 	}
 
-	.dtw-subtitle {
-		text-align: center;
-		color: $wiki-listing-subtitle;
-		margin-bottom: $wiki-margin;
+	ul {
+		display: inline-block;
+	}
 
-		span {
-			color: $wiki-listing-subtitle-alt;
+	li {
+		margin-left: $margin / 2;
+		margin-right: $margin / 2;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	a {
+		color: $navigation-item;
+
+		&:hover {
+			color: $navigation-item-hover;
 		}
 	}
 }
 
+.dtw-introduction {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	// Switch to Roboto Mono.
+	font-family: $font-family-monospace;
+
+	// Limit width so text wraps.
+	max-width: map-get($grid-breakpoints, md);
+
+	font-size: 2em;
+
+	.dtw-title {
+		font-size: 2em;
+	}
+
+	.dtw-type {
+		font-size: 1em;
+		margin-bottom: 0;
+	}
+
+	.dtw-description {
+		color: $subtitle-alt;
+		font-weight: 300;
+		margin: $margin 0;
+	}
+}
+
+.dtw-homepage-links {
+	padding: ($padding * 2) 0;
+
+	a {
+		color: $navigation-item;
+		margin-right: 1em;
+
+		&:hover {
+			color: $navigation-item-hover;
+		}
+	}
+}
+
+.dtw-section-introduction {
+	// Use the mono font and accent colour.
+	font-family: $font-family-monospace;
+	color: $subtitle;
+	margin: $margin 0 ($margin * 2) $margin;
+
+	.dtw-title {
+		color: $subtitle-alt;
+	}
+}
+
+.dtw-title {
+	color: $title;
+
+	a {
+		color: $title;
+	}
+}
+
+.dtw-type {
+	text-transform: uppercase;
+	color: $category;
+	margin-bottom: $margin / 4;
+}
+
+.dtw-subtitle {
+	color: $subtitle;
+
+	span {
+		color: $subtitle-alt;
+	}
+}
+
+.dtw-lab-section {
+	margin: ($margin * 2) 0;
+}
+
+.dtw-lab-item {
+	margin-bottom: $margin;
+}
+
+.dtw-entry-header {
+	text-align: center;
+	margin: $margin 0 ($margin * 2) $margin;
+}
+
+.dtw-sidebar-section {
+	margin-bottom: $margin / 2;
+
+	& > .dtw-type > a {
+		color: $category;
+
+		&:hover {
+			color: $subtitle;
+		}
+	}
+}
+
+.dtw-sidebar-entry {
+	padding-left: $padding / 2;
+	color: $brand-primary;
+	margin-bottom: $margin / 4;
+
+	.dtw-active {
+		font-weight: 600;
+	}
+}

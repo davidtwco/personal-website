@@ -204,7 +204,7 @@ export function styles() {
 		.pipe(sass({
 			includePaths: [
 				fontAwesome.scssPath,
-				'./node_modules/normalize.css/'
+				'./node_modules/bootstrap/scss/'
 			]
 		}).on('error', sass.logError))
 		.pipe(autoprefixer({

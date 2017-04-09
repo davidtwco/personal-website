@@ -2,13 +2,14 @@
 
 {% block content %}
 	{% include "includes/section_introduction.njk" %}
-	<div class="dtw-writings">
-		<!--- 'writings' is a global property added by metalsmith-collections --!>
+	<div class="row">
 		{% for writing in writings %}
-			<article class="dtw-writing-listing">
+			<article class="col">
 				<a href="{{ '/' ~ writing.path }}">
-					<div class="dtw-title">{{ writing.title }}</div>
-					<div class="dtw-subtitle">Written on <span>{{ writing.date | date }}</span>, with <span>{{ writing.wordCount }}</span> words (approx reading time of <span>{{ writing.readingTime }}</span>).</div>
+					<h1 class="dtw-title">{{ writing.title }}</h1>
+					<h4 class="dtw-subtitle">
+						Written on <span>{{ writing.date | date }}</span>, with <span>{{ writing.wordCount }}</span> words (approx reading time of <span>{{ writing.readingTime }}</span>).
+					</h4>
 				</a>
 			</article>
 		{% endfor %}

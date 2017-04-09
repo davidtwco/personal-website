@@ -1,13 +1,15 @@
 {% extends "layouts/navigation.njk" %}
 
 {% block content %}
-	<div class="dtw-entry-header">
-		<div class="dtw-title">
-			{{ title }}
+	<div class="row dtw-entry-header">
+		<div class="col-12">
+			<h1 class="dtw-title">
+				{{ title }}
+			</h1>
 		</div>
 	</div>
-	<div class="dtw-entry">
-		<div class="dtw-entry-content">
+	<div class="row">
+		<div class="col-12">
 			{{ contents | safe }}
 		</div>
 	</div>
