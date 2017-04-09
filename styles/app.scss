@@ -77,3 +77,24 @@ body {
 	}
 }
 
+.dtw-entry-header {
+	margin: $margin 0;
+
+	.dtw-title {
+		text-align: center;
+		font-size: map-get($font-sizes, 'largest');
+		color: $wiki-listing-title;
+		margin-bottom: $wiki-margin / 8;
+	}
+
+	.dtw-subtitle {
+		text-align: center;
+		color: $wiki-listing-subtitle;
+		margin-bottom: $wiki-margin;
+
+		span {
+			color: $wiki-listing-subtitle-alt;
+		}
+	}
+}
+
