@@ -97,10 +97,18 @@
 			}
 		}
 
+		@media (max-width: map-get($breakpoints, 'laptop-sm')) {
+			display: none;
+		}
 	}
 
 	.dtw-entry-content {
 		margin-left: $wiki-margin / 2;
 		width: calc(#{percentage(4/5)} - #{$wiki-margin / 2});
+
+		@media (max-width: map-get($breakpoints, 'laptop-sm')) {
+			margin-left: 0;
+			width: 100%;
+		}
 	}
 }
