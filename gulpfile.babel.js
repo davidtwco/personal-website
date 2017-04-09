@@ -60,20 +60,18 @@ function formatDate(string) {
 	};
 }
 
-function getLabCollection(obj) {
-	let index = obj.paths.dir.indexOf('/');
-	if (index === -1) return obj.paths.dir;
-
-	return obj.paths.dir.substring(index + 1);
-}
-
 const clean = () => del(pkg.settings.clean);
 export { clean };
 
 export function metalsmith(callback) {
 	let environment = new nunjucks.Environment(new nunjucks.FileSystemLoader(pkg.settings.src.layouts));
 	environment.addFilter('date', nunjucksDate);
-	environment.addGlobal('getLabCollection', getLabCollection);
+	environment.addGlobal('getLabCollection', function (obj) {
+		let index = obj.paths.dir.indexOf('/');
+		if (index === -1) return obj.paths.dir;
+
+		return obj.paths.dir.substring(index + 1);
+	});
 
 	const m = Metalsmith(__dirname)
 		.metadata(pkg.settings.meta)
