@@ -1,9 +1,23 @@
 @import "variables";
 
-.dtw-lab-items {
+.dtw-lab-section-items {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+}
+
+.dtw-lab-items {
+	display: flex;
+	flex-direction: column;
+
+	& > .dtw-title {
+		text-transform: uppercase;
+		color: $wiki-section-header;
+		margin-bottom: $wiki-margin / 4;
+	}
+
+	margin-bottom: $wiki-margin * 2;
+	margin-left: $wiki-margin / 2;
 }
 
 .dtw-lab-group {

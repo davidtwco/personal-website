@@ -66,6 +66,16 @@ export { clean };
 export function metalsmith(callback) {
 	let environment = new nunjucks.Environment(new nunjucks.FileSystemLoader(pkg.settings.src.layouts));
 	environment.addFilter('date', nunjucksDate);
+	environment.addFilter('filter', function(objs, fn, negate = false) {
+		if (objs.constructor !== Array) return objs;
+
+		if (negate)
+			return objs.filter((obj) => !fn(obj));
+		return objs.filter(fn);
+	});
+	environment.addGlobal('isBaseLabCollection', function(obj) {
+		return obj.paths.dir.indexOf('/') === -1;
+	});
 	environment.addGlobal('getLabCollection', function (obj) {
 		let index = obj.paths.dir.indexOf('/');
 		if (index === -1) return obj.paths.dir;
