@@ -49,13 +49,21 @@ nav {
 
 		// Space the icons out from the text.
 		i {
-			margin-right: $navigation-item-margin;
+			margin-right: $navigation-icon-margin;
 		}
 
 		// Add a underline on hover.
 		&:hover {
 			border-bottom: 1px solid $accent;
 			color: $navigation-item-selected-foreground;
+		}
+
+		&.dtw-bold-navigation {
+			color: lighten($navigation-item-foreground, 10%);
+
+			&:hover {
+				color: lighten($navigation-item-selected-foreground, 10%);
+			}
 		}
 	}
 }

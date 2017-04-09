@@ -70,8 +70,8 @@ $mono-font-stack: "Roboto Mono", $font-stack;
 
 // Navigation
 $navigation-padding: $padding * 2;
-$navigation-item-margin: $margin / 4;
-$navigation-icon-margin: $navigation-item-margin;
+$navigation-item-margin: $margin / 2;
+$navigation-icon-margin: $navigation-item-margin / 2;
 $navigation-item-foreground: #aaa;
 $navigation-item-selected-foreground: #ccc;
 
