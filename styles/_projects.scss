@@ -7,13 +7,15 @@
 	flex-direction: column;
 
 	// On small devices, layout in a column with no wrapping.
-	@media (min-width: map-get($breakpoints, 'laptop-sm')) {
+	@media (min-width: map-get($breakpoints, 'tablet')) {
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
 }
 
 .dtw-project-listing {
+	margin-left: $project-margin / 2;
+	margin-right: $project-margin / 2;
 	margin-bottom: $project-margin;
 
 	.dtw-type {
@@ -54,17 +56,7 @@
 		}
 	}
 
-	@media (min-width: map-get($breakpoints, 'laptop-sm')) {
-		width: calc(50% - #{$project-margin * 2});
-
-		&:nth-child(even) {
-			margin-right: 0;
-			margin-left: $project-margin / 2;
-		}
-
-		&:nth-child(odd) {
-			margin-left: 0;
-			margin-right: $project-margin / 2;
-		}
+	@media (min-width: map-get($breakpoints, 'tablet')) {
+		width: calc(50% - #{$project-margin});
 	}
 }
