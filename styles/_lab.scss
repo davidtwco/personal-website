@@ -83,6 +83,10 @@
 	display: flex;
 	flex-direction: row;
 
+	.dtw-current {
+		font-weight: 600;
+	}
+
 	.dtw-sidebar {
 		margin-top: $wiki-margin / 2;
 		margin-right: $wiki-margin / 2;
@@ -94,7 +98,7 @@
 
 		.dtw-sidebar-entry {
 			padding-left: $wiki-padding / 2;
-			color: $wiki-listing-subtitle-alt;
+			color: $accent;
 			margin-bottom: $wiki-margin / 4;
 		}
 

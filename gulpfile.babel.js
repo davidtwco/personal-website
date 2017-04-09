@@ -66,6 +66,9 @@ export { clean };
 export function metalsmith(callback) {
 	let environment = new nunjucks.Environment(new nunjucks.FileSystemLoader(pkg.settings.src.layouts));
 	environment.addFilter('date', nunjucksDate);
+	environment.addFilter('evaluate', function(obj, fn) {
+		return fn(obj);
+	});
 	environment.addFilter('filter', function(objs, fn, negate = false) {
 		if (objs.constructor !== Array) return objs;
 
