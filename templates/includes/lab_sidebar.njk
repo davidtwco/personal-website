@@ -1,0 +1,22 @@
+{% for item in ancestry.parent.ancestry.members %}
+	<section class="dtw-sidebar-section">
+		<div class="dtw-title">
+			<a href="{{ '/' ~ item.path }}">{{ item.title }}</a>
+		</div>
+	</section>
+{% endfor %}
+{% for collection, items in ancestry.siblings | groupby(getLabCollection) %}
+	<section class="dtw-sidebar-section">
+		<div class="dtw-title">{{ collection }}</div>
+		{% set itemsInCollection = items[0].ancestry.members %}
+		{% for item in itemsInCollection | sort (false, false, 'title') %}
+			<article class="dtw-sidebar-entry">
+				{% if item.path === path %}
+					{{ item.title }}
+				{% else %}
+					<a href="{{ '/' ~ item.path }}">{{ item.title }}</a>
+				{% endif %}
+			</article>
+		{% endfor %}
+	</section>
+{% endfor %}

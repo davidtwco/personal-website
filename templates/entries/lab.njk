@@ -12,37 +12,7 @@
 	</div>
 	<div class="dtw-entry">
 		<div class="dtw-sidebar">
-			{% for item in ancestry.parent.ancestry.members %}
-				<section class="dtw-sidebar-section">
-					<div class="dtw-title"><a href="{{ item.path }}">{{ item.title }}</a></div>
-				</section>
-			{% endfor %}
-			{% for collection, items in ancestry.siblings | groupby(getLabCollection) %}
-				<section class="dtw-sidebar-section">
-					<div class="dtw-title">{{ collection }}</div>
-					{% if collection === getLabCollection(ancestry.self) %}
-						{% for item in ancestry.members | sort (false, false, 'title') %}
-							<article class="dtw-sidebar-entry">
-								{% if item.path === path %}
-									{{ item.title }}
-								{% else %}
-									<a href="{{ item.path }}">{{ item.title }}</a>
-								{% endif %}
-							</article>
-						{% endfor %}
-					{% else %}
-						{% for item in items | sort (false, false, 'title') %}
-							<article class="dtw-sidebar-entry">
-								{% if item.path === path %}
-									{{ item.title }}
-								{% else %}
-									<a href="{{ item.path }}">{{ item.title }}</a>
-								{% endif %}
-							</article>
-						{% endfor %}
-					{% endif %}
-				</section>
-			{% endfor %}
+			{% include "includes/lab_sidebar.njk" %}
 		</div>
 		<div class="dtw-entry-content">
 			{{ contents | safe }}
