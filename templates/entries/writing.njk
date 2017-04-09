@@ -1,6 +1,17 @@
 {% extends "layouts/navigation.njk" %}
 
 {% block content %}
-	<h1>Writing Template</h1>
-	{{ contents | safe }}
+	<div class="dtw-entry-header">
+		<div class="dtw-title">
+			{{ title }}
+		</div>
+		<div class="dtw-subtitle">
+			Written on <span>{{ date | date }}</span>, with <span>{{ wordCount }}</span> words (approx reading time of <span>{{ readingTime }}</span>).
+		</div>
+	</div>
+	<div class="dtw-entry">
+		<div class="dtw-entry-content">
+			{{ contents | safe }}
+		</div>
+	</div>
 {% endblock %}
