@@ -111,7 +111,16 @@ a > i {
 	// Limit width so text wraps.
 	max-width: map-get($grid-breakpoints, md);
 
+	// Set the base font size for child elements.
 	font-size: 2em;
+
+	@include media-breakpoint-down(md) {
+		font-size: 1.75em;
+	}
+
+	@include media-breakpoint-down(sm) {
+		font-size: 1.5em;
+	}
 
 	.dtw-title {
 		font-size: 2em;
