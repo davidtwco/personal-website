@@ -7,7 +7,6 @@
 }
 
 .dtw-lab-group {
-	width: calc(33% - #{$wiki_margin});
 	margin-left: $wiki-margin / 2;
 	margin-right: $wiki-margin / 2;
 	margin-bottom: $wiki-margin;
@@ -16,6 +15,14 @@
 		text-transform: uppercase;
 		color: $wiki-section-header;
 		margin-bottom: $wiki-margin / 4;
+	}
+
+	@media (min-width: map-get($breakpoints, 'tablet')) {
+		width: calc(50% - #{$wiki-margin});
+	}
+
+	@media (min-width: map-get($breakpoints, 'laptop-sm')) {
+		width: calc(33% - #{$wiki-margin});
 	}
 }
 
