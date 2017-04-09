@@ -7,9 +7,7 @@
 		{% for project in projects | sort(true, false, 'startDate') %}
 			<article class="dtw-project-listing">
 				<div class="dtw-type">{{ project.type }}</div>
-				<div class="dtw-title">
-					<a href="{{ '/' ~ project.path }}">{{ project.title }}</a>
-				</div>
+				<div class="dtw-title">{{ project.title }}</div>
 				<div class="dtw-subtitle">
 				<span>{{ project.startDate | date }}</span>{% if project.endDate %} - <span>{{ project.endDate | date }}{% endif %}</span>
 				</div>

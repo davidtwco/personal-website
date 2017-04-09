@@ -21,11 +21,13 @@
 	.dtw-type {
 		text-transform: uppercase;
 		color: $project-listing-type;
+		margin-bottom: $project-margin / 4;
 	}
 
 	// Make the title bigger and with appropriate colour.
 	.dtw-title {
 		font-size: map-get($font-sizes, 'largest');
+		margin-bottom: $project-margin / 8;
 
 		a {
 			color: $project-listing-title;
@@ -52,6 +54,7 @@
 		flex-wrap: wrap;
 
 		a {
+			font-weight: 600;
 			margin-right: $project-margin;
 		}
 	}
