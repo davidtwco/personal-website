@@ -10,15 +10,39 @@ nav {
 	// Position child elements using Flexbox.
 	display: flex;
 	flex-direction: row;
+	justify-content: flex-start;
 	padding: $navigation-padding 0;
 
-	// By default, take up all available space.
-	justify-content: space-between;
+	.dtw-navigation-items {
+		display: flex;
+		flex-direction: row;
+		flex: 1;
+		justify-content: space-between;
+	}
+
+	@media (max-width: map-get($breakpoints, 'mobile-lg')) {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.dtw-nav-home {
+			margin-right: 0;
+		}
+	}
 
 	// Hide the right navigation items on mobile devices.
-	@media (max-width: map-get($breakpoints, 'mobile-lg')) {
+	@media (max-width: map-get($breakpoints, 'tablet')) {
 		.dtw-right-navigation {
 			display: none;
+		}
+	}
+
+	.dtw-nav-home {
+		color: lighten($navigation-item-foreground, 20%);
+		margin-right: $navigation-item-margin * 2;
+
+		&:hover {
+			color: lighten($navigation-item-selected-foreground, 20%);
 		}
 	}
 
@@ -56,14 +80,6 @@ nav {
 		&:hover {
 			border-bottom: 1px solid $accent;
 			color: $navigation-item-selected-foreground;
-		}
-
-		&.dtw-bold-navigation {
-			color: lighten($navigation-item-foreground, 10%);
-
-			&:hover {
-				color: lighten($navigation-item-selected-foreground, 10%);
-			}
 		}
 	}
 }

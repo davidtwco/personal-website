@@ -8,6 +8,9 @@
 	right: 0;
 	left: 0;
 
+	// Add margins.
+	margin: 0 ($padding * 3);
+
 	// Make the page take the full height.
 	display: flex;
 	justify-content: center;

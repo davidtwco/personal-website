@@ -33,27 +33,20 @@ body {
 	font-family: $font-stack;
 
 	// Remove default margin.
-	margin: 0;
+	margin: 0 ($padding * 3);
 
-	// Layout children using Flexbox.
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	@media (max-width: map-get($breakpoints, 'mobile-lg')) {
+		margin: 0 $padding;
+	}
 }
 
 .dtw-container {
-	// Add some padding for the content.
-	padding: 0 ($padding * 3);
+	// Add some margin for the content.
+	margin: 0 auto;
+	width: 100%;
 
 	// Limit width.
 	max-width: map-get($breakpoints, 'laptop-sm');
-
-	// If the screen is at least 'laptop-sm' wide, then
-	// force the content to be at least that wide.
-	@media (min-width: map-get($breakpoints, 'laptop-sm')) {
-		min-width: map-get($breakpoints, 'laptop-sm');
-	}
 
 	// Position child elements using Flexbox.
 	display: flex;

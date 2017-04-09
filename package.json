@@ -81,18 +81,10 @@
       },
       "navigation": [
         {
-          "title": "David Wood",
-          "link": "/",
-          "hidden": false,
-          "bold": true,
-          "left": true
-        },
-        {
           "title": "Projects",
           "icon": "desktop",
           "link": "/projects",
           "hidden": false,
-          "bold": false,
           "left": true
         },
         {
@@ -100,7 +92,6 @@
           "icon": "pencil",
           "link": "/writings",
           "hidden": false,
-          "bold": false,
           "left": true
         },
         {
@@ -108,7 +99,6 @@
           "icon": "flask",
           "link": "/lab",
           "hidden": false,
-          "bold": false,
           "left": true
         },
         {
@@ -116,7 +106,6 @@
           "icon": "envelope-o",
           "link": "mailto:hello@davidtw.co",
           "hidden": false,
-          "bold": false,
           "left": false
         }
       ],
