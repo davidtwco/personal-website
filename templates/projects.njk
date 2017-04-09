@@ -4,7 +4,7 @@
 	{% include "includes/section_introduction.njk" %}
 	<div class="row dtw-projects">
 		{% for project in projects | sort(true, false, 'startDate') %}
-			<article class="col-6 dtw-project-listing">
+			<article class="col-12 col-md-6 dtw-project-listing">
 				<h5 class="dtw-type">{{ project.type }}</h5>
 				<h1 class="dtw-title">{{ project.title }}</h1>
 				<h4 class="dtw-subtitle">

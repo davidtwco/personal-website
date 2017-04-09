@@ -6,7 +6,7 @@
 	{% set sectionedItems = sortedItems | filter(isBaseLabCollection, true) %}
 	{% set nonSectionedItems = sortedItems | filter(isBaseLabCollection, false) %}
 	<div class="row dtw-lab-section">
-		<div class="col">
+		<div class="col-12">
 			<h5 class="dtw-type">Standalone Items</h5>
 			{% for item in nonSectionedItems %}
 				<article class="row dtw-lab-item">
@@ -24,7 +24,7 @@
 	</div>
 	<div class="row dtw-lab-section">
 		{% for section, items in sectionedItems | groupby(getLabCollection) %}
-			<section class="col-4">
+			<section class="col-12 col-sm-6 col-md-4">
 				<h5 class="dtw-type">{{ section }}</h5>
 				{% for item in items %}
 					<article class="dtw-lab-item">
