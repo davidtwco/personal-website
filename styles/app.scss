@@ -192,7 +192,8 @@ nav {
 	// Use the mono font and accent colour.
 	font-family: $font-family-monospace;
 	color: $subtitle;
-	margin: $margin 0 ($margin * 2) $margin;
+	margin: $margin 0 ($margin * 2) 0;
+    padding: 0 $margin;
 
 	.dtw-title {
 		color: $subtitle-alt;
