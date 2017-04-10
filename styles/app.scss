@@ -278,6 +278,15 @@ nav {
 	margin: $margin 0 ($margin * 2) 0;
 }
 
+.dtw-entry {
+	justify-content: center;
+
+	div:not(.dtw-lab-sidebar) {
+		max-width: 650px;
+		line-height: 1.5;
+	}
+}
+
 .dtw-sidebar-section {
 	margin-bottom: $margin / 2;
 
