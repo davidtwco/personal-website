@@ -184,7 +184,7 @@ nav {
 	.dtw-description {
 		color: $subtitle-alt;
 		font-weight: 300;
-		margin: $margin 0;
+		margin-top: $margin;
 	}
 }
 
@@ -193,7 +193,7 @@ nav {
 	font-family: $font-family-monospace;
 	color: $subtitle;
 	margin: $margin 0 ($margin * 2) 0;
-    padding: 0 $margin;
+	padding: 0 $margin;
 
 	.dtw-title {
 		color: $subtitle-alt;
@@ -255,7 +255,7 @@ nav {
 }
 
 .dtw-lab-sidebar {
-    margin-bottom: $margin;
+	margin-bottom: $margin;
 }
 
 .dtw-entry-header {
@@ -282,5 +282,5 @@ nav {
 }
 
 .dtw-active {
-    font-weight: 600;
+	font-weight: 600;
 }
