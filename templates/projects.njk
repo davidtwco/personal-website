@@ -16,10 +16,10 @@
 				<div class="dtw-description">{{ project.content | safe }}</div>
 				<ul class="list-unstyled list-inline">
 					{% if project.sourceLink %}
-						<li class="list-inline-item"><a href="{{ project.sourceLink }}">View Source</a></li>
+						<li class="list-inline-item"><a class="dtw-{{ project.color }}" href="{{ project.sourceLink }}">View Source</a></li>
 					{% endif %}
 					{% if project.visitLink %}
-						<li class="list-inline-item"><a href="{{ project.visitLink }}">Visit Website</a></li>
+						<li class="list-inline-item"><a class="dtw-{{ project.color }}" href="{{ project.visitLink }}">Visit Website</a></li>
 					{% endif %}
 				</ul>
 			</article>
