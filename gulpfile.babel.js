@@ -116,7 +116,10 @@ export function metalsmith(callback) {
 		.use(paths({ property: 'paths' }))
 		.use(relativeLinks())
 		.use(ancestry())
-		.use(markdown())
+		.use(markdown({
+			gfm: true,
+			tables: true
+		}))
 		.use(untemplatize({ key: 'content' }))
 		.use(excerpts())
 		.use(feed({
