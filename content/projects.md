@@ -2,4 +2,4 @@
 title: Projects
 layout: projects.njk
 ---
-Take a look at all the projects I've completed below.
+Check out all of the projects I've worked on below.
