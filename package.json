@@ -115,22 +115,22 @@
       "links": [
         {
           "name": "GitLab",
-          "icon": "fa-gitlab",
+          "icon": "gitlab",
           "link": "https://gitlab.com/davidtwco"
         },
         {
           "name": "GitHub",
-          "icon": "fa-github",
+          "icon": "github",
           "link": "https://github.com/davidtwco"
         },
         {
           "name": "Keybase",
-          "icon": "fa-key",
+          "icon": "key",
           "link": "https://keybase.io/davidtwco"
         },
         {
           "name": "LinkedIn",
-          "icon": "fa-linkedin",
+          "icon": "linkedin",
           "link": "https://www.linkedin.com/in/davidtwco"
         }
       ]
