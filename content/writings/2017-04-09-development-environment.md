@@ -1,5 +1,6 @@
 ---
 title: Windows Development Environment
+draft: true
 date: 2017-04-09
 tags:
   - Bash on Windows
