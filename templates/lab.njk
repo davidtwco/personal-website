@@ -6,8 +6,8 @@
 	{% set sectionedItems = sortedItems | filter(isBaseLabCollection, true) %}
 	{% set nonSectionedItems = sortedItems | filter(isBaseLabCollection, false) %}
 	<div class="row dtw-lab-section">
-		<div class="col-12">
-			<h5 class="dtw-type">Standalone Items</h5>
+		<div class="col-12{% if not nonSectionedItems | length %} dtw-no-entries{% endif %}">
+			<h5 class="dtw-type">Standalone Experiments</h5>
 			{% for item in nonSectionedItems %}
 				<article class="row dtw-lab-item">
 					<div class="col">
@@ -19,6 +19,8 @@
 						</a>
 					</div>
 				</article>
+			{% else %}
+				<p>There aren't any standalone experiments just now, check back later.</p>
 			{% endfor %}
 		</div>
 	</div>
@@ -37,6 +39,11 @@
 					</article>
 				{% endfor %}
 			</section>
+		{% else %}
+			<div class="col-12 dtw-no-entries">
+				<h5 class="dtw-type">Categories</h5>
+				<p>There aren't any lab categories just now, check back later.</p>
+			</div>
 		{% endfor %}
 	</div>
 {% endblock %}
