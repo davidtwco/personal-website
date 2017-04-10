@@ -74,6 +74,10 @@ a > i {
 	margin-right: 0.5em;
 }
 
+hr {
+	border-top: 1px solid rgba(255, 255, 255, .25);
+}
+
 @each $name, $color in $colours {
 	.dtw-#{$name} {
 		color: $color;
