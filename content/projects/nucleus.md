@@ -1,6 +1,6 @@
 ---
 title: Nucleus
-type: University Project
+type: University Group Project
 startDate: 2017-01-01
 endDate: 2017-03-01
 color: belizehole

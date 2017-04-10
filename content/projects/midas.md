@@ -1,9 +1,9 @@
 ---
 title: MIDAS
-type: Personal Website
+type: Consulting (Polaroid Eyewear)
 startDate: 2014-06-01
 endDate: 2015-03-01
-color: orange
+color: pumpkin
 tags:
   - C#
   - ASP.NET

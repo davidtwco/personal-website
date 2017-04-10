@@ -1,6 +1,6 @@
 ---
 title: West Dunbartonshire Leisure 10K
-type: Consulting
+type: Consulting (West Dunbartonshire Leisure)
 startDate: 2016-12-01
 endDate: 2017-02-01
 color: wisteria
