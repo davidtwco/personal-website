@@ -19,7 +19,10 @@
 						<li class="list-inline-item"><a class="dtw-{{ project.color }}" href="{{ project.sourceLink }}">View Source</a></li>
 					{% endif %}
 					{% if project.visitLink %}
-						<li class="list-inline-item"><a class="dtw-{{ project.color }}" href="{{ project.visitLink }}">Visit Website</a></li>
+						<li class="list-inline-item"><a class="dtw-{{ project.color }}" href="{{ project.visitLink }}">Visit Project</a></li>
+					{% endif %}
+					{% if project.paperLink %}
+						<li class="list-inline-item"><a class="dtw-{{ project.color }}" href="{{ project.paperLink }}">View Paper</a></li>
 					{% endif %}
 				</ul>
 			</article>
