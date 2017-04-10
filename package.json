@@ -77,7 +77,8 @@
       "site": {
         "title": "David Wood",
         "url": "https://davidtw.co",
-        "description": "Personal website of David Wood"
+        "description": "Personal website of David Wood",
+        "showNetlifyNotice": true
       },
       "navigation": [
         {

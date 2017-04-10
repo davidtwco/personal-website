@@ -10,11 +10,22 @@
 			<div class="dtw-description">{{ contents | safe }}</div>
 		</div>
 		<nav class="dtw-homepage-links">
-			<ul class="list-unstyled list-inline">
+			<ul class="list-unstyled list-inline dtw-left-navigation">
 				{% for link in links %}
-					<li class="list-inline-item"><a href="{{ link.link }}"><i class="fa fa-{{ link.icon }}"></i> {{ link.name }}</a></li>
+					<li class="list-inline-item">
+						<a href="{{ link.link }}">
+							<i class="fa fa-{{ link.icon }}"></i> {{ link.name }}
+						</a>
+					</li>
 				{% endfor %}
 			</ul>
+			{% if site.showNetlifyNotice %}
+				<ul class="list-unstyled list-inline dtw-right-navigation">
+					<li class="list-inline-item">
+						<a class="dtw-netlify-notice" href="https://netlify.com">Hosted by Netlify</a>
+					</li>
+				</ul>
+			{% endif %}
 		</nav>
 	</div>
 {% endblock %}
