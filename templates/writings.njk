@@ -3,12 +3,12 @@
 {% block content %}
 	{% include "includes/section_introduction.njk" %}
 	<div class="row">
-		{% for writing in writings %}
-			<article class="col">
-				<a href="{{ '/' ~ writing.path }}">
-					<h1 class="dtw-title">{{ writing.title }}</h1>
+		{% for item in writings | sort(true, false, 'date') %}
+			<article class="col-12 dtw-writing-listing">
+				<a href="{{ '/' ~ item.path }}">
+					<h1 class="dtw-title">{{ item.title }}</h1>
 					<h4 class="dtw-subtitle">
-						Written on <span>{{ writing.date | date }}</span>, with <span>{{ writing.wordCount }}</span> words (approx reading time of <span>{{ writing.readingTime }}</span>).
+						Written on <span>{{ item.date | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).
 					</h4>
 				</a>
 			</article>
