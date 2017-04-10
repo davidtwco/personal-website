@@ -98,7 +98,7 @@
           "title": "Lab",
           "icon": "flask",
           "link": "/lab",
-          "hidden": false,
+          "hidden": true,
           "left": true
         },
         {
