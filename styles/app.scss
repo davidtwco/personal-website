@@ -88,6 +88,10 @@ a > i {
 		flex: 1;
 		min-height: 450px;
 	}
+
+	@include media-breakpoint-down(sm) {
+		height: 90vh;
+	}
 }
 
 nav {
