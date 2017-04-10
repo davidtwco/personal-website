@@ -50,6 +50,7 @@
     "metalsmith-ancestry": "^1.2.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-branch": "0.0.5",
+    "metalsmith-code-highlight": "0.0.3",
     "metalsmith-collections": "^0.9.0",
     "metalsmith-collections-addmeta": "0.1.0-alpha",
     "metalsmith-drafts": "0.0.1",

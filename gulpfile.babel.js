@@ -31,6 +31,7 @@ import alias from 'metalsmith-alias';
 import assets from 'metalsmith-assets';
 import ancestry from 'metalsmith-ancestry';
 import branch from 'metalsmith-branch';
+import codeHighlight from 'metalsmith-code-highlight';
 import collections from 'metalsmith-collections';
 import drafts from 'metalsmith-drafts';
 import excerpts from 'metalsmith-excerpts';
@@ -147,6 +148,7 @@ export function metalsmith(callback) {
 			directory: pkg.settings.src.layouts,
 			nunjucksEnv: environment
 		}))
+		.use(codeHighlight())
 		.use(assets({
 			source: pkg.settings.assets,
 			dest: '.'
@@ -207,7 +209,8 @@ export function styles() {
 		.pipe(sass({
 			includePaths: [
 				fontAwesome.scssPath,
-				'./node_modules/bootstrap/scss/'
+				'./node_modules/bootstrap/scss/',
+				'./node_modules/highlight.js/styles/'
 			]
 		}).on('error', sass.logError))
 		.pipe(autoprefixer({
