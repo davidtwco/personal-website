@@ -5,7 +5,7 @@ startDate: 2016-05-01
 color: greensea
 sourceLink: https://gitlab.com/davidtwco/dotfiles
 tags:
-  - YADM
+  - yadm
   - bash
   - zsh
   - Git
