@@ -285,6 +285,7 @@ nav {
 
 .dtw-entry {
 	justify-content: center;
+	padding-bottom: $margin * 2;
 
 	div:not(.dtw-lab-sidebar) {
 		max-width: 650px;
