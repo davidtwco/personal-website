@@ -36,6 +36,7 @@ $font-size-h5: 1.15rem !default;
 @import "bootstrap-reboot";
 @import "bootstrap-grid";
 @import "type"; // from Bootstrap
+@import "images"; // from Bootstrap
 
 // Modules
 @import "fonts";
@@ -170,16 +171,20 @@ nav {
 
 .dtw-title {
 	color: $title;
+	margin-bottom: ($margin / 4);
 
 	a {
 		color: $title;
 	}
 }
 
+.dtw-cover {
+	margin-bottom: $margin / 2;
+}
+
 .dtw-type {
 	text-transform: uppercase;
 	color: $category;
-	margin-bottom: $margin / 4;
 }
 
 .dtw-subtitle {
@@ -190,8 +195,16 @@ nav {
 	}
 }
 
+.dtw-description {
+	margin: ($margin / 2) 0;
+}
+
 .dtw-project-listing {
 	margin-bottom: $margin;
+
+	.dtw-type {
+		margin-bottom: 0;
+	}
 }
 
 .dtw-no-entries {

@@ -172,7 +172,7 @@ export function favicon() {
 }
 
 export function images() {
-	const outputPath = path.join(__dirname, pkg.settings.assets, 'images');
+	const outputPath = path.join(__dirname, pkg.settings.assets);
 	return gulp.src([
 			pkg.settings.src.images + '**/*'
 		], {since: gulp.lastRun(images)})
