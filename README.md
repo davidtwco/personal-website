@@ -3,6 +3,9 @@ My new, improved personal website featuring projects, writings and a personal wi
 
 I wanted to make something that was simple, fast and low maintenance while still being flexible enough to be built upon in future.
 
+## Future Enhancements
+- CV/Resume Generation
+
 ## How does this all work then?
 Here's a [link to the website in this repository's post](https://davidtw.co/writings/2017/rebuilding-my-portfolio/) describing how I made this.
 
