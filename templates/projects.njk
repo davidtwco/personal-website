@@ -11,7 +11,7 @@
 				<h5 class="dtw-type">{{ project.type }}</h5>
 				<h1 class="dtw-title">{{ project.title }}</h1>
 				<h5 class="dtw-subtitle">
-					<span>{{ project.startDate | date }}</span>{% if project.endDate %} - <span>{{ project.endDate | date }}{% endif %}</span>
+					<span>{{ project.startDate | date("MMMM YYYY") }}</span>{% if project.endDate %} - <span>{{ project.endDate | date("MMMM YYYY") }}{% endif %}</span>
 				</h5>
 				<div class="dtw-description">{{ project.content | safe }}</div>
 				<ul class="list-unstyled list-inline">
