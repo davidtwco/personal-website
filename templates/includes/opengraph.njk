@@ -13,6 +13,6 @@
 {% endif %}
 <meta property="og:url" content="{{ site.url ~ '/' ~ path }}" />
 <meta property="og:image" content="{{ site.url ~ '/images/davidtwco-cover.jpg' }}" />
-<meta property="og:description" content="{{ excerpt | striptags }}" />
+<meta property="og:description" content="{{ excerpt | striptags | unescape }}" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:site_name" content="{{ site.title }}" />

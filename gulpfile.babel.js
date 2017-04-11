@@ -46,6 +46,9 @@ import permalinks from 'metalsmith-permalinks';
 import untemplatize from 'metalsmith-untemplatize';
 import wordCount from 'metalsmith-word-count';
 
+// Misc
+import escaper from 'true-html-escape';
+
 // Nunjucks
 import nunjucks from 'nunjucks';
 import nunjucksDate from 'nunjucks-date';
@@ -67,6 +70,7 @@ export { clean };
 export function metalsmith(callback) {
 	let environment = new nunjucks.Environment(new nunjucks.FileSystemLoader(pkg.settings.src.layouts));
 	environment.addFilter('date', nunjucksDate);
+	environment.addFilter('unescape', escaper.unescape);
 	environment.addFilter('evaluate', function(obj, fn) {
 		return fn(obj);
 	});
