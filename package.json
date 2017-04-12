@@ -1,12 +1,12 @@
 {
-  "name": "davidwood.io",
+  "name": "davidtw.co",
   "version": "1.0.0",
   "description": "New, improved personal website featuring projects, writings and personal wiki.",
   "private": true,
   "engines": {
     "node": "^6.6.0"
   },
-  "main": "Gulpfile.js",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "build": "gulp",
     "serve": "gulp serve"
