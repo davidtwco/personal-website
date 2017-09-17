@@ -3,10 +3,12 @@ title: dotfiles
 type: Configuration
 startDate: 2016-05-01
 color: greensea
+cover: dotfiles-cover.jpg
 sourceLink: https://gitlab.com/davidtwco/dotfiles
 tags:
   - yadm
   - bash
+  - zsh
   - zsh
   - Git
   - Weechat
