@@ -1,8 +1,35 @@
+// Colors
+$colours: (
+	torquoise: #1abc9c,
+	greensea: #16a085,
+	emerland: #2ecc71,
+	nephritis: #27ae60,
+	peterriver: #3498db,
+	belizehole: #2980b9,
+	amethyst: #9b59b6,
+	wisteria: #8e44ad,
+	wetasphalt: #34495e,
+	midnightblue: #2c3e50,
+	sunflower: #f1c40f,
+	orange: #f39c12,
+	carrot: #e67e22,
+	pumpkin: #d35400,
+	alizarin: #e74c3c,
+	pomegranate: #c0392b,
+	clouds: #ecf0f1,
+	silver: #bdc3c7,
+	concrete: #95a5a6,
+	asbestos: #7f8c8d
+);
+
 // Variables
 $body-color: #fff;
 $body-bg: #141414;
 
-$brand-primary: #e74c3c;
+$theme-colors: (
+	primary: map-get($colours, alizarin)
+);
+$brand-primary: map-get($colours, alizarin);
 $brand-primary-light: lighten($brand-primary, 20%);
 
 $font-family-monospace:  "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
@@ -30,30 +57,6 @@ $font-size-h2: 1.75rem !default;
 $font-size-h3: 1.5rem !default;
 $font-size-h4: 1.25rem !default;
 $font-size-h5: 1.15rem !default;
-
-// Colors
-$colours: (
-	torquoise: #1abc9c,
-	greensea: #16a085,
-	emerland: #2ecc71,
-	nephritis: #27ae60,
-	peterriver: #3498db,
-	belizehole: #2980b9,
-	amethyst: #9b59b6,
-	wisteria: #8e44ad,
-	wetasphalt: #34495e,
-	midnightblue: #2c3e50,
-	sunflower: #f1c40f,
-	orange: #f39c12,
-	carrot: #e67e22,
-	pumpkin: #d35400,
-	alizarin: #e74c3c,
-	pomegranate: #c0392b,
-	clouds: #ecf0f1,
-	silver: #bdc3c7,
-	concrete: #95a5a6,
-	asbestos: #7f8c8d
-);
 
 // Imports
 @import "font-awesome";
