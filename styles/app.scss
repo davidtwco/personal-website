@@ -192,3 +192,7 @@ $colours: (
 .dtw-align-right {
     text-align: right;
 }
+
+#dtw-writing {
+    color: darken($textColour, 20%);
+}
