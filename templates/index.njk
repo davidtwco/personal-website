@@ -21,7 +21,7 @@
         </div>
         <div id="dtw-content">
             <section class="dtw-section">
-                <h1 class="dtw-section-title">Current Projects</h1>
+                <h1 class="dtw-section-title">Current</h1>
                 {% for project in projects | selectattr('ongoing') | sort(true, false, 'startDate') %}
                     {% include "includes/project.njk" %}
                 {% else %}
@@ -29,7 +29,7 @@
                 {% endfor %}
             </section>
             <section class="dtw-section">
-                <h1 class="dtw-section-title">Previous Projects</h1>
+                <h1 class="dtw-section-title">Previous</h1>
                 {% for project in projects | rejectattr('ongoing') | sort(true, false, 'startDate') %}
                     {% include "includes/project.njk" %}
                 {% else %}
