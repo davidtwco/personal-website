@@ -81,15 +81,6 @@ export function metalsmith(callback) {
             return objs.filter((obj) => !fn(obj));
         return objs.filter(fn);
     });
-    environment.addGlobal('isBaseLabCollection', function(obj) {
-        return obj.paths.dir.indexOf('/') === -1;
-    });
-    environment.addGlobal('getLabCollection', function (obj) {
-        let index = obj.paths.dir.indexOf('/');
-        if (index === -1) return obj.paths.dir;
-
-        return obj.paths.dir.substring(index + 1);
-    });
 
     const m = Metalsmith(__dirname)
         .metadata(pkg.settings.meta)
