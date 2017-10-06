@@ -1,11 +1,14 @@
 ---
 title: Relay.sc
-type: Side Project
 startDate: 2016-07-01
 endDate: 2016-11-01
-color: orange
-cover: relay-cover.jpg
+ongoing: false
+
 visitLink: https://relay.sc
+
+type: Side Project
+typeColour: peterriver
+
 tags:
   - Craft CMS
   - PHP

@@ -1,9 +1,12 @@
 ---
 title: MIDAS
-type: Consulting (Polaroid Eyewear)
 startDate: 2014-06-01
 endDate: 2015-03-01
-color: pumpkin
+ongoing: false
+
+type: Consulting with Polaroid Eyewear
+typeColour: emerland
+
 tags:
   - C#
   - ASP.NET

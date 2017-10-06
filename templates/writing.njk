@@ -1,0 +1,18 @@
+{% extends "layouts/base.njk" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div id="dtw-container">
+        <div id="dtw-header">
+            <div class="dtw-item">
+                <h1 class="dtw-item-title dtw-animated">{{ title }}</h1>
+                <h5 class="dtw-item-subtitle dtw-animated">Written on {{ date | date }}, with {{ wordCount }} words (approx reading time of {{ readingTime }}). </h5>
+            </div>
+        </div>
+        <div id="dtw-content">
+            <article class="dtw-section">
+                {{ contents | safe }}
+            </article>
+        </div>
+    </div>
+{% endblock %}

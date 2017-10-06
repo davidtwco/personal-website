@@ -1,11 +1,14 @@
 ---
 title: Nucleus
-type: University Group Project
 startDate: 2017-01-01
 endDate: 2017-03-01
-color: belizehole
-cover: nucleus-cover.jpg
+ongoing: false
+
 sourceLink: https://gitlab.com/devine-industries/nucleus
+
+type: University Group Project
+typeColour: amethyst
+
 tags:
   - Python
   - Django

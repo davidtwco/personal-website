@@ -1,12 +1,15 @@
 ---
 title: davidtw.co
-type: Personal Website
 startDate: 2017-03-01
 endDate: 2017-04-01
-color: alizarin
-cover: davidtwco-cover.jpg
+ongoing: false
+
 sourceLink: https://gitlab.com/davidtwco/personal-website
 visitLink: https://davidtw.co
+
+type: Personal Website
+typeColour: peterriver
+
 tags:
   - JavaScript
   - Gulp 4

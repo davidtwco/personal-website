@@ -2,30 +2,55 @@
 
 {% block title %}{{ site.title }}{% endblock %}
 {% block body %}
-	<div class="container dtw-homepage">
-		{% include "includes/navigation.njk" %}
-		<div class="dtw-introduction">
-			<h4 class="dtw-type">{{ subtitle }}</h4>
-			<h1 class="dtw-title">{{ title }}</h1>
-			<div class="dtw-description">{{ contents | safe }}</div>
-		</div>
-		<nav class="dtw-homepage-links">
-			<ul class="list-unstyled list-inline dtw-left-navigation">
-				{% for link in links %}
-					<li class="list-inline-item">
-						<a href="{{ link.link }}">
-							<i class="fa fa-{{ link.icon }}"></i> {{ link.name }}
-						</a>
-					</li>
-				{% endfor %}
-			</ul>
-			{% if site.showNetlifyNotice %}
-				<ul class="list-unstyled list-inline dtw-right-navigation">
-					<li class="list-inline-item">
-						<a class="dtw-netlify-notice" href="https://netlify.com">Hosted by Netlify</a>
-					</li>
-				</ul>
-			{% endif %}
-		</nav>
-	</div>
+    <div id="dtw-container">
+        <div id="dtw-header">
+            <div class="dtw-item-header">
+                <h1 class="dtw-item-title dtw-animated">{{ title }}</h1>
+                <h4 class="dtw-item-subtitle dtw-animated">{{ subtitle }}</h4>
+            </div>
+            <div class="dtw-animated">{{ contents | safe }}</div>
+            <ul class="dtw-links dtw-align-center">
+                {% for link in links %}
+                    <li>
+                        <a href="{{ link.link }}">
+                            <i class="fa fa-{{ link.icon }}"></i> {{ link.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="dtw-content">
+            <section class="dtw-section">
+                <h1 class="dtw-section-title">Current Projects</h1>
+                {% for project in projects | selectattr('ongoing') | sort(true, false, 'startDate') %}
+                    {% include "includes/project.njk" %}
+                {% else %}
+                    <p>There aren't any projects here just now, check back later.</p>
+                {% endfor %}
+            </section>
+            <section class="dtw-section">
+                <h1 class="dtw-section-title">Previous Projects</h1>
+                {% for project in projects | rejectattr('ongoing') | sort(true, false, 'startDate') %}
+                    {% include "includes/project.njk" %}
+                {% else %}
+                    <p>There aren't any projects here just now, check back later.</p>
+                {% endfor %}
+            </section>
+            <section class="dtw-section">
+                <h1 class="dtw-section-title">Writings</h1>
+                {% for item in writings | sort(true, false, 'date') %}
+                    <article class="dtw-item">
+                        <a class="dtw-item-header" href="{{ '/' ~ item.path }}">
+                            <h1 class="dtw-item-title">{{ item.title }}</h1>
+                            <h5 class="dtw-item-subtitle">
+                                Written on <span>{{ item.date | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).
+                            </h5>
+                        </a>
+                    </article>
+                {% else %}
+                    <p>There aren't any writings just now, check back later.</p>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
 {% endblock %}

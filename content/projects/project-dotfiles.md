@@ -1,10 +1,12 @@
 ---
 title: dotfiles
-type: Configuration
-startDate: 2016-05-01
-color: greensea
-cover: dotfiles-cover.jpg
+ongoing: false
+
 sourceLink: https://gitlab.com/davidtwco/dotfiles
+
+type: Development Environment Configuration
+typeColour: peterriver
+
 tags:
   - yadm
   - bash

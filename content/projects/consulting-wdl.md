@@ -1,11 +1,14 @@
 ---
 title: West Dunbartonshire Leisure 10K
-type: Consulting (West Dunbartonshire Leisure)
 startDate: 2016-12-01
 endDate: 2017-02-01
-color: wisteria
-cover: wdl-cover.jpg
+ongoing: false
+
 visitLink: https://wdleisure-10k.net
+
+type: Consulting with West Dunbartonshire Leisure
+typeColour: emerland
+
 tags:
   - Jekyll
   - Ruby

@@ -1,10 +1,14 @@
 ---
 title: Relay Discord Bot
-type: Side Project
 startDate: 2016-03-01
 endDate: 2016-05-01
-color: nephritis
+ongoing: false
+
 sourceLink: https://github.com/RelaySC/relay-bot
+
+type: Side Project
+typeColour: peterriver
+
 tags:
   - JavaScript
   - Discordie

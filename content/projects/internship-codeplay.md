@@ -1,10 +1,12 @@
 ---
 title: Intern Build Engineer at Codeplay
-type: Internship (Codeplay Software)
 startDate: 2017-05-22
 endDate: 2017-09-14
-color: emerland
-cover: codeplayintern-cover.jpg
+ongoing: false
+
+type: Internship at Codeplay Software
+typeColour: emerland
+
 tags:
   - foreman
   - puppet

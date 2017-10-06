@@ -1,20 +1,22 @@
 <!doctype html>
 <html class="no-js" lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>{% block title %}{% if title %}{{ title }} - {% endif %}{{ site.title }}{% endblock %}</title>
+        <title>{% block title %}{% if title %}{{ title }} - {% endif %}{{ site.title }}{% endblock %}</title>
 
-		{% include "includes/favicons.njk" %}
-		{% include "includes/opengraph.njk" %}
+        {% include "includes/favicons.njk" %}
+        {% include "includes/opengraph.njk" %}
 
-		<link rel="stylesheet" href="/styles/app.min.css">
+        <link rel="stylesheet" href="/styles/app.min.css">
 
-		{% block head %}{% endblock %}
-	</head>
-	<body>
-		{% block body %}{% endblock %}
-	</body>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+        <script type="text/javascript" src="/scripts/app.min.js"></script>
+    </body>
 </html>

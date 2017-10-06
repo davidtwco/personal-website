@@ -1,0 +1,25 @@
+<article class="dtw-item">
+    <div class="dtw-item-header">
+        <h5 class="dtw-item-subtitle">
+            <span class="dtw-{{ project.typeColour }}">{{ project.type }}</span>{% if project.startDate %} - {{ project.startDate | date("MMMM YYYY") }}{% if project.endDate %} to {{ project.endDate | date("MMMM YYYY") }}{% endif %}{% endif %}
+        </h5>
+        <h1 class="dtw-item-title">{{ project.title }}</h1>
+    </div>
+    <div class="dtw-item-description dtw-links-{{ project.typeColour }}">{{ project.content | safe }}</div>
+    <ul class="dtw-links dtw-muted">
+        {% for tag in project.tags %}
+            <li>#{{ tag | lower | replace(' ', '-') }}</li>
+        {% endfor %}
+    </ul>
+    <ul class="dtw-links dtw-align-right">
+        {% if project.sourceLink %}
+            <li><a class="dtw-{{ project.typeColour }}" href="{{ project.sourceLink }}">View Source</a></li>
+        {% endif %}
+        {% if project.visitLink %}
+            <li><a class="dtw-{{ project.typeColour }}" href="{{ project.visitLink }}">Visit Project</a></li>
+        {% endif %}
+        {% if project.paperLink %}
+            <li><a class="dtw-{{ project.typeColour }}" href="{{ project.paperLink }}">View Paper</a></li>
+        {% endif %}
+    </ul>
+</article>

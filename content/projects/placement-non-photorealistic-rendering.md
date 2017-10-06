@@ -1,10 +1,14 @@
 ---
 title: Non-Photorealistic Rendering
-type: Nuffield Placement (Glasgow Caledonian University)
 startDate: 2014-05-01
 endDate: 2014-07-01
-color: emerland
+ongoing: false
+
 sourceLink: https://gitlab.com/davidtwco/nuffield-computer-vision
+
+type: Nuffield Placement at Glasgow Caledonian University
+typeColour: sunflower
+
 tags:
   - C++
   - OpenCV

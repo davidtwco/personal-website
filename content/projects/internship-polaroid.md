@@ -1,9 +1,12 @@
 ---
 title: Sports Warehouse Performance Tracker and Inventory Manager
-type: Internship (Polaroid Eyewear)
 startDate: 2015-04-01
 endDate: 2015-07-01
-color: peterriver
+ongoing: false
+
+type: Internship with Polaroid Eyewear
+typeColour: emerland
+
 tags:
   - C#
   - WPF
