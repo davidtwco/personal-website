@@ -1,5 +1,5 @@
 # davidtw.co
-My new, improved personal website featuring projects, writings and a personal wiki (just notes and stuff, nothing *that* interesting). Built using Metalsmith and deployed on Netlify.
+My new, improved personal website featuring projects and writings. Built using Metalsmith and deployed on Netlify.
 
 I wanted to make something that was simple, fast and low maintenance while still being flexible enough to be built upon in future.
 
@@ -15,5 +15,5 @@ If you want to run this website locally, you'll need to start by cloning the rep
 ```
 $ git clone https://gitlab.com/davidtwco/personal-website.git
 $ npm install
-$ npm run serve
+$ gulp serve
 ```
