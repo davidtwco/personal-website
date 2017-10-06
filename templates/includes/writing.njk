@@ -1,0 +1,17 @@
+<article class="dtw-item">
+    <div class="dtw-item-header">
+        <h1 class="dtw-item-title">{{ item.title }}</h1>
+        <h5 class="dtw-item-subtitle">
+            Written on <span>{{ item.date | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).
+        </h5>
+    </div>
+    <div class="dtw-item-description">{{ item.content | safe | truncate(400) }}</div>
+    <ul class="dtw-links dtw-muted">
+        {% for tag in item.tags %}
+            <li>#{{ tag | lower | replace(' ', '-') }}</li>
+        {% endfor %}
+    </ul>
+    <ul class="dtw-links dtw-align-right">
+        <li><a href="{{ '/' ~ item.path }}">Read</a></li>
+    </ul>
+</article>

@@ -39,14 +39,7 @@
             <section class="dtw-section">
                 <h1 class="dtw-section-title">Writings</h1>
                 {% for item in writings | sort(true, false, 'date') %}
-                    <article class="dtw-item">
-                        <a class="dtw-item-header" href="{{ '/' ~ item.path }}">
-                            <h1 class="dtw-item-title">{{ item.title }}</h1>
-                            <h5 class="dtw-item-subtitle">
-                                Written on <span>{{ item.date | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).
-                            </h5>
-                        </a>
-                    </article>
+                    {% include "includes/writing.njk" %}
                 {% else %}
                     <p>There aren't any writings just now, check back later.</p>
                 {% endfor %}
