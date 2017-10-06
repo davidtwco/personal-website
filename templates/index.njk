@@ -11,7 +11,7 @@
             <div class="dtw-animated">{{ contents | safe }}</div>
             <ul class="dtw-links dtw-align-center">
                 {% for link in links %}
-                    <li>
+                    <li class="dtw-padded">
                         <a href="{{ link.link }}">
                             <i class="fa fa-{{ link.icon }}"></i> {{ link.name }}
                         </a>
