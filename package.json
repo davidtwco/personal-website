@@ -133,6 +133,11 @@
           "name": "LinkedIn",
           "icon": "linkedin",
           "link": "https://www.linkedin.com/in/davidtwco"
+        },
+        {
+          "name": "Goodreads",
+          "icon": "book",
+          "link": "https://goodreads.com/davidtwco"
         }
       ]
     },
