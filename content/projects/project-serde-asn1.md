@@ -3,7 +3,7 @@ title: Serde Serializer and Deserializer for ASN1
 startDate: 2017-07-06
 ongoing: true
 
-sourceLink: https://github.com/davidtwco/serde-asn1https://github.com/davidtwco/serde-asn1
+sourceLink: https://github.com/davidtwco/serde-asn1
 
 type: Side Project
 typeColour: peterriver
