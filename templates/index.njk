@@ -37,6 +37,14 @@
                 {% endfor %}
             </section>
             <section class="dtw-section">
+                <h1 class="dtw-section-title">Open Source Contributions</h1>
+                {% for contrib in oss | sort(true, false, 'date') %}
+                    {% include "includes/oss.njk" %}
+                {% else %}
+                    <p>There aren't any contributions here just now, check back later.</p>
+                {% endfor %}
+            </section>
+            <section class="dtw-section">
                 <h1 class="dtw-section-title">Writings</h1>
                 {% for item in writings | sort(true, false, 'date') %}
                     {% include "includes/writing.njk" %}

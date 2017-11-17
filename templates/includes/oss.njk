@@ -1,0 +1,21 @@
+<article class="dtw-item">
+    <div class="dtw-item-header">
+        <h5 class="dtw-item-subtitle">
+            <span class="dtw-{{ contrib.colour }}">
+                <i class="fa fa-{{ contrib.icon }}"></i> {{ contrib.project }}
+            </span>
+            {{ contrib.startDate | date("MMMM YYYY") }}
+            <ul class="dtw-links dtw-muted">
+                {% for tag in contrib.tags %}
+                    <li>#{{ tag | lower | replace(' ', '-') }}</li>
+                {% endfor %}
+            </ul>
+        </h5>
+        <h1 class="dtw-item-title">{{ contrib.content | safe }}</h1>
+    </div>
+    <ul class="dtw-links dtw-align-right">
+        {% if contrib.link %}
+            <li><a class="dtw-{{ contrib.colour }}" href="{{ contrib.pullRequest }}">View Pull Request</a></li>
+        {% endif %}
+    </ul>
+</article>

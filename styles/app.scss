@@ -148,6 +148,16 @@ ul.dtw-links {
 
     .dtw-item-subtitle {
         color: $mutedColour2;
+
+        & > .dtw-links {
+            margin-top: 0;
+            margin-bottom: 0.25em;
+
+            display: inline-block;
+            float: right;
+
+            margin-left: 0.5em;
+        }
     }
 }
 

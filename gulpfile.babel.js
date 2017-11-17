@@ -98,6 +98,11 @@ export function metalsmith(callback) {
                 pattern: 'writings/**/*.md',
                 sortBy: 'date',
                 reverse: true
+            },
+            oss: {
+                pattern: 'oss/**/*.md',
+                sortBy: 'date',
+                reverse: true
             }
         }))
         .use(addMeta({
