@@ -4,7 +4,7 @@
             <span class="dtw-{{ contrib.colour }}">
                 <i class="fa fa-{{ contrib.icon }}"></i> {{ contrib.project }}
             </span>
-            {{ contrib.startDate | date("MMMM YYYY") }}
+            {{ contrib.date | date("MMMM YYYY") }}
             <ul class="dtw-links dtw-muted">
                 {% for tag in contrib.tags %}
                     <li>#{{ tag | lower | replace(' ', '-') }}</li>
