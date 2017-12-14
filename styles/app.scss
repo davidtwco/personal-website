@@ -146,6 +146,10 @@ ul.dtw-links {
         margin: 0.25em 0 0 0;
     }
 
+    .dtw-item-title {
+        line-height: 1em;
+    }
+
     .dtw-item-subtitle {
         color: $mutedColour2;
 
@@ -208,4 +212,18 @@ $colours: (
 
 #dtw-writing {
     color: darken($textColour, 20%);
+}
+
+pre {
+    background-color: darken($backgroundColour, 2%);
+    padding: 1em;
+}
+
+:not(pre) > code {
+    background-color: darken($backgroundColour, 2%);
+    padding: 0.4em 1em;
+}
+
+code > span {
+    white-space: normal;
 }
