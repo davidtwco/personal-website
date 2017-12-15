@@ -2,7 +2,7 @@
     <div class="dtw-item-header">
         <h1 class="dtw-item-title">{{ item.title }}</h1>
         <h5 class="dtw-item-subtitle">
-            Written on <span>{{ item.date | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>).
+            Written on <span>{{ item.date | date }}</span>, with <span>{{ item.wordCount }}</span> words (approx reading time of <span>{{ item.readingTime }}</span>) by {{ item.author }}.
         </h5>
     </div>
     <div class="dtw-item-description">{{ item.content | safe | truncate(400) }}</div>
