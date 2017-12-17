@@ -55,7 +55,13 @@ ArchLinux
 
 Now, we need to create a shortcut we can use to access the distro, since we don't have an `ubuntu.exe` like the Windows Store package provides for Ubuntu, we'll need to use the `bash.exe` executable found in `C:\Windows\System32`. If you run `bash.exe` normally then it'll drop you into the existing Ubuntu installation (or into Arch if you don't have an existing Ubuntu installation). If you do have an existing Ubuntu installation, you'll need to find the GUID of the new distro in order to access it.
 
-To do this, open up `regedit` and browse to `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss`, there will keys for each of the distros installed. If you click through them, you'll see a `DistributionName` key inside, find `ArchLinux` and copy the parent key, it'll look something like `{b8625d5d-1f6e-46b0-8f0e-2a143bc9fed5}`.
+To do this, open up `regedit` and browse to the following key:
+
+```ini
+HKCU\Software\Microsoft\Windows\CurrentVersion\Lxss
+```
+
+There will keys for each of the distros installed. If you click through them, you'll see a `DistributionName` key inside, find `ArchLinux` and copy the parent key, it'll look something like `{b8625d5d-1f6e-46b0-8f0e-2a143bc9fed5}`.
 
 Now, create a shortcut that points to `C:\Windows\System32\bash.exe {guid} ~`, replacing `{guid}` with the value you just found in regedit. If you want, you can remove the `~` and the prompt will open in your Windows home directory, but I prefer to work within the WSL filesystem, so `~` will start me there. You can add an icon to the shortcut in the properties for the shortcut, I threw together an icon [that you can get here](https://www.dropbox.com/sh/w3x7ajxwxig3up1/AAAnhLUctzTeAhshV7TJlqcZa?dl=0).
 

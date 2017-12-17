@@ -254,9 +254,11 @@ pre {
 
 code {
     white-space: pre-wrap;
+    word-wrap: break-word;
 
     & > span {
         word-wrap: inherit;
+        white-space: inherit;
     }
 }
 
