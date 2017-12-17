@@ -96,6 +96,7 @@ ul.dtw-links {
     display: grid;
     grid-template-areas: "header"
                          "content";
+    grid-template-columns: repeat(auto-fit, 100%);
     justify-items: center;
 }
 
@@ -147,7 +148,7 @@ ul.dtw-links {
     }
 
     .dtw-item-title {
-        line-height: 1em;
+        line-height: $lineHeight;
     }
 
     .dtw-item-subtitle {
@@ -229,6 +230,7 @@ $colours: (
 pre {
     background-color: darken($backgroundColour, 2%);
     padding: 1em;
+    overflow: scroll;
 }
 
 :not(pre) > code {
