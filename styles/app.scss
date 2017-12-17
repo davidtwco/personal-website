@@ -235,7 +235,7 @@ pre {
 
 :not(pre) > code {
     background-color: darken($backgroundColour, 2%);
-    padding: 0.4em 1em;
+    padding: 0.2em 0.5em;
 
     & span {
         color: darken($textColour, 20%) !important;
