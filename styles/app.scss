@@ -243,3 +243,48 @@ pre {
 code > span {
     white-space: normal;
 }
+
+.heading-anchor {
+    height: 20px;
+    width: 20px;
+
+    display: block;
+
+    padding-right: 6px;
+    padding-left: 30px;
+    margin-left: -30px;
+
+    cursor: pointer;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    text-decoration: none;
+    height: 100%;
+
+    background: transparent;
+    color: darken($textColour, 80%);
+
+    vertical-align: middle;
+
+    &:hover {
+        color: darken($textColour, 60%);
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+    .heading-anchor span:before {
+        content: "¶";
+
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+    }
+}

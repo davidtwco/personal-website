@@ -36,6 +36,7 @@ import collections from 'metalsmith-collections';
 import drafts from 'metalsmith-drafts';
 import excerpts from 'metalsmith-excerpts';
 import feed from 'metalsmith-feed';
+import headingsIdentifier from 'metalsmith-headings-identifier';
 import htmlMinifier from 'metalsmith-html-minifier';
 import layouts from 'metalsmith-layouts';
 import markdown from 'metalsmith-markdown';
@@ -106,7 +107,10 @@ export function metalsmith(callback) {
             }
         }))
         .use(addMeta({
-            writings: { layout: 'writing.njk' }
+            writings: {
+                layout: 'writing.njk',
+                headerLinks: true
+            }
         }))
         .use(paths({ property: 'paths' }))
         .use(relativeLinks())
@@ -116,6 +120,9 @@ export function metalsmith(callback) {
             tables: true
         }))
         .use(untemplatize({ key: 'content' }))
+        .use(headingsIdentifier({
+            allow: 'headerLinks'
+        }))
         .use(excerpts())
         .use(feed({
             collection: 'writings',
