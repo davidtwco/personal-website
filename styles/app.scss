@@ -96,7 +96,6 @@ ul.dtw-links {
     display: grid;
     grid-template-areas: "header"
                          "content";
-    grid-template-columns: repeat(auto-fit, 100%);
     justify-items: center;
 }
 
@@ -230,7 +229,6 @@ $colours: (
 pre {
     background-color: darken($backgroundColour, 2%);
     padding: 1em;
-    overflow-x: auto;
 }
 
 :not(pre) > code {
@@ -242,8 +240,12 @@ pre {
     }
 }
 
-code > span {
-    white-space: normal;
+code {
+    white-space: pre-wrap;
+
+    & > span {
+        white-space: pre-wrap;
+    }
 }
 
 .heading-anchor {
