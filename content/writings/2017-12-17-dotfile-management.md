@@ -243,8 +243,10 @@ if _has fzf && _has ag; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_DEFAULT_OPTS='
-    --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
-    --color info:108,prompt:109,spinner:108,pointer:168,marker:168
+    --color fg:242,bg:236,hl:65
+    --color fg+:15,bg+:239,hl+:108
+    --color info:108,prompt:109
+    --color spinner:108,pointer:168,marker:168
     '
 fi
 
@@ -797,13 +799,7 @@ One of the features of tmux that I don't use often, but is a lifesaver when I do
 bind S set-window-option synchronize-panes
 ```
 
-I also override the statusline that was discussed previously to show a red dot next to the window name if it currently synchronized.
-
-```ini
-# Override statusline to show if panes are synchronized.
-setw -g window-status-format "#[fg=colour7,bg=colour0] #I #[fg=colour7,bg=colour0] #W #{?pane_synchronized,⬣ ,}"
-setw -g window-status-current-format "#[fg=colour0,bg=colour8,nobold,nounderscore,noitalics]#[fg=colour15,bg=colour8] #I #[fg=colour15,bg=colour8] #W #{?pane_synchronized,#[fg=red]⬣ #[default],}#[fg=colour8,bg=colour0,nobold,nounderscore,noitalics]"
-```
+I also override the statusline that was discussed previously to show a red dot next to the window name if it currently synchronized. You can see that in [this code snippet](https://gitlab.com/davidtwco/dotfiles/blob/master/.tmux.conf#L80-81).
 
 ## Aliases
 tmux's default keybindings aren't particularly intuitive, I include the following snippet to create some more sensible bindings:
