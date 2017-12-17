@@ -2,6 +2,14 @@
 @import "hybrid"; // Code highlighting style.
 @import "fonts";
 
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 $backgroundColour: #141414;
 $textColour: #fff;
 $lineHeight: 1.5em;
@@ -13,7 +21,7 @@ $accentColour: #e74c3c;
 $sectionWidth: 45em;
 
 body {
-    padding: 1em;
+    margin: 1em;
     color: $textColour;
     background-color: $backgroundColour;
     font-family: $fontStack;
@@ -216,6 +224,7 @@ $colours: (
     h1, h2, h3, h4, h5, h6 {
         margin-top: 1.5em;
         color: $textColour;
+        line-height: $lineHeight;
     }
 
     h1 { font-size: 2.074em; }
@@ -229,6 +238,9 @@ $colours: (
 pre {
     background-color: darken($backgroundColour, 2%);
     padding: 1em;
+
+    width: calc(100vw - 2.5em);
+    max-width: 100%;
 }
 
 :not(pre) > code {
@@ -244,7 +256,7 @@ code {
     white-space: pre-wrap;
 
     & > span {
-        white-space: pre-wrap;
+        word-wrap: inherit;
     }
 }
 

@@ -335,121 +335,95 @@ fi
 Vim is my primary editor, it's probably the most configured thing in my dotfiles. There are a bunch of small miscellaneous configuration options that don't quite warrant their own section that I'll list here:
 
 ```vim
-" Vim should create hidden buffers more liberally. ie. it should not prompt when switching between open files (in buffers) when those files have changes.
-
+" Vim should create hidden buffers more liberally.
+" ie. it should not prompt when switching between
+" open files (in buffers) when those files have changes.
 set hidden
+
 " We can delete backwards over anything.
-
 set backspace=indent,eol,start
-" Map %% to the current opened file's path.
 
+" Map %% to the current opened file's path.
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<CR>
 " Map helpful commands for editing files in that directory. (leader defaults to \)
-
 map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
 
 " Enable folding.
-
 set foldenable
 " Open 10 levels of folds by default.
-
 set foldlevelstart=10
 " 10 nested folds max.
-
 set foldnestmax=10
 " Fold based on indentation (for Python)
-
 set foldmethod=indent
 
 " Increase history.
-
 set history=1000
 
 " Sets the expected modeline format.
-
 set modelines=1
 
 " Automatically reload files if changed from outside.
-
 set autoread
 
 " Highlight matches.
-
 set hlsearch
 " Highlight matches as we type.
-
 set incsearch
 " Ignore case when searching.
-
 set ignorecase
 " Don't ignore case when different cases searched for.
-
 set smartcase
 
 " Keep a minimum of 5 line below the cursor.
-
 set scrolloff=5
 " Keep a minimum of 5 columns left of the cursor.
-
 set sidescrolloff=5
 
+" Spell check!
 set spelllang=en_gb
 set spellfile=~/.vim/spell/en-gb.utf-8.add
 
 " Turn on wildmenu for file name tab completion.
-
 set wildmode=longest,list,full
 set wildmenu
 
-" This should make pressing ESC more responsive. Alternative to `set esckeys` as this breaks sequences in INSERT mode that uses ESC.
-
+" This should make pressing ESC more responsive.
+" Alternative to `set esckeys` as this breaks
+" sequences in INSERT mode that uses ESC.
 set timeoutlen=250 ttimeoutlen=0
 
 " Show ruler.
-
 set ruler
 " Show incomplete commands.
-
 set showcmd
 " Highlight the current line.
-
 set nocursorline
 " Lazy redraw.
-
 set lazyredraw
 " Line Numbers
-
 set number
 " Display messages for changes (ie. yank, delete, etc.)
-
 set report=0
 " Show matching brackets.
-
 set showmatch
 " Matching bracket duration.
-
 set mat=5
 " Shut up, Vim.
-
 set visualbell
 " Always show the status line.
-
 set laststatus=2
 " Use Relative Line Numbers.
-
 set relativenumber
 " Don't display '-- INSERT --', handled by statusline.
-
 set noshowmode
 " Colour 40 columns after column 80.
-
 let &colorcolumn="100,".join(range(140, 1000, 40), ",")
 
 " Display the tab characters and end of line characters.
-
 set list
 set listchars=tab:▸\ ,eol:¬
 ```
@@ -463,54 +437,41 @@ I think the most used plugins in any Vim user's toolbelt are going to be the var
 
 ```vim
 " Comments.
-
 Plug 'tpope/vim-commentary'
 
 " Improvements to netrw.
-
 Plug 'tpope/vim-vinegar'
 
 " Git wrapper.
-
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Detect indentation heuristically.
-
 Plug 'tpope/vim-sleuth'
 
 " Word variation helper.
-
 Plug 'tpope/vim-abolish'
 " Improve '.' (repeat) for plugin maps.
-
 Plug 'tpope/vim-repeat'
 " Get character codes.
-
 Plug 'tpope/vim-characterize'
 
 if has("unix")
     " Unix helpers
-
     Plug 'tpope/vim-eunuch'
 endif
 
 " Functions that interact with tmux.
-
 Plug 'tpope/vim-tbone'
 
 " Session Saving
-
 Plug 'tpope/vim-obsession'
 
 " Handy bracket matchings.
-
 Plug 'tpope/vim-unimpaired'
 " Surroundings ("", '', {}, etc.).
-
 Plug 'tpope/vim-surround'
 " Auto-adds 'end' where appropriate.
-
 Plug 'tpope/vim-endwise'
 ```
 
@@ -518,11 +479,9 @@ All of the above are great, in particular [vim-surround](https://github.com/tpop
 
 ```vim
 " Autocomplete
-
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " Add handy bindings for You Complete Me subcommands.
-
 nnoremap <leader>fi :YcmCompleter FixIt<CR>
 nnoremap <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <leader>gt :YcmCompleter GetType<CR>
@@ -530,7 +489,6 @@ nnoremap <leader>gp :YcmCompleter GetParent<CR>
 nnoremap <leader>sd :YcmShowDetailedDiagnostic<CR>
 
 " Do not confirm usage of .ycm_extra_conf.py
-
 let g:ycm_confirm_extra_conf = 0
 ```
 
@@ -538,7 +496,6 @@ let g:ycm_confirm_extra_conf = 0
 
 ```vim
 " Linting
-
 Plug 'w0rp/ale'
 
 let g:ale_echo_msg_error_str = 'E'
@@ -556,17 +513,13 @@ nmap <C-n> <Plug>(ale_next_wrap)
 
 ```vim
 " Show Git changes.
-
 Plug 'mhinz/vim-signify'
 
 " Specify which VCS to check for.
-
 let g:signify_vcs_list = [ 'git' ]
 " Work in near-realtime.
-
 let g:signify_realtime = 1
 " Disable two of the sign update methods as they write the buffer.
-
 let g:signify_cursorhold_normal = 0
 let g:signify_cursorhold_insert = 0
 
@@ -576,7 +529,6 @@ let g:signify_cursorhold_insert = 0
 
 ```vim
 " Colour Schemes
-
 Plug 'w0ng/vim-hybrid'
 ```
 
@@ -587,7 +539,6 @@ There are a handful of helper functions that I include in my Vim configuration. 
 
 ```vim
 " Strip trailing whitespace on saving a file.
-
 function! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -601,7 +552,6 @@ The next function is used to toggle paste mode. I'm always using paste mode when
 
 ```vim
 " Toggle between paste and no paste.
-
 function! TogglePaste()
     if(&paste == 1)
         set nopaste
@@ -618,7 +568,6 @@ Recently I started using relative line numbering, in order to ease the switch, I
 
 ```vim
 " Toggle between absolute line numbers and relative line numbers.
-
 function! ToggleNumber()
     if(&relativenumber == 1)
         set norelativenumber
@@ -643,13 +592,11 @@ nnoremap <leader>pc :Commits<CR>
 nnoremap <leader>pb :Buffers<CR>
 
 " Mapping selecting mappings
-
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
 " Insert mode completion
-
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
@@ -695,52 +642,42 @@ The modifications enable long filepaths to be shortened, for example, `content/w
 ```vim
 function! LightlineFilename()
     " Get the full path of the current file.
-
     let filepath =  expand('%:p')
     let modified = &modified ? ' +' : ''
 
     " If the filename is empty, then display nothing as appropriate.
-
     if empty(filepath)
         return '[No Name]' . modified
     endif
 
     " Find the correct expansion depending on whether Vim has autochdir.
-
     let mod = (exists('+acd') && &acd) ? ':~' : ':~:.'
 
     " Apply the above expansion to the expanded file path and split by the separator.
-
     let shortened_filepath = fnamemodify(filepath, mod)
     if len(shortened_filepath) < 45
         return shortened_filepath.modified
     endif
 
     " Ensure that we have the correct slash for the OS.
-
     let dirsep = has('win32') && ! &shellslash ? '\\' : '/'
 
     " Check if the filepath was shortened above.
-
     let was_shortened = filepath != shortened_filepath
 
     " Split the filepath.
-
     let filepath_parts = split(shortened_filepath, dirsep)
 
     " Take the first character from each part of the path (except the tidle and filename).
-
     let initial_position = was_shortened ? 0 : 1
     let excluded_parts = filepath_parts[initial_position:-2]
     let shortened_paths = map(excluded_parts, 'v:val[0]')
 
     " Recombine the shortened paths with the tilde and filename.
-
     let combined_parts = shortened_paths + [filepath_parts[-1]]
     let combined_parts = (was_shortened ? [] : [filepath_parts[0]]) + combined_parts
 
     " Recombine into a single string.
-
     let finalpath = join(combined_parts, dirsep)
     return finalpath . modified
 endfunction
@@ -764,17 +701,16 @@ endfunction
 I don't like losing my edit history in Vim when resuming an editor session, but I also don't like dealing with `*.swp` files everywhere. However, one of the main issues with changing the swap or undo directories is that you become vulnerable to filename conflicts between projects - which is quite common when you've got files like `package.json` or `Cargo.toml`. This can be remedied if you end a path with `//` - Vim replaces this will the entire path to the file being edited - no more collisions.
 
 ```vim
-" If a path ends in '//' then the swap file name is built from the entire path. No more issues between projects.
+" If a path ends in '//' then the swap file name is
+" built from the entire path. No more issues between projects.
 
 " Change swap directory.
-
 if isdirectory($HOME . '/.vim/swap') == 0
     call mkdir($HOME . '/.vim/swap', 'p')
 endif
 set directory=~/.vim/swap//
 
 " Change backup directory.
-
 if isdirectory($HOME . '/.vim/backup') == 0
     call mkdir($HOME . '/.vim/backup', 'p')
 endif
@@ -782,7 +718,6 @@ set backupdir=~/.vim/backup//
 
 if exists('+undofile')
     " Change undo directory.
-
     if isdirectory($HOME . '/.vim/undo') == 0
         call mkdir($HOME . '/.vim/undo', 'p')
     endif
@@ -802,7 +737,6 @@ endif
 
 function! _HandleSwap(filename)
     " If the swap file is old, delete. If it is new, recover.
-
     if getftime(v:swapname) < getftime(a:filename)
         let v:swapchoice = 'e'
         call _EchoSwapMessage("Deleted older swapfile.")
@@ -816,14 +750,14 @@ function! _EchoSwapMessage(message)
     if has("autocmd")
         augroup EchoSwapMessage
             autocmd!
-            " Echo the message after entering a file, useful for when we're entering a file (like on SwapExists) and our echo will be eaten.
-
+            " Echo the message after entering a file, useful for
+            " when we're entering a file (like on SwapExists)
+            " and our echo will be eaten.
             autocmd BufWinEnter * echohl WarningMsg
             exec 'autocmd BufWinEnter * echon "\r'.printf("%-60s", a:message).'"'
             autocmd BufWinEnter * echohl NONE
 
             " Remove these auto commands so that they don't run on entering the next buffer.
-
             autocmd BufWinEnter * augroup EchoSwapMessage
             autocmd BufWinEnter * autocmd!
             autocmd BufWinEnter * augroup END
