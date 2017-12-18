@@ -1,77 +1,79 @@
-class TextScramble {
-    constructor(el) {
-        this.el = el
-        this.chars = '!<>-_\\/[]{}—=+*^?#________'
-        this.update = this.update.bind(this)
+class TextScrambler {
+    constructor() {
+        this.chars = ['!', '<', '>', '-', '_', '\\', '/', '[', ']', '=', '+', '*', '^', '?', '#'];
+        this.offset = 0;
+        this.iterations = 2;
+        this.charCount = 5;
     }
 
-    setText(newText) {
-        const oldText = this.el.innerText
-        const length = Math.max(oldText.length, newText.length)
-        const promise = new Promise((resolve) => this.resolve = resolve)
-        this.queue = []
-
-        for (let i = 0; i < length; i++) {
-            const from = oldText[i] || ''
-            const to = newText[i] || ''
-            const start = Math.floor(Math.random() * 40)
-            const end = start + Math.floor(Math.random() * 40)
-            this.queue.push({ from, to, start, end })
+    randomCharacters() {
+        let chars = "";
+        for (let i = 0; i < this.charCount; i++) {
+            let index = Math.floor(Math.random() * (this.chars.length - 2));
+            chars += this.chars[index];
         }
-
-        cancelAnimationFrame(this.frameRequest)
-        this.frame = 0
-        this.update()
-        return promise
+        return "<span class=\"dtw-muted\">" + chars + "</span>";
     }
 
-    update() {
-        let output = ''
-        let complete = 0
+    animate(element, text, callback) {
+        let offset = this.offset;
+        let iterations = this.iterations;
+        let partialString = text.substring(0, offset);
+        let partialSubstring = partialString.substring(0, partialString.length - 1);
 
-        for (let i = 0, n = this.queue.length; i < n; i++) {
-            let { from, to, start, end, char } = this.queue[i]
+        const loop = (now) => {
+            if (iterations <= 0) {
+                // If we've performed all the iterations for this offset,
+                // increase the offset, recalculate the strings, reset the iteration counter
+                // and continue.
+                iterations = this.iterations;
+                offset++;
 
-            if (this.frame >= end) {
-                complete++
-                output += to
-            } else if (this.frame >= start) {
-                if (!char || Math.random() < 0.28) {
-                    char = this.randomChar()
-                    this.queue[i].char = char
-                }
-                output += `<span class="dtw-muted">${char}</span>`
-            } else {
-                output += from
+                partialString = text.substring(0, offset);
+                partialSubstring = partialString.substring(0, partialString.length - 1);
+            } else if (offset >= text.length) {
+                // If we've reached the end of the string, end.
+                callback();
+                return;
             }
-        }
 
-        this.el.innerHTML = output
-        if (complete === this.queue.length) {
-            this.resolve()
-        } else {
-            this.frameRequest = requestAnimationFrame(this.update)
-            this.frame++
-        }
+            // Replaces the last characters of partialString with a random character.
+            element.innerHTML = partialSubstring + this.randomCharacters();
+            iterations--;
+
+            // Call this function again when ready.
+            window.requestAnimationFrame(loop);
+        };
+
+        loop(null);
     }
 
-    randomChar() {
-        return this.chars[Math.floor(Math.random() * this.chars.length)]
+    run(element) {
+        // Since we get the content to animate from the element, we can inspect
+        // the height to fix it during the animation. This avoids jank.
+        const originalHeight = element.clientHeight;
+        const originalStyle = element.getAttribute('style');
+        element.setAttribute('style', 'height: ' + originalHeight + 'px; ' + originalStyle);
+
+        // Keep the original content with links and other HTML to restore later.
+        const originalContent = element.innerHTML;
+        // Keep the original text that we're going to animate to.
+        const originalText = element.innerText;
+        // Clear the element so that the animation looks correct.
+        element.innerHTML = "";
+
+        this.animate(element, originalText, () => {
+            // Restore content to element.
+            element.innerHTML = originalContent;
+            // Restore styles, removing fixed height.
+            element.setAttribute('style', originalStyle === null ? '' : originalStyle);
+        });
     }
 }
 
 const headerElements = Array.prototype.slice.call(document.querySelectorAll('.dtw-item-header > .dtw-animated'))
-// We need to consider the paragraphs inside the content as that is how it is rendered.
 const contentElements = Array.prototype.slice.call(document.querySelectorAll('.dtw-animated > p'))
 const allElements = headerElements.concat(contentElements);
-allElements.forEach(el => {
-    const originalContent = [ el.innerHTML ];
-    const originalText = [ el.innerText ];
-    const fx = new TextScramble(el)
 
-    fx.setText(originalText).then(() => {
-        // Only scramble the text, so that it doesn't grow larger considering the
-        // element text like links, then re-add the links after completion.
-        el.innerHTML = originalContent;
-    });
-});
+const scrambler = new TextScrambler();
+allElements.forEach(el => scrambler.run(el));
