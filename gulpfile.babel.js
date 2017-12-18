@@ -163,12 +163,18 @@ export function fonts() {
         .pipe(gulp.dest(outputPath));
 }
 
-export function favicon() {
+export function faviconGeneration() {
     const outputPath = path.join(__dirname, pkg.settings.assets, 'favicons');
-    return gulp.src(pkg.settings.src.favicon, {since: gulp.lastRun(favicon)})
+    return gulp.src(pkg.settings.src.favicon, {since: gulp.lastRun(faviconGeneration)})
         .pipe(favicons(pkg.settings.favicons))
         .on('error', util.log)
         .pipe(gulp.dest(outputPath));
+}
+
+export function faviconCopy() {
+    const faviconPath = path.join(__dirname, pkg.settings.assets, 'favicons/favicon.ico');
+    const outputPath = path.join(__dirname, pkg.settings.dist, 'favicon.ico');
+    return fs.createReadStream(faviconPath).pipe(fs.createWriteStream(outputPath));
 }
 
 export function images() {
@@ -214,14 +220,16 @@ export function styles() {
         .pipe(gulp.dest(outputPath));
 }
 
-const build = gulp.series(clean, gulp.parallel(images, styles, scripts, favicon, fonts), metalsmith);
+const build = gulp.series(clean,
+    gulp.parallel(images, styles, scripts, faviconGeneration, fonts),
+    metalsmith, faviconCopy);
 
 // Fixes issue with browsersync in Gulp 4 only reloading once.
 const reload = (callback) => { browserSync.reload(); callback(); }
 export function watch(callback) {
     // Watch for file changes.
     gulp.watch(['gulpfile.babel.js', 'package.json'],
-        gulp.series(gulp.parallel(styles, scripts, favicon, fonts), metalsmith, reload));
+        gulp.series(gulp.parallel(styles, scripts, faviconGeneration, fonts), metalsmith, faviconCopy, reload));
 
     gulp.watch([pkg.settings.src.fonts + '/**/*'],
         gulp.series(fonts, metalsmith, reload));
@@ -230,7 +238,7 @@ export function watch(callback) {
         gulp.series(images, metalsmith, reload));
 
     gulp.watch([pkg.settings.src.favicon],
-        gulp.series(favicon, metalsmith, reload));
+        gulp.series(faviconGeneration, metalsmith, faviconCopy, reload));
 
     gulp.watch([pkg.settings.src.styles + '/**/*.scss'],
         gulp.series(styles, metalsmith, reload));
