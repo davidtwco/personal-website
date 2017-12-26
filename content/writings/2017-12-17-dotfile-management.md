@@ -81,6 +81,8 @@ pinentry-program /usr/bin/pinentry-curses
 
 While not required, I'd recommend you look over [my GPG configuration](https://gitlab.com/davidtwco/dotfiles/blob/master/.gnupg/gpg.conf) for some more improvements.
 
+**Update:** I've recently switched back to using `ssh-agent` since I was running into issues where the initial pinentry prompt for the SSH key was triggered by the async fetch of my zsh prompt and that caused all sorts of issues.
+
 ## Path Management
 Managing the `PATH` variable is a relatively minor thing, but there are a handful of small things that we can do to simplify it in zsh. The below snippet ensures that the `PATH` does not contain any duplicates or directories that do not exist.
 
