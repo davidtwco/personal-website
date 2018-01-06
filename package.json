@@ -83,14 +83,14 @@
       },
       "links": [
         {
-          "name": "GitLab",
-          "icon": "gitlab",
-          "link": "https://gitlab.com/davidtwco"
-        },
-        {
           "name": "GitHub",
           "icon": "github",
           "link": "https://github.com/davidtwco"
+        },
+        {
+          "name": "GitLab",
+          "icon": "gitlab",
+          "link": "https://gitlab.com/davidtwco"
         },
         {
           "name": "Keybase",
