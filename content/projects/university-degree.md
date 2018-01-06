@@ -1,5 +1,5 @@
 ---
-title: Software Engineering BSc
+title: Software Engineering MSc
 startDate: 2015-09-22
 ongoing: true
 
