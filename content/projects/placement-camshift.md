@@ -4,7 +4,7 @@ startDate: 2014-05-01
 endDate: 2014-07-01
 ongoing: false
 
-sourceLink: https://gitlab.com/davidtwco/nuffield-computer-vision
+sourceLink: https://github.com/davidtwco/nuffield-computer-vision
 paperLink: https://docs.google.com/document/d/1M30QKyLljS74zD5Ya_MulSjfamR3OIq70g4lvjpnY5E/edit?usp=sharing
 
 type: Nuffield Placement at Glasgow Calidonian University

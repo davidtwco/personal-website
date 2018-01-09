@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/davidtwco/personal-website.git"
+    "url": "git+ssh://git@github.com/davidtwco/personal-website.git"
   },
   "keywords": [
     "personal website",
@@ -25,9 +25,9 @@
   "author": "David Wood",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/davidtwco/personal-website/issues"
+    "url": "https://github.com/davidtwco/personal-website/issues"
   },
-  "homepage": "https://gitlab.com/davidtwco/personal-website#README",
+  "homepage": "https://github.com/davidtwco/personal-website#README",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",

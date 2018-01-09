@@ -15,7 +15,7 @@ tags:
 
 There's one project that I've been working on for well over a year alongside everything else - my dotfiles. Dotfiles are repositories where you keep track of your configuration - `.bashrc`, `.zshrc`, `.vimrc`, that sort of thing. In this writing, I'll go over how I manage my dotfiles and some of the key configurations that I find useful in bash, zsh, tmux and Vim.
 
-**Note:** I change my dotfiles regularly so I can't guarantee that I'll keep this up to date. To keep up with the latest changes, [look at the repository on GitLab](https://gitlab.com/davidtwco/dotfiles).
+**Note:** I change my dotfiles regularly so I can't guarantee that I'll keep this up to date. To keep up with the latest changes, [look at the repository on GitHub](https://github.com/davidtwco/dotfiles).
 
 I've made sure that this configuration works within Bash for Windows (which is my primary environment) with  Ubuntu and in ArchLinux (that I [recently wrote about](/writings/2017/archlinux-on-the-windows-subsystem-for-linux)) and on Ubuntu Server. I can't guarantee it will work without some minor changes on other distros but I wouldn't expect any major changes are needed.
 
@@ -25,7 +25,7 @@ I've made sure that this configuration works within Bash for Windows (which is m
 yadm will also run the `~/.yadm/bootstrap` script that can be included within the repo to set anything up after cloning - I use this to install Vim plugins, tmux plugins, zsh plugins, create symlinks and clone submodules. I highly recommend using yadm to manage your dotfiles, it works great and is available on every distro that I've used.
 
 # zsh (and bash)
-I primarily use zsh as my shell, but I try to keep my bash configuration on par as much as possible in case I'm forced to use it. I've included some of the key things I've found to be useful below. You can find [my full zsh configuration on GitLab](https://gitlab.com/davidtwco/dotfiles/blob/master/.zshrc).
+I primarily use zsh as my shell, but I try to keep my bash configuration on par as much as possible in case I'm forced to use it. I've included some of the key things I've found to be useful below. You can find [my full zsh configuration on GitLab](https://github.com/davidtwco/dotfiles/blob/master/.zshrc).
 
 ## Helper Functions
 I don't use many helper functions in my zsh configuration, but one that is really useful is a small function that simplifies checking if a command is available on a system:
@@ -79,7 +79,7 @@ enable-ssh-support
 pinentry-program /usr/bin/pinentry-curses
 ```
 
-While not required, I'd recommend you look over [my GPG configuration](https://gitlab.com/davidtwco/dotfiles/blob/master/.gnupg/gpg.conf) for some more improvements.
+While not required, I'd recommend you look over [my GPG configuration](https://github.com/davidtwco/dotfiles/blob/master/.gnupg/gpg.conf) for some more improvements.
 
 **Update:** I've recently switched back to using `ssh-agent` since I was running into issues where the initial pinentry prompt for the SSH key was triggered by the async fetch of my zsh prompt and that caused all sorts of issues.
 
@@ -289,7 +289,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 ```
 
-I'd also look into [geometry](https://github.com/geometry-zsh/geometry) and [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme) if you're looking for nice prompts. If you prefer bash, check out the version of pure that I include for bash [in the dotfiles](https://gitlab.com/davidtwco/dotfiles/blob/master/.bash_prompt).
+I'd also look into [geometry](https://github.com/geometry-zsh/geometry) and [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme) if you're looking for nice prompts. If you prefer bash, check out the version of pure that I include for bash [in the dotfiles](https://github.com/davidtwco/dotfiles/blob/master/.bash_prompt).
 
 ## Aliases
 In addition to the fasd aliases that I mentioned above, I define the following aliases in a `.aliases` file that is included in `.zshrc` and `.bashrc`:
@@ -435,7 +435,7 @@ set listchars=tab:▸\ ,eol:¬
 The best thing you can do for learning Vim is to read every blog post like this one that you can find. Everyone finds a new configuration option or plugin that will improve your experience.
 
 ## vim-plug
-I chose to use `vim-plug` to manage my plugins. I've found that it is fast and supports all the features I need. I use a ton of plugins, so I'll only highlight some of my most used plugins. If you want to see the exhaustive list, [check out my configuration on GitLab](https://gitlab.com/davidtwco/dotfiles/blob/master/.vimrc). I clone `vim-plug` as a submodule in the repo.
+I chose to use `vim-plug` to manage my plugins. I've found that it is fast and supports all the features I need. I use a ton of plugins, so I'll only highlight some of my most used plugins. If you want to see the exhaustive list, [check out my configuration on GitHub](https://github.com/davidtwco/dotfiles/blob/master/.vimrc). I clone `vim-plug` as a submodule in the repo.
 
 I think the most used plugins in any Vim user's toolbelt are going to be the various plugins by Tim Pope:
 
@@ -791,7 +791,7 @@ run '~/.tmux/plugins/tpm/tpm'
 `tmux-sensible` provides some sane defaults instead of tmux's stranger defaults; `tmux-resurrect` allows me to save and restore sessions; `tmux-continuum` enhances `tmux-resurrect` and saves continuously; `tmux-yank` allows copying to the system clipboard - including in Bash for Windows; `tmux-copycat` allows regex searching in a pane; `vim-tmux-navigator` is an **essential** plugin - allowing `CTRL + j/h/k/l` to jump between Vim splits and tmux panes seamlessly; `tmux-better-mouse-mode` improves using the mouse with tmux by ten-fold in a bunch of ways.
 
 ## Statusline
-I use [Tmuxline](https://github.com/edkolev/tmuxline.vim) to generate a tmux statusline from my Vim statusline. You can see the [generated statusline here](https://gitlab.com/davidtwco/dotfiles/blob/master/.tmux.statusline.conf).
+I use [Tmuxline](https://github.com/edkolev/tmuxline.vim) to generate a tmux statusline from my Vim statusline. You can see the [generated statusline here](https://github.com/davidtwco/dotfiles/blob/master/.tmux.statusline.conf).
 
 ## Synchronized Panes
 One of the features of tmux that I don't use often, but is a lifesaver when I do use it: synchronized panes. Synchronized panes lets me interact with all the panes in a window at once - whatever I type is goes in all panes.
@@ -801,7 +801,7 @@ One of the features of tmux that I don't use often, but is a lifesaver when I do
 bind S set-window-option synchronize-panes
 ```
 
-I also override the statusline that was discussed previously to show a red dot next to the window name if it currently synchronized. You can see that in [this code snippet](https://gitlab.com/davidtwco/dotfiles/blob/master/.tmux.conf#L80-81).
+I also override the statusline that was discussed previously to show a red dot next to the window name if it currently synchronized. You can see that in [this code snippet](https://github.com/davidtwco/dotfiles/blob/master/.tmux.conf#L80-81).
 
 ## Aliases
 tmux's default keybindings aren't particularly intuitive, I include the following snippet to create some more sensible bindings:

@@ -4,7 +4,7 @@ startDate: 2017-03-01
 endDate: 2017-04-01
 ongoing: false
 
-sourceLink: https://gitlab.com/davidtwco/personal-website
+sourceLink: https://github.com/davidtwco/personal-website
 visitLink: https://davidtw.co
 
 type: Personal Website
