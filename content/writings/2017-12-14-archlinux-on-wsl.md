@@ -95,6 +95,8 @@ Now that we've got keys, we can finally install the standard system packages:
 pacman -Syu base base-devel
 ```
 
+We'll need to create our normal user and make it the default user so that we aren't running everything as root - to do this, [follow the normal instructions for adding a user](https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user) and then run `Lxrunoffline.exe config-uid -n ArchLinux -v {UID}` in command prompt, replacing `{UID}` with the user id of the user you just created (run `id`).
+
 At this point, the system is more or less ready to go, but you'll notice some issues when trying to build packages from the AUR (such as [pacaur](https://aur.archlinux.org/packages/pacaur/) or it's dependency `cower`). This is because WSL doesn't support `fakeroot`, which is required by `makepkg`. Previously there were also issues with `glibc` and WSL, but these were resolved in the Fall Creators Update.
 
 In order to get around this, we can install [fakeroot-tcp](https://aur.archlinux.org/packages/fakeroot-tcp/). However, installing an AUR packages requires `fakeroot`, which we're trying to fix - so that's not going to work. You can build `fakeroot-tcp` with `makepkg -s` on an existing ArchLinux system and copy the resulting tar archive for installation, or you can download the [version that I built and save yourself the effort](https://www.dropbox.com/sh/w3x7ajxwxig3up1/AAAnhLUctzTeAhshV7TJlqcZa?dl=0).
