@@ -4,8 +4,11 @@ startDate: 2017-03-01
 endDate: 2017-04-01
 ongoing: false
 
-sourceLink: https://github.com/davidtwco/personal-website
-visitLink: https://davidtw.co
+links:
+  - link: https://github.com/davidtwco/personal-website
+    text: Visit Source
+  - link: https://davidtw.co
+    text: Visit Project
 
 type: Personal Website
 typeColour: peterriver

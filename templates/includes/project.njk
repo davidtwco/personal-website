@@ -12,14 +12,8 @@
         {% endfor %}
     </ul>
     <ul class="dtw-links dtw-align-right">
-        {% if project.sourceLink %}
-            <li><a class="dtw-{{ project.typeColour }}" href="{{ project.sourceLink }}">View Source</a></li>
-        {% endif %}
-        {% if project.visitLink %}
-            <li><a class="dtw-{{ project.typeColour }}" href="{{ project.visitLink }}">Visit Project</a></li>
-        {% endif %}
-        {% if project.paperLink %}
-            <li><a class="dtw-{{ project.typeColour }}" href="{{ project.paperLink }}">View Paper</a></li>
-        {% endif %}
+        {% for link in project.links %}
+            <li><a class="dtw-{{ project.typeColour }}" href="{{ link.link }}">{{ link.text }}</a></li>
+        {% endfor %}
     </ul>
 </article>

@@ -2,7 +2,9 @@
 title: dotfiles
 ongoing: false
 
-sourceLink: https://github.com/davidtwco/dotfiles
+links:
+  - link: https://github.com/davidtwco/dotfiles
+    text: Visit Source
 
 type: Development Environment Configuration
 typeColour: peterriver

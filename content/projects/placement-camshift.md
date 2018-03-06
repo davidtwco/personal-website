@@ -4,8 +4,11 @@ startDate: 2014-05-01
 endDate: 2014-07-01
 ongoing: false
 
-sourceLink: https://github.com/davidtwco/nuffield-computer-vision
-paperLink: https://docs.google.com/document/d/1M30QKyLljS74zD5Ya_MulSjfamR3OIq70g4lvjpnY5E/edit?usp=sharing
+links:
+  - link: https://github.com/davidtwco/nuffield-computer-vision
+    text: View Source
+  - link: https://docs.google.com/document/d/1M30QKyLljS74zD5Ya_MulSjfamR3OIq70g4lvjpnY5E/edit?usp=sharing
+    text: View Paper
 
 type: Nuffield Placement at Glasgow Calidonian University
 typeColour: sunflower

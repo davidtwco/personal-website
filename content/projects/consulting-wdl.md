@@ -4,7 +4,9 @@ startDate: 2016-12-01
 endDate: 2017-02-01
 ongoing: false
 
-visitLink: https://wdleisure-10k.net
+links:
+  - link: https://wdleisure-10k.net
+    text: Visit Project
 
 type: Consulting with West Dunbartonshire Leisure
 typeColour: emerland

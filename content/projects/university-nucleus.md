@@ -4,7 +4,9 @@ startDate: 2017-01-01
 endDate: 2017-03-01
 ongoing: false
 
-sourceLink: https://gitlab.com/devine-industries/nucleus
+links:
+  - link: https://gitlab.com/devine-industries/nucleus
+    text: Visit Source
 
 type: University Group Project
 typeColour: amethyst

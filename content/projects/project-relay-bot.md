@@ -4,7 +4,9 @@ startDate: 2016-03-01
 endDate: 2016-05-01
 ongoing: false
 
-sourceLink: https://github.com/RelaySC/relay-bot
+links:
+  - link: https://github.com/RelaySC/relay-bot
+    text: Visit Source
 
 type: Side Project
 typeColour: peterriver

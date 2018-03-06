@@ -4,7 +4,9 @@ startDate: 2016-07-01
 endDate: 2016-11-01
 ongoing: false
 
-visitLink: https://relay.sc
+links:
+  - link: https://relay.sc
+    text: Visit Project
 
 type: Side Project
 typeColour: peterriver

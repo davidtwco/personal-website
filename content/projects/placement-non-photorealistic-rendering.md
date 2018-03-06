@@ -4,7 +4,9 @@ startDate: 2014-05-01
 endDate: 2014-07-01
 ongoing: false
 
-sourceLink: https://github.com/davidtwco/nuffield-computer-vision
+links:
+  - link: https://github.com/davidtwco/nuffield-computer-vision
+    text: View Source
 
 type: Nuffield Placement at Glasgow Caledonian University
 typeColour: sunflower
