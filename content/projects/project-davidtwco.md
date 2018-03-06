@@ -1,7 +1,6 @@
 ---
 title: davidtw.co
 startDate: 2017-03-01
-endDate: 2017-04-01
 ongoing: false
 
 links:

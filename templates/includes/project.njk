@@ -1,7 +1,7 @@
 <article class="dtw-item">
     <div class="dtw-item-header">
         <h5 class="dtw-item-subtitle">
-            <span class="dtw-{{ project.typeColour }}">{{ project.type }}</span>{% if project.startDate %} - {{ project.startDate | date("MMMM YYYY") }}{% if project.endDate %} to {{ project.endDate | date("MMMM YYYY") }}{% endif %}{% endif %}
+        <span class="dtw-{{ project.typeColour }}">{{ project.type }}</span>{% if project.startDate %} - {{ project.startDate | date("MMMM YYYY") }}{% if project.endDate %} to {{ project.endDate | date("MMMM YYYY") }}{% else %} to present{% endif %}{% endif %}
         </h5>
         <h1 class="dtw-item-title">{{ project.title }}</h1>
     </div>
