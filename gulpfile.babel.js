@@ -201,7 +201,13 @@ export function scripts() {
         pkg.settings.src.scripts + '/**/*.js'
     ], { since: gulp.lastRun(scripts) })
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({
+            presets: [
+                ['env', {
+                    targets: { 'node': 'current' }
+                }]
+            ]
+        }))
         .pipe(concat('app.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write())
