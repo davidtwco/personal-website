@@ -11,14 +11,14 @@ type: Side Project
 typeColour: peterriver
 
 tags:
-  - work in progress
-  - rust
-  - serde
-  - asn1
-  - cer
-  - ber
-  - der
-  - x509
-  - x690
+  - Work in Progress
+  - Rust
+  - Serde
+  - ASN1
+  - CER
+  - BER
+  - DER
+  - X509
+  - X690
 ---
 A work-in-progress Rust library using the Serde serialization framework to serialize and deserialize ASN.1 formatted data - including BER, DER and CER encodings.
