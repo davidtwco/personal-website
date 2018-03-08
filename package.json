@@ -75,11 +75,30 @@
   },
   "settings": {
     "meta": {
-      "site": {
-        "title": "David Wood",
-        "url": "https://davidtw.co",
-        "themeColour": "#e74c3c",
-        "description": "Personal website of David Wood"
+      "name": "David Wood",
+      "job": "Software Engineer",
+      "url": "https://davidtw.co",
+      "description": "Personal website of David Wood",
+      "address": [ "5 Main St", "Bonhill", "Alexandria", "United Kingdom", "G83 9JU" ],
+      "colour": "#e74c3c",
+      "references": [
+        {
+          "name": "Paul Sheerin",
+          "job": "Vice President, Polaroid Eyewear",
+          "email": "paul.sheerin@polaroideyewear.com"
+        },
+        {
+          "name": "Aaron Dron",
+          "job": "Director of Infrastructure and Tools, Codeplay Software",
+          "email": "aaron@codeplay.com"
+        }
+      ],
+      "social": {
+        "email": "hello@davidtw.co",
+        "mobile": "+44 7845 300296",
+        "github": "davidtwco",
+        "gitlab": "davidtwco",
+        "linkedin": "davidtwco"
       },
       "links": [
         {
@@ -147,8 +166,11 @@
       "layouts": "./templates",
       "favicon": "./favicon.png"
     },
-    "assets": "./dist/assets",
-    "dist": "./dist/site",
-    "clean": "./dist"
+    "out": {
+      "assets": "./dist/assets",
+      "dist": "./dist/site",
+      "cv": "cv.pdf",
+      "clean": "./dist"
+    }
   }
 }

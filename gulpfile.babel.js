@@ -86,7 +86,7 @@ export function metalsmith(callback) {
     const m = Metalsmith(__dirname)
         .metadata(pkg.settings.meta)
         .source(pkg.settings.src.content)
-        .destination(pkg.settings.dist)
+        .destination(pkg.settings.out.dist)
         .clean(true)
         .use(drafts())
         .use(collections({
@@ -125,6 +125,7 @@ export function metalsmith(callback) {
         }))
         .use(excerpts())
         .use(feed({
+            site_url: pkg.settings.meta.url,
             collection: 'writings',
             limit: false
         }))
@@ -145,7 +146,7 @@ export function metalsmith(callback) {
         }))
         .use(codeHighlight())
         .use(assets({
-            source: pkg.settings.assets,
+            source: pkg.settings.out.assets,
             dest: '.'
         }))
         .build((err) => {
@@ -155,50 +156,50 @@ export function metalsmith(callback) {
 }
 
 export function fonts() {
-    const outputPath = path.join(__dirname, pkg.settings.assets, 'fonts');
+    const outputPath = path.join(__dirname, pkg.settings.out.assets, 'fonts');
     return gulp.src([
         fontAwesome.fonts,
         pkg.settings.src.fonts + '/**/*'
-    ], {since: gulp.lastRun(fonts)})
+    ], { since: gulp.lastRun(fonts) })
         .pipe(gulp.dest(outputPath));
 }
 
 export function faviconGeneration() {
-    const outputPath = path.join(__dirname, pkg.settings.assets, 'favicons');
-    return gulp.src(pkg.settings.src.favicon, {since: gulp.lastRun(faviconGeneration)})
+    const outputPath = path.join(__dirname, pkg.settings.out.assets, 'favicons');
+    return gulp.src(pkg.settings.src.favicon, { since: gulp.lastRun(faviconGeneration) })
         .pipe(favicons(pkg.settings.favicons))
         .on('error', util.log)
         .pipe(gulp.dest(outputPath));
 }
 
 export function faviconCopy() {
-    const faviconPath = path.join(__dirname, pkg.settings.assets, 'favicons/favicon.ico');
-    const outputPath = path.join(__dirname, pkg.settings.dist, 'favicon.ico');
+    const faviconPath = path.join(__dirname, pkg.settings.out.assets, 'favicons/favicon.ico');
+    const outputPath = path.join(__dirname, pkg.settings.out.dist, 'favicon.ico');
     return fs.createReadStream(faviconPath).pipe(fs.createWriteStream(outputPath));
 }
 
 export function images() {
-    const outputPath = path.join(__dirname, pkg.settings.assets);
+    const outputPath = path.join(__dirname, pkg.settings.out.assets);
     return gulp.src([
         pkg.settings.src.images + '**/*'
-    ], {since: gulp.lastRun(images)})
+    ], { since: gulp.lastRun(images) })
         .pipe(imagemin())
         .pipe(gulp.dest(outputPath));
 }
 
 export function media() {
-    const outputPath = path.join(__dirname, pkg.settings.assets);
+    const outputPath = path.join(__dirname, pkg.settings.out.assets);
     return gulp.src([
         pkg.settings.src.media + '**/*'
-    ], {since: gulp.lastRun(media)})
+    ], { since: gulp.lastRun(media) })
         .pipe(gulp.dest(outputPath));
 }
 
 export function scripts() {
-    const outputPath = path.join(__dirname, pkg.settings.assets, 'scripts');
+    const outputPath = path.join(__dirname, pkg.settings.out.assets, 'scripts');
     return gulp.src([
         pkg.settings.src.scripts + '/**/*.js'
-    ], {since: gulp.lastRun(scripts)})
+    ], { since: gulp.lastRun(scripts) })
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(concat('app.min.js'))
@@ -208,7 +209,7 @@ export function scripts() {
 }
 
 export function styles() {
-    const outputPath = path.join(__dirname, pkg.settings.assets, 'styles');
+    const outputPath = path.join(__dirname, pkg.settings.out.assets, 'styles');
     return gulp.src([pkg.settings.src.styles + '/**/*.scss'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.min.css'))
@@ -267,17 +268,16 @@ export function watch(callback) {
 
 // Serve the built files and ensure that the watch
 // task is running so that they are always up-to-date.
-function server() {
+export const serve = gulp.series(build, watch, () => {
     browserSync.init({
         server: {
-            baseDir: pkg.settings.dist
+            baseDir: pkg.settings.out.dist
         },
         ui: {
             port: 8080
         }
     });
-}
-export const serve = gulp.series(build, watch, server);
+});
 
 // By default, just build the website.
 export default build;
