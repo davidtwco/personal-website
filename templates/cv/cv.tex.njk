@@ -1,0 +1,194 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% Curriculum Vitae
+%
+% Modified by: David Wood <david@davidtw.co>
+% Originally by: Claud D. Park <posquit0.bj@gmail.com>
+% Sourced from: https://github.com/posquit0/Awesome-CV
+%
+% License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+% This file is templated using Nunjucks with custom tags.
+
+% Configurations
+% --------------
+% A4 paper size by default, use 'letterpaper' for US letter.
+\documentclass[11pt, a4paper]{template}
+
+\usepackage{adjustbox}
+\usepackage{needspace}
+\usepackage{multicol}
+
+% Configure page margins with geometry.
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts.
+\fontdir[fonts/]
+
+% Colors for highlights.
+\definecolor{accent}{HTML}{<=- colour | replace("#", "") -=>}
+
+% Set false if you don't want to highlight section with accent color.
+\setbool{dtwSectionColorHighlight}{false}
+
+% Change the separator in personal information.
+\renewcommand{\dtwHeaderSocialSep}{\enskip\cdotp\enskip}
+
+% Configure options.
+\hypersetup{%
+  pdftitle={<=- name =>'s Curriculum Vitae},
+  pdfauthor={<=- name -=>},
+  pdfsubject={},
+  pdfkeywords={}
+}
+
+% Personal Information
+% --------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo{./examples/profile.png}
+<! set nameParts = name | split !>
+\name{<=- nameParts[0] -=>}{<=- nameParts[1] -=>}
+\position{<=- job -=>}
+
+\email{<=- social.email -=>}
+\homepage{<=- url -=>}
+\github{<=- social.github -=>}
+\linkedin{<=- social.linkedin -=>}
+\gitlab{<=- social.gitlab -=>}
+
+\begin{document}
+
+% Print the header with above personal informations.
+% Give optional argument to change alignment (C: center, L: left, R: right).
+\makecvheader
+
+% Print the footer with 3 arguments (<left>, <center>, <right>).
+% Leave any of these blank if they are not needed.
+\makecvfooter
+  {Generated \today}
+  {<=- name -=>~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+% Content
+% -------
+<! if index !>
+\needspace{2\baselineskip}
+\cvsection{Summary}
+\begin{cventries}
+  \begin{cvparagraph}
+    <= index[0].contents | safe | trim | replace("\n\n", " \\\\\n\\\\\n") =>
+  \end{cvparagraph}
+\end{cventries}
+<! endif !>
+
+<! if work !>
+\needspace{2\baselineskip}
+\cvsection{Work Experience}
+\begin{cventries}
+  <! for exp in work | rejectattr("hideOnCV") | sort(true, false, "startDate") !>
+  \cventry
+    {<! if exp.cv.jobTitle !><=- exp.cv.jobTitle -=><! else !><=- exp.title -=><! endif !>} % Job Title
+    {<!- if exp.location.company -!><=- exp.location.company -=><!- endif -!>} % Institution
+    {<!- if exp.location.city -!><=- exp.location.city -=><!- endif -!>} % Location
+    {<!- if exp.startDate -!>
+      <=- exp.startDate | date("MMMM YYYY") -=>
+      <!- if exp.endDate !> - <= exp.endDate | date("MMMM YYYY") -=>
+      <!- else !> - present <!- endif -!>
+    <!- endif -!>} % Date(s)
+    {
+      \begin{cventrysummary}
+        <= exp.contents | safe | trim | replace("\n\n", " \\\\\n\\\\\n") =>
+      \end{cventrysummary}
+    } % Summary
+    {
+      <!- if exp.items -!>
+      \begin{cvitems}
+        <!- for item in exp.items -!>
+          \item {<=- item -=>}
+        <!- endfor -!>
+      \end{cvitems}
+      <!- endif -!>
+    } % Description points
+  <! endfor !>
+\end{cventries}
+<! endif !>
+
+<! if projects !>
+\needspace{2\baselineskip}
+\cvsection{Projects}
+\begin{cventries}
+  <! for proj in projects | rejectattr("hideOnCV") | sort(true, false, "startDate") !>
+  \cventry
+    {<=- proj.type -=>} % Job Title
+    {<=- proj.title -=>} % Institution
+    {<!- if proj.location.city -!><=- proj.location.city -=><!- endif -!>} % Location
+    {<!- if proj.startDate -!>
+      <=- proj.startDate | date("MMMM YYYY") -=>
+      <!- if proj.endDate !> - <= proj.endDate | date("MMMM YYYY") -=>
+      <!- else !> - present <!- endif -!>
+    <!- endif -!>} % Date(s)
+    {
+      \begin{cventrysummary}
+        <= proj.contents | safe | trim | replace("\n\n", " \\\\\n\\\\\n") =>
+      \end{cventrysummary}
+    } % Summary
+    {
+      <!- if proj.items -!>
+      \begin{cvitems}
+        <!- for item in proj.items -!>
+          \item {<=- item -=>}
+        <!- endfor -!>
+      \end{cvitems}
+      <!- endif -!>
+    } % Description points
+  <! endfor !>
+\end{cventries}
+<! endif !>
+
+<! if education !>
+\needspace{2\baselineskip}
+\cvsection{Education}
+\begin{cventries}
+  <! for edu in education | rejectattr("hideOnCV") | sort(true, false, "startDate") !>
+  \cventry
+    {<! if edu.cv.jobTitle !><=- edu.cv.jobTitle -=><! else !><=- edu.title -=><! endif !>} % Degree
+    {<!- if edu.location.company -!><=- edu.location.company -=><!- endif -!>} % Institution
+    {<!- if edu.location.city -!><=- edu.location.city -=><!- endif -!>} % Location
+    {<!- if edu.startDate -!>
+      <=- edu.startDate | date("MMMM YYYY") -=>
+      <!- if edu.endDate !> - <= edu.endDate | date("MMMM YYYY") -=>
+      <!- else !> - present <!- endif -!>
+    <!- endif -!>} % Date(s)
+    {
+      \begin{cventrysummary}
+        <= edu.contents | safe | trim | replace("\n\n", " \\\\\n\\\\\n") =>
+      \end{cventrysummary}
+    } % Summary
+    {
+      <!- if edu.items -!>
+      \begin{cvitems}
+        <!- for item in edu.items -!>
+          \item {<=- item -=>}
+        <!- endfor -!>
+      \end{cvitems}
+      <!- endif -!>
+    } % Description points
+  <! endfor !>
+\end{cventries}
+<! endif !>
+
+<! if oss !>
+\needspace{2\baselineskip}
+\cvsection{Open Source Contributions}
+\begin{cvskills}
+  <! for project, contributions in oss | sort(true, false, "startDate") | groupbysort("project", true) !>
+  <! set sortedContributions = contributions | sort(false, false, "date") !>
+  \cvskill
+    {\fa<=- contributions[0].icon | title -=>\dtwHeaderIconSep\dtwHeaderIconSep <= project -=>} % Project
+    {<=- contributions | length => merged pull requests since <= sortedContributions[0].date | date("MMMM YYYY") -=>} % Count
+  <! endfor !>
+\end{cvskills}
+<! endif !>
+
+\end{document}

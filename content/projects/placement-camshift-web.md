@@ -1,4 +1,8 @@
 ---
+# This project only displays on the website. It is collapsed into a single file with the other
+# Nuffield placement project for display on the CV. You can find that in the
+# `placement-camshift-non-photorealistic-rendering-cv.md` file. Please ensure that these
+# files are kept in sync.
 title: CAMSHIFT
 startDate: 2014-05-01
 endDate: 2014-07-01
@@ -12,6 +16,16 @@ links:
 
 type: Nuffield Placement at Glasgow Calidonian University
 typeColour: sunflower
+
+category:
+  name: Education
+  key: education
+location:
+  company: Glasgow Calidonian University
+  city: Glasgow, Scotland
+
+hideOnWeb: false
+hideOnCV: true
 
 tags:
   - C++

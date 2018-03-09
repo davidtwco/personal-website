@@ -15,6 +15,16 @@ links:
 type: University Team Project
 typeColour: amethyst
 
+category:
+  name: Projects
+  key: projects
+location:
+  company: University of Glasgow
+  city: Glasgow, Scotland
+
+hideOnWeb: false
+hideOnCV: false
+
 tags:
   - Rust
   - Python
@@ -35,9 +45,7 @@ tags:
   - REST
   - HTTP
 ---
-As part of my third year at the University of Glasgow, four other students and I were tasked with creating a event-sourced financial platform for [Avaloq](https://avaloq.com/). Our completed application - Autokrator - consists of many components: a central event bus; a microservice framework, the superclient; a backend gateway and a UI.
-
-It was required that our application contain a central event bus, three microservices and a small web application that demonstrates the system working. Further, it was required that events had consistency; that multiple instances of each service could run at once and work together; that events would be redelivered if a service crashed during processing; and that each service's ephemeral storage could be rebuilt from the event bus if destroyed.
+As part of my third year at the University of Glasgow, four other students and I were tasked with creating a event-sourced financial platform for [Avaloq](https://avaloq.com/). Our completed application - Autokrator - consists of many components: a central event bus; a microservice framework, the superclient; a backend gateway and a UI. It was required that our application contain a central event bus, three microservices and a small web application that demonstrates the system working. Further, it was required that events had consistency; that multiple instances of each service could run at once and work together; that events would be redelivered if a service crashed during processing; and that each service's ephemeral storage could be rebuilt from the event bus if destroyed.
 
 In particular, I managed and led development on the event bus and the superclient. The event bus, written in Rust, is the central server that manages and persists events while ensuring consistency, correlation and that microservice clients can scale horizontally. The superclient, also written in Rust, is a framework for building clients in Lua with persistence and a REST API.
 

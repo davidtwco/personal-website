@@ -7,6 +7,19 @@ ongoing: false
 type: Internship with Polaroid Eyewear
 typeColour: emerland
 
+category:
+  name: Work Experience
+  key: work
+location:
+  company: Polaroid Eyewear
+  city: Glasgow, Scotland
+
+cv:
+  jobTitle: Intern Software Developer
+
+hideOnWeb: false
+hideOnCV: false
+
 tags:
   - C#
   - WPF

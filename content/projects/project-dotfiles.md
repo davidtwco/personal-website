@@ -10,6 +10,13 @@ links:
 type: Development Environment Configuration
 typeColour: peterriver
 
+category:
+  name: Projects
+  key: projects
+
+hideOnWeb: false
+hideOnCV: true
+
 tags:
   - yadm
   - bash

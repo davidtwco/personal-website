@@ -6,6 +6,16 @@ ongoing: true
 type: Codeplay Software
 typeColour: emerland
 
+category:
+  name: Work Experience
+  key: work
+location:
+  company: Codeplay Software
+  city: Edinburgh, Scotland
+
+hideOnWeb: false
+hideOnCV: false
+
 tags:
   - Foreman
   - Puppet

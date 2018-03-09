@@ -1,10 +1,7 @@
 # davidtw.co
-My new, improved personal website featuring projects and writings. Built using Metalsmith and deployed on Netlify.
+My new, improved personal website featuring projects, writings and CV generation. Built using Metalsmith and deployed on Netlify.
 
 I wanted to make something that was simple, fast and low maintenance while still being flexible enough to be built upon in future.
-
-## Future Enhancements
-- CV/Resume Generation
 
 ## How does this all work then?
 Here's a [link to the website in this repository's post](https://davidtw.co/writings/2017/rebuilding-my-portfolio/) describing how I made this.
@@ -17,3 +14,6 @@ $ git clone https://github.com/davidtwco/personal-website.git
 $ npm install
 $ gulp serve
 ```
+
+## Attribution
+CV generation functionality of this project uses a template which is a modified version of the [Awesome-CV](https://github.com/posquit0/Awesome-CV) template licensed as CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).

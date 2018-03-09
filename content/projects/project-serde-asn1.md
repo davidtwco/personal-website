@@ -10,6 +10,13 @@ links:
 type: Side Project
 typeColour: peterriver
 
+category:
+  name: Projects
+  key: projects
+
+hideOnWeb: false
+hideOnCV: true
+
 tags:
   - Work in Progress
   - Rust

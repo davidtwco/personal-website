@@ -8,7 +8,10 @@
                 <h1 class="dtw-item-title dtw-animated">{{ title }}</h1>
                 <h4 class="dtw-item-subtitle dtw-animated">{{ subtitle }}</h4>
             </div>
-            <div class="dtw-animated">{{ contents | safe }}</div>
+            <div class="dtw-animated">
+                {{ contents | safe }}
+                <p>Want to know more? Have a look around and <a href="mailto:hello@davidtw.co">get in touch</a>, or why not <a href="/cv.pdf">download my CV?</a></p>
+            </div>
             <ul class="dtw-links dtw-align-center">
                 {% for link in links %}
                     <li class="dtw-padded">
@@ -22,7 +25,7 @@
         <div id="dtw-content">
             <section class="dtw-section">
                 <h1 class="dtw-section-title">Current</h1>
-                {% for project in projects | selectattr('ongoing') | sort(true, false, 'startDate') %}
+                {% for project in projects | selectattr('ongoing') | rejectattr('hideOnWeb') | sort(true, false, 'startDate') %}
                     {% include "includes/project.njk" %}
                 {% else %}
                     <p>There aren't any projects here just now, check back later.</p>
@@ -30,7 +33,7 @@
             </section>
             <section class="dtw-section">
                 <h1 class="dtw-section-title">Previous</h1>
-                {% for project in projects | rejectattr('ongoing') | sort(true, false, 'startDate') %}
+                {% for project in projects | rejectattr('ongoing') | rejectattr('hideOnWeb') | sort(true, false, 'startDate') %}
                     {% include "includes/project.njk" %}
                 {% else %}
                     <p>There aren't any projects here just now, check back later.</p>

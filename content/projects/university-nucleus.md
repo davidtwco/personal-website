@@ -11,6 +11,16 @@ links:
 type: University Group Project
 typeColour: amethyst
 
+category:
+  name: Projects
+  key: projects
+location:
+  company: University of Glasgow
+  city: Glasgow, Scotland
+
+hideOnWeb: false
+hideOnCV: true
+
 tags:
   - Python
   - Django
