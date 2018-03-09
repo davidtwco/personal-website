@@ -36,11 +36,11 @@ import tmp from 'tmp';
 import Metalsmith from 'metalsmith';
 import addMeta from 'metalsmith-collections-addmeta';
 import alias from 'metalsmith-alias';
-import assets from 'metalsmith-assets';
 import ancestry from 'metalsmith-ancestry';
 import branch from 'metalsmith-branch';
 import codeHighlight from 'metalsmith-code-highlight';
 import collections from 'metalsmith-collections';
+import copyAssets from 'metalsmith-assets';
 import drafts from 'metalsmith-drafts';
 import excerpts from 'metalsmith-excerpts';
 import feed from 'metalsmith-feed';
@@ -272,7 +272,7 @@ export function metalsmith(callback) {
             nunjucksEnv: environment
         }))
         .use(codeHighlight())
-        .use(assets({
+        .use(copyAssets({
             source: pkg.settings.out.assets,
             dest: '.'
         }))
@@ -363,16 +363,18 @@ export function styles() {
         .pipe(gulp.dest(outputPath));
 }
 
+export const assets = gulp.parallel(
+    images,
+    media,
+    styles,
+    scripts,
+    faviconGeneration,
+    fonts
+);
+
 export const build = gulp.series(
     clean,
-    gulp.parallel(
-        images,
-        media,
-        styles,
-        scripts,
-        faviconGeneration,
-        fonts
-    ),
+    assets,
     metalsmith,
     faviconCopy
 );
