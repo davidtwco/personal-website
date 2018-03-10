@@ -163,7 +163,7 @@ const cvGeneration = () => {
             const context = Object.assign(pkg.settings.meta, categories);
             const rendered = environment.render(template, context);
 
-            const tempDir = tmp.dirSync();
+            const tempDir = tmp.dirSync({ unsafeCleanup: true });
             const tempFile = `${tempDir.name}/${pkg.settings.out.cv.replace("pdf", "tex")}`;
             log('Writing rendered LaTeX to file \'' + tempFile + '\'');
 
@@ -186,10 +186,6 @@ const cvGeneration = () => {
             log('Finished building PDF with LaTeX');
 
             log('Started cleaning up CV generation');
-            fs.unlink(tempFile, (err) => {
-                if (err) throw err;
-                log('Deleted temporary file \'' + tempFile + '\'');
-            });
             tempDir.removeCallback();
             log('Finished cleaning up CV generation');
 
