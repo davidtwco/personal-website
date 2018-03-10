@@ -66,4 +66,4 @@ gulp faviconCopy
 # Deploy website.
 wget https://github.com/netlify/netlifyctl/releases/download/v0.3.2/netlifyctl-linux-amd64-0.3.2.tar.gz
 tar xvzf netlifyctl-linux-amd64-0.3.2.tar.gz
-./netlifyctl -y -A $NETLIFY_ACCESS_TOKEN deploy -s $NETLIFY_SITE_ID -b ./dist/site -n "$(git rev-parse HEAD)"
+./netlifyctl -y -A $NETLIFY_ACCESS_TOKEN deploy -s $NETLIFY_SITE_ID -b ./dist/site -n "$TRAVIS_COMMIT_MESSAGE"
