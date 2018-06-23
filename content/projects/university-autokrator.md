@@ -9,7 +9,7 @@ links:
     text: View Source
   - link: /media/autokrator_dissertation.pdf
     text: View Dissertation
-  - link: https://docs.google.com/presentation/d/1e55Ijo_pt1K18ZhhTJlBnb1YKaaL5c-ZVjO15hiiWi8/edit?usp=sharing
+  - link: /media/autokrator_presentation.pdf
     text: View Presentation
 
 type: University Team Project

@@ -11,8 +11,10 @@ ongoing: false
 links:
   - link: https://github.com/davidtwco/nuffield-computer-vision
     text: View Source
-  - link: https://docs.google.com/document/d/1M30QKyLljS74zD5Ya_MulSjfamR3OIq70g4lvjpnY5E/edit?usp=sharing
-    text: View Paper
+  - link: /media/camshift_report.pdf
+    text: View Report
+  - link: /media/camshift_poster.pdf
+    text: View Poster
 
 type: Nuffield Placement at Glasgow Calidonian University
 typeColour: sunflower
