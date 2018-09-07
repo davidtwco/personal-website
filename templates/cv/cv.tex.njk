@@ -183,10 +183,12 @@
 \cvsection{Open Source Contributions}
 \begin{cvskills}
   <! for project, contributions in oss | sort(true, false, "startDate") | groupbysort("project", true) !>
+  <!- if loop.index0 < 6 -!> <# Limit to six top contributed projects #>
   <! set sortedContributions = contributions | sort(false, false, "date") !>
   \cvskill
     {\fa<=- contributions[0].icon | title -=>\dtwHeaderIconSep\dtwHeaderIconSep <= project -=>} % Project
     {<=- contributions | length => merged pull requests since <= sortedContributions[0].date | date("MMMM YYYY") -=>} % Count
+  <!- endif -!>
   <! endfor !>
 \end{cvskills}
 <! endif !>
