@@ -9,7 +9,7 @@ links:
     text: Visit Source
 
 type: University Group Project
-typeColour: amethyst
+typeColour: carrot
 
 category:
   name: Projects

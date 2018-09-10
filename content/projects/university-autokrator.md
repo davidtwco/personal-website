@@ -13,7 +13,7 @@ links:
     text: View Presentation
 
 type: University Team Project
-typeColour: amethyst
+typeColour: carrot
 
 category:
   name: Projects

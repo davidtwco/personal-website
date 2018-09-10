@@ -4,7 +4,7 @@ startDate: 2015-09-22
 ongoing: true
 
 type: University Degree
-typeColour: amethyst
+typeColour: carrot
 
 category:
   name: Education
