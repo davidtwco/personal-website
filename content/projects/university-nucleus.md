@@ -5,7 +5,7 @@ endDate: 2017-03-01
 ongoing: false
 
 links:
-  - link: https://gitlab.com/devine-industries/nucleus
+  - link: https://gitlab.com/nucleus-uog/nucleus
     text: Visit Source
 
 type: University Group Project
