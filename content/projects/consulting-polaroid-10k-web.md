@@ -24,4 +24,4 @@ tags:
   - Magento
   - PHP
 ---
-In 2015/2016, I worked on creating an updated modern website for Polaroid Eyewear's 10K Race Series - this e-commerce website allowed runners to enter any of the four races in the Series - in March 2016 the website launched to great feedback and we saw an increase in runners and in charitable donations while saving money on payment processing costs.
+In 2015/2016, I worked on creating an updated modern website for Polaroid Eyewear's 10K Race Series - this e-commerce website allowed runners to enter any of the four races in the series - in March 2016 the website launched to great feedback and we saw an increase in runners and in charitable donations while saving money on payment processing costs.
