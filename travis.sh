@@ -21,10 +21,10 @@ sudo rm -r /install-tl-unx
 sudo rm install-tl-unx.tar.gz
 
 # Added TeXLive to PATH.
-export PATH="/usr/local/texlive/2018/bin/x86_64-linux:${PATH}"
+export PATH="/usr/local/texlive/2019/bin/x86_64-linux:${PATH}"
 
 # Install other required TeX packages.
-sudo /usr/local/texlive/2018/bin/x86_64-linux/tlmgr install latexmk \
+sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr install latexmk \
   xetex \
   enumitem \
   ms \
