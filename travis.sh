@@ -50,7 +50,8 @@ sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr install latexmk \
   environ \
   trimspaces \
   collectbox \
-  collection-fontsrecommended
+  collection-fontsrecommended \
+  ragged2e
 
 # Install Gulp.
 npm install -g gulp-cli
