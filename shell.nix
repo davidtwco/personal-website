@@ -2,12 +2,13 @@
 
 pkgs.mkShell rec {
   name = "personal-website";
-  buildInputs = [
-    pkgs.nodejs
-    pkgs.pandoc
-    pkgs.texlive.combined.scheme-full
-    pkgs.optipng
-    pkgs.gifsicle
+  buildInputs = with pkgs; [
+    nodejs
+    pandoc
+    texlive.combined.scheme-full
+    optipng
+    gifsicle
+    python2
   ];
   shellHook = ''
     export PATH="$PWD/node_modules/.bin:$PATH"
