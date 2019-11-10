@@ -30,7 +30,7 @@ sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr install latexmk \
   ms \
   fancyhdr \
   xcolor \
-  ifxetex \
+  iftex \
   xifthen \
   etoolbox \
   setspace \
