@@ -52,6 +52,7 @@ sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr install latexmk \
   collectbox \
   collection-fontsrecommended \
   pdftexcmds \
+  letltxmacro \
   ragged2e
 
 # Install Gulp.
