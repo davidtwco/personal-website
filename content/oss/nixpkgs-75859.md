@@ -1,8 +1,8 @@
 ---
 project: NixOS/nixpkgs
-date: 2019-12-18
+date: 2020-01-14
 
-pullRequest: https://github.com/NixOS/nixpkgs/pull/75859
+pullRequest: https://github.com/NixOS/nixpkgs/pull/77667
 icon: github
 colour: wisteria
 
@@ -14,4 +14,4 @@ tags:
   - NixOS
   - Package Management
 ---
-franz: fix `Exec` substitution in `franz.desktop`
+mdcat: 0.14.0 -> 0.15.0
