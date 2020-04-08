@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Per-site Email Generator | David Wood</title>
+        <style>
+            body {
+                text-align: center;
+                font-family: -apple-system,
+                             BlinkMacSystemFont,
+                             "Segoe UI",
+                             Roboto,
+                             "Helvetica Neue",
+                             Arial,
+                             sans-serif,
+                             "Apple Color Emoji",
+                             "Segoe UI Emoji",
+                             "Segoe UI Symbol";
+            }
+        </style>
+    </head>
+    <body>
+        <p id="email">Not yet generated! Is JavaScript enabled?</p>
+
+        <script type="text/javascript">
+            var urlParams = new URLSearchParams(window.location.search);
+
+            var characters = urlParams.get('chars') ||  'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            var domain = urlParams.get('domain') || 'david.davidtw.co';
+            var length = parseInt(urlParams.get('length'), 25);
+
+            var result = '';
+            for (var i = 0; i < length; i++) {
+              result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            result += '@';
+            result += domain;
+
+            document.getElementById('email').innerHTML = result;
+        </script>
+    </body>
+</html>
